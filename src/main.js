@@ -1,5 +1,3 @@
-
-
 function incrementclout()
 {
     let clout = parseInt(document.getElementById('btn').clout, 10);
@@ -20,3 +18,19 @@ function sliderupdate()
         output.innerHTML = this.value;
     }
 }
+
+const sampleServer = new Server("imgs/server-icons/choco.jpg", "Sample Server");
+const sampleUser = new User("imgs/profile-pics/ame.png", "User1234");
+const sampleMessage = new Message(sampleUser, "Yo ye ya squad!");
+
+const sampleDiv = document.createElement('div');
+const serverIconElem = document.createElement('img');
+serverIconElem.src = sampleServer.picture;
+const userIconElem = document.createElement('img');
+userIconElem.src = sampleMessage.user.pfp;
+const userMsgElem = document.createElement('p');
+userMsgElem.textContent = sampleMessage.text;
+
+sampleDiv.append(serverIconElem, userIconElem, userMsgElem);
+
+document.body.appendChild(sampleDiv);
