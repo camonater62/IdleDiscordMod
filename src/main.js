@@ -18,8 +18,11 @@ serverIconElem.src = sampleServer.picture;
 const userIconElem = document.createElement('img');
 userIconElem.src = sampleMessage.user.pfp;
 const userMsgElem = document.createElement('p');
-userMsgElem.textContent = sampleMessage.text;
+userMsgElem.textContent = sampleMessage.user.name + ": " + sampleMessage.text;
+sampleDiv.append(userIconElem, userMsgElem)
 
-sampleDiv.append(serverIconElem, userIconElem, userMsgElem);
+const serverPane = document.getElementById('serverpane');
+serverPane.appendChild(serverIconElem);
 
-document.body.appendChild(sampleDiv);
+const mainPane = document.getElementById('mainpane');
+mainPane.appendChild(sampleDiv);
