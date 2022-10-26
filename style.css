@@ -40,3 +40,17 @@
   .hidden {
     visibility: hidden;
   }
+@font-face {
+  font-family: 'whitney';
+  src: url('fonts/whitneylight.otf');
+}
+@font-face {
+  font-family: 'whitneymedium';
+  src: url('fonts/whitneymedium.otf');
+  font-weight: bolder;
+}
+h1 {
+  font-family: 'whitneymedium';
+  font-size: 20px;
+  margin-top: 0;
+}

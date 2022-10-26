@@ -10,29 +10,29 @@ body, html {
   }
   
   .serverpane {
-      width: 10%;
+      width: 7.5%;
       height: 100%;
       float: left;
       background-color: rosybrown;
       border-collapse: collapse;
   }
   .channelpane {
-    width: 20%;
+    width: 15%;
     height: 100%;
     float: left;
     background-color: rgb(59, 255, 15);
     border-collapse: collapse;
 }
   .mainpane {
-      width: 45%;
-      height: 100%;
+      width: 57.5%;
+      height: 90%;
       float: left;
       background-color: royalblue;
       border-collapse: collapse;
   }
   
   .shoppane {
-    width: 25%;
+    width: 20%;
     height: 100%;
     position: relative;
     float: right;
@@ -41,8 +41,23 @@ body, html {
   }
   
   .toppane {
-    width: 100%;
-    height: 100px;
+    width: 77.5%;
+    height: 40px;
+    float: right;
     border-collapse: collapse;
     background-color: #4da6ff;
+  }
+  .servernamepane {
+    width: 15%;
+    height: 40px;
+    float: left;
+    border-collapse: collapse;
+    background-color: #f04dff;
+  }
+  .bottompane {
+    width: 57.5%;
+    height: 10%;
+    float: left;
+    border-collapse: collapse;
+    background-color: #e63d17;
   }
