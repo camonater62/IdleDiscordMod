@@ -68,6 +68,7 @@ function switchServer(server) {
         channelBtn.innerHTML = tc.name;
         channelBtn.onclick = () => { switchTextChannel(tc); };
         textChannels.appendChild(channelBtn);
+        textChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(textChannels);
 
@@ -78,6 +79,7 @@ function switchServer(server) {
         channelBtn.innerHTML = vc.name;
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
         voiceChannels.appendChild(channelBtn);
+        voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
 
