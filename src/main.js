@@ -43,6 +43,7 @@ function switchTextChannel(channel) {
     for (const msg of channel.messages) {
         const msgElem = document.createElement('div');
         const pfp = document.createElement('img');
+        pfp.classList = "profile-icon";
         pfp.src = msg.user.pfp;
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
@@ -89,6 +90,7 @@ function switchServer(server) {
 
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
+    serverIcon.classList = "server-icon";
     const serverName = document.createElement('b');
     serverName.classList = "hidden";
     serverName.innerHTML = server.name;
