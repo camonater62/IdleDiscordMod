@@ -70,7 +70,6 @@ function switchServer(server) {
         textChannels.appendChild(channelBtn);
     }
     channelPane.appendChild(textChannels);
-    
 
     const voiceChannels = document.createElement('div');
     voiceChannels.innerHTML = "Voice Channels<br />";
@@ -88,9 +87,18 @@ function switchServer(server) {
 
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
+    const serverName = document.createElement('b');
+    serverName.classList = "hidden";
+    serverName.innerHTML = server.name;
+    serverName.style = "position: absolute; height: 50px; width: 150px; margin-top: 25px";
+    
     serverIcon.src = server.picture;
+    // serverIcon.title = server.name;
+    serverIcon.onmouseenter = () => { serverName.classList = "" };
+    serverIcon.onmouseleave = () => { serverName.classList = "hidden" };
     serverIcon.onclick = () => { switchServer(server); };
     serverPane.appendChild(serverIcon);
+    serverPane.appendChild(serverName);
 }
 
 addServerToDOM(smallFriendServer);
