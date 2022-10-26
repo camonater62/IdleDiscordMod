@@ -29,6 +29,14 @@ smallFriendServer.textchannels[0].messages = [
     new Message(smallFriendServer.users[1], `Hi "${smallFriendServer.users[0].name}"!`),
 ];
 
+const emptyServer = new Server("imgs/profile-pics/anime.png", "Empty Server");
+emptyServer.textchannels = [
+    new TextChannel("This is a different text channel"),
+]
+emptyServer.voicechannels = [
+    new VoiceChannel("This is a different voice channel"),
+]
+
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
 
@@ -86,4 +94,5 @@ function addServerToDOM(server) {
 }
 
 addServerToDOM(smallFriendServer);
+addServerToDOM(emptyServer);
 switchServer(smallFriendServer);
