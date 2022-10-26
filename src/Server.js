@@ -5,6 +5,26 @@ class User {
     }
 }
 
+class Message {
+    constructor(user, text) {
+        this.user = user;
+        this.text = text;
+    }
+}
+
+class TextChannel {
+    constructor(name) {
+        this.name = name;
+        this.messages = [];
+    }
+}
+
+class VoiceChannel {
+    constructor(name) {
+        this.currentUsers = [];
+    }
+}
+
 class Server {
     constructor(picture, name) {
         this.picture = picture;
