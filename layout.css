@@ -38,7 +38,7 @@ html {
 
 .userpane {
     grid-area: userpane;
-    background-color: blue;
+    background-color: deepskyblue;
 }
 
 .bottompane {
@@ -53,7 +53,7 @@ html {
 
 .shoppane {
     grid-area: shoppane;
-    background-color: cyan;
+    background-color: dodgerblue;
 }
 
 .servernamepane {
