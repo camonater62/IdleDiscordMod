@@ -21,6 +21,7 @@ class TextChannel {
 
 class VoiceChannel {
     constructor(name) {
+        this.name = name;
         this.currentUsers = [];
     }
 }
