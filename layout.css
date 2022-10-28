@@ -58,7 +58,6 @@ html {
 .mainpane {
     grid-area: mainpane;
     background-color: #36393f;
-    overflow-y: auto;
 }
 
 .shoppane {
@@ -84,6 +83,14 @@ html {
     grid-template-areas:
         "profile-pic username"
         "profile-pic text-content";
+}
+
+
+.text-area {
+    height: 95%; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    overflow-y: auto;
 }
 
 .profile-pic {
