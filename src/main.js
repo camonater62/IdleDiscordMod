@@ -25,8 +25,8 @@ smallFriendServer.voicechannels = [
     new VoiceChannel("voice channel"),
 ];
 smallFriendServer.textchannels[0].messages = [
-    new Message(smallFriendServer.users[0], "Hello my 1 and only friend!"),
-    new Message(smallFriendServer.users[1], `Hi "${smallFriendServer.users[0].name}"!`),
+    new Message(smallFriendServer.users[0], getText()),
+    new Message(smallFriendServer.users[1], getText()),
 ];
 
 const emptyServer = new Server("imgs/profile-pics/anime.png", "Empty Server");
@@ -48,7 +48,12 @@ function switchTextChannel(channel) {
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
         const text = document.createElement('p');
-        text.innerHTML = msg.text;
+        for (const src of msg.text.emojis) {
+            const emoji = document.createElement('img');
+            emoji.src = `imgs/twemoji/${src}.svg`;
+            emoji.classList = "emoji";
+            text.appendChild(emoji);
+        }
 
         msgElem.append(pfp, name, text);
         mainPane.appendChild(msgElem);
