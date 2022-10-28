@@ -42,16 +42,18 @@ function switchTextChannel(channel) {
 
     for (const msg of channel.messages) {
         const msgElem = document.createElement('div');
+        msgElem.classList = "message-container";
         const pfp = document.createElement('img');
-        pfp.classList = "profile-icon";
+        pfp.classList = "profile-icon profile-pic";
         pfp.src = msg.user.pfp;
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
+        name.className = "username"
         const text = document.createElement('p');
         for (const src of msg.text.emojis) {
             const emoji = document.createElement('img');
             emoji.src = `imgs/twemoji/${src}.svg`;
-            emoji.classList = "emoji";
+            emoji.classList = "emoji text-content";
             text.appendChild(emoji);
         }
 

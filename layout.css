@@ -60,3 +60,30 @@ html {
     grid-area: servernamepane;
     background-color: brown;
 }
+
+.message-container {
+    display: grid;
+    grid-template-columns: 100px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "profile-pic username"
+        "profile-pic text-content";
+}
+
+.profile-pic {
+    margin-top: 20px;
+    grid-area: profile-pic;
+}
+
+.username {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: username;
+}
+
+.text-content {
+    grid-area: text-content;
+}
