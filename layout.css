@@ -58,6 +58,7 @@ html {
 .mainpane {
     grid-area: mainpane;
     background-color: #36393f;
+    overflow-y: auto;
 }
 
 .shoppane {

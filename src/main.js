@@ -49,6 +49,7 @@ function switchTextChannel(channel) {
 
         msgElem.append(pfp, name, text);
         mainPane.appendChild(msgElem);
+        msgElem.scrollIntoView();
     }
 }
 
@@ -123,3 +124,22 @@ function addServerToDOM(server) {
 addServerToDOM(smallFriendServer);
 addServerToDOM(emptyServer);
 switchServer(smallFriendServer);
+
+
+// TODO:
+// - not hard code
+// - have it based on actual time elapsed
+let newMessageTimer = 30;
+function tick() {
+    newMessageTimer--;
+    if (newMessageTimer <= 0) {
+        let user = (Math.random() < 0.5) ? smallFriendServer.users[0] : smallFriendServer.users[1];
+        smallFriendServer.textchannels[0].messages.push(
+            new Message(user, getText()),
+        );
+        switchTextChannel(smallFriendServer.textchannels[0]);
+        newMessageTimer = 30;
+    }
+    requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
