@@ -22,7 +22,7 @@ smallFriendServer.textchannels = [
     new TextChannel("# empty text"),
 ];
 smallFriendServer.voicechannels = [
-    new VoiceChannel("🔊 voice channel"),
+    new VoiceChannel("voice channel"),
 ];
 smallFriendServer.textchannels[0].messages = [
     new Message(smallFriendServer.users[0], getText()),
@@ -72,6 +72,10 @@ function switchServer(server) {
     const textChannels = document.createElement('div');
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
+    const vcIcon = document.createElement('img');
+    vcIcon.src = 'imgs/vc-icon.png'
+    vcIcon.classList = 'vc-icon';
+
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
         channelBtn.className = "s1channelButtons";
@@ -88,9 +92,16 @@ function switchServer(server) {
 
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
-        channelBtn.className = "s1channelButtons";
-        channelBtn.innerHTML = vc.name;
+        channelBtn.className = "s1channelButtons vc-container";
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
+
+        const channelName = document.createElement('div');
+        channelName.textContent = vc.name;
+        channelName.classList = "vc-name";
+
+        channelBtn.appendChild(vcIcon);
+        channelBtn.appendChild(channelName);
+
         voiceChannels.appendChild(channelBtn);
         voiceChannels.appendChild(document.createElement('br'));
     }
