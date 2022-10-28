@@ -137,6 +137,11 @@ function tick() {
         smallFriendServer.textchannels[0].messages.push(
             new Message(user, getText()),
         );
+
+        if (smallFriendServer.textchannels[0].messages.length > 20) {
+            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-20);
+        }
+
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 30;
     }
