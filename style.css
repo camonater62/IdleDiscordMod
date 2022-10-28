@@ -99,7 +99,7 @@ h1, p, h2, h3 {
   padding: 6px;
   text-align: left;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 16px;
   margin: 1px 2px;
   border-radius: 3px;
