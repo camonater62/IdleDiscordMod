@@ -40,7 +40,7 @@
                     +10 clout per deletion
                     </div>
                     <div  class="column col2">
-                    <input type="checkbox" id="delswitch" onclick="visibility('deletebtn', 1)" /><label for="delswitch">Toggle</label>
+                    <input type="checkbox" id="delswitch" onclick="this.disabled = true; visibility('deletebtn', 1)" /><label for="delswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -51,7 +51,7 @@
                     +20 clout per disconnect
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="disswitch" onclick="visibility('disconnectbtn', 1)" /><label for="disswitch">Toggle</label>
+                        <input type="checkbox" id="disswitch" onclick="this.disabled = true; visibility('disconnectbtn', 1)" /><label for="disswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -62,7 +62,7 @@
                     +40 clout per kick
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="kickswitch" onclick="visibility('kickbtn', 1)" /><label for="kickswitch">Toggle</label>
+                        <input type="checkbox" id="kickswitch" onclick="this.disabled = true; visibility('kickbtn', 1)" /><label for="kickswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -73,7 +73,7 @@
                     +80 clout per ban
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="switch4" onclick="visibility('banbtn', 1)" /><label for="switch4">Toggle</label>
+                        <input type="checkbox" id="switch4" onclick="this.disabled = true; visibility('banbtn', 1)" /><label for="switch4">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -104,6 +104,7 @@
         </div>
     </body>
     <link rel="stylesheet" href="style.css">
+    <script src="src/TextGen.js"></script>
     <script src="src/Server.js"></script>
     <script src="src/main.js"></script>
 </html>
