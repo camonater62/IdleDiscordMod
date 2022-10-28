@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idle Discord Mod</title>
     <script src="main.js"></script>
+    <script src="src/clout.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="layout.css">
-    
     </head>
     <body>
         <div class="container">
-            
             <div class="toppane" id="toppane">
                 <h1>170 Jam 2 Collective 11</h1>
             </div>
@@ -27,6 +26,7 @@
             </div>
             <div class="userpane" id="userpane">
                 <h1>User info</h1>
+                <p>Clout: <span id="clout">0</span></p>
             </div>
             <div class="mainpane" id='mainpane'>
                 <h1>Main</h1>
@@ -40,7 +40,7 @@
                     +10 clout per deletion
                     </div>
                     <div  class="column col2">
-                    <input type="checkbox" id="switch1" /><label for="switch1">Toggle</label>
+                    <input type="checkbox" id="delswitch" onclick="visibility('deletebtn', 1)" /><label for="delswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -51,7 +51,7 @@
                     +20 clout per disconnect
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="switch2" /><label for="switch2">Toggle</label>
+                        <input type="checkbox" id="disswitch" onclick="visibility('disconnectbtn', 1)" /><label for="disswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -62,7 +62,7 @@
                     +40 clout per kick
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="switch3" /><label for="switch3">Toggle</label>
+                        <input type="checkbox" id="kickswitch" onclick="visibility('kickbtn', 1)" /><label for="kickswitch">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -73,7 +73,7 @@
                     +80 clout per ban
                     </div>
                     <div  class="column col2">
-                        <input type="checkbox" id="switch4" /><label for="switch4">Toggle</label>
+                        <input type="checkbox" id="switch4" onclick="visibility('banbtn', 1)" /><label for="switch4">Toggle</label>
                     </div>
                 </div>
                 <br />
@@ -94,7 +94,12 @@
                 </button>
             </div>
             <div class="bottompane" id="bottompane">
-                <h1>text box</h1>
+                <h1>Player Actions</h1>
+                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('deletebtn', 1)" id="deletebtn">Delete Message</button>
+                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('banbtn', 4)" id="disconnectbtn">Disconnect Person</button>
+                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('kickbtn', 2)" id="kickbtn">Kick Person</button>
+                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('banbtn', 4)" id="banbtn">Ban Person</button>
+
             </div>
         </div>
     </body>
