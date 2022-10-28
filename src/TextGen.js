@@ -23,7 +23,7 @@ function getText() {
     let emojis = [];
     let amount = Math.floor(Math.random() * 10) + 5;
 
-    if (Math.random() < 0.1) {
+    if (Math.random() <= 0.2) {
         good = false;
         source = BAD_EMOJI;
     } 
