@@ -18,11 +18,11 @@ smallFriendServer.users = [
     new User("imgs/profile-pics/anime.png", "Friend #1")
 ];
 smallFriendServer.textchannels = [
-    new TextChannel("general"),
-    new TextChannel("empty text"),
+    new TextChannel("# general"),
+    new TextChannel("# empty text"),
 ];
 smallFriendServer.voicechannels = [
-    new VoiceChannel("voice channel"),
+    new VoiceChannel("🔊 voice channel"),
 ];
 smallFriendServer.textchannels[0].messages = [
     new Message(smallFriendServer.users[0], "Hello my 1 and only friend!"),
@@ -63,9 +63,11 @@ function switchServer(server) {
     channelPane.innerHTML = "";
     
     const textChannels = document.createElement('div');
-    textChannels.innerHTML = "<h2>Text Channels</h2>";
+    textChannels.innerHTML = "TEXT CHANNELS<br />";
+    
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
+        channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = tc.name;
         channelBtn.onclick = () => { switchTextChannel(tc); };
         textChannels.appendChild(channelBtn);
@@ -74,9 +76,12 @@ function switchServer(server) {
     channelPane.appendChild(textChannels);
 
     const voiceChannels = document.createElement('div');
-    voiceChannels.innerHTML = "<h2>Voice Channels</h2>";
+
+    voiceChannels.innerHTML = "VOICE CHANNELS<br />";
+
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
+        channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = vc.name;
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
         voiceChannels.appendChild(channelBtn);
