@@ -56,10 +56,12 @@ function switchVoiceChannel(channel) {
     // TODO
 }
 
+
 function switchServer(server) {
     channelPane.innerHTML = "";
     
     const textChannels = document.createElement('div');
+    textChannels.className = "textChannelStyle"
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
     const vcIcon = document.createElement('img');
@@ -77,7 +79,7 @@ function switchServer(server) {
     channelPane.appendChild(textChannels);
 
     const voiceChannels = document.createElement('div');
-
+    voiceChannels.className = "textChannelStyle";
     voiceChannels.innerHTML = "VOICE CHANNELS<br />";
 
     for (const vc of server.voicechannels) {

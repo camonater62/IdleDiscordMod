@@ -37,6 +37,7 @@ html {
 .channelpane {
     grid-area: channelpane;
     background-color: #2f3136;
+    padding-right: 10px;
 }
 
 .serverpane {

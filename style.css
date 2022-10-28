@@ -7,6 +7,21 @@
   src: url('fonts/whitneylight.otf');
   
 }
+@font-face {
+  font-family: 'unisans';
+  src: url('fonts/Uni\ Sans\ Heavy.otf');
+  
+}
+@font-face {
+  font-family: 'whitneysemibold';
+  src: url('fonts/whitneysemibold.otf');
+  
+}
+@font-face {
+  font-family: 'whitneybold';
+  src: url('fonts/whitneybold.otf');
+  
+}
 h1, p, h2, h3 {
   font-family: 'whitneylight';
   font-size: 20px;
@@ -77,9 +92,27 @@ h1, p, h2, h3 {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .s1channelButtons {
-  background-color: grey;
+  font-family: 'whitneysemibold';
+  background-color: #2f3136;
   border: none;
-  color: white;
+  color: grey;
+  padding: 6px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 2px;
+  border-radius: 3px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 100%
+  
+}
+
+.vcChannelStyles {
+  background-color: #2f3136;
+  border: none;
+  color: grey;
   padding: 10px;
   text-align: left;
   text-decoration: none;
@@ -93,11 +126,10 @@ h1, p, h2, h3 {
 }
 
 .s1channelButtons:hover {
-  /* background-color: grey; */
+  background-color: #43464d;
   color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
 }
-
 
 /* For shop toggles */
 input[type=checkbox]{
@@ -151,6 +183,15 @@ body {
 	padding:0 0 1px;
 
 } 
+
+.textChannelStyle {
+  font-family: 'whitneybold';
+  font-size: 12px;
+  color: grey;
+  padding-top: 15px;
+  padding-bottom: 5px;
+
+}
 
 .hidden {
   display: none;
