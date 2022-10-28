@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'whitney';
-  src: url('fonts/whitneylight.otf');
+  src: url('fonts/whitneybook.otf');
 }
 @font-face {
   font-family: 'whitneylight';
@@ -22,9 +22,16 @@
   src: url('fonts/whitneybold.otf');
   
 }
-h1, p, h2, h3 {
+h2, h3, p {
   font-family: 'whitneylight';
   font-size: 20px;
+  color: #f2eef2;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: 'whitneysemibold';
+  font-size: 18px;
   color: #f2eef2;
   margin-top: 0;
 }
