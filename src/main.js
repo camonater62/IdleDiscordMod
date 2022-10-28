@@ -29,6 +29,10 @@ emptyServer.voicechannels = [
 
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
+
+    const elem = document.createElement('div');
+    elem.classList = "text-area";
+    mainPane.appendChild(elem);
     for (const msg of channel.messages) {
         const msgElem = document.createElement('div');
         msgElem.classList = "message-container";
@@ -47,7 +51,7 @@ function switchTextChannel(channel) {
         }
 
         msgElem.append(pfp, name, text);
-        mainPane.appendChild(msgElem);
+        elem.appendChild(msgElem);
         msgElem.scrollIntoView();
     }
 }
