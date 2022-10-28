@@ -110,18 +110,15 @@ h1, p, h2, h3 {
 }
 
 .vcChannelStyles {
+  font-family: 'whitneysemibold';
   background-color: #2f3136;
   border: none;
   color: grey;
-  padding: 10px;
+  padding: 6px;
   text-align: left;
   text-decoration: none;
-  /* display: inline-block; */
   font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 12px;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  margin: 1px 2px;
   width: 100%
 }
 
