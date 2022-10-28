@@ -30,6 +30,9 @@ emptyServer.voicechannels = [
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
 
+    const elem = document.createElement('div');
+    elem.classList = "text-area";
+    mainPane.appendChild(elem);
     for (const msg of channel.messages) {
         const msgElem = document.createElement('div');
         msgElem.classList = "message-container";
@@ -48,7 +51,8 @@ function switchTextChannel(channel) {
         }
 
         msgElem.append(pfp, name, text);
-        mainPane.appendChild(msgElem);
+        elem.appendChild(msgElem);
+        msgElem.scrollIntoView();
     }
 }
 
@@ -123,3 +127,27 @@ function addServerToDOM(server) {
 addServerToDOM(smallFriendServer);
 addServerToDOM(emptyServer);
 switchServer(smallFriendServer);
+
+
+// TODO:
+// - not hard code
+// - have it based on actual time elapsed
+let newMessageTimer = 30;
+function tick() {
+    newMessageTimer--;
+    if (newMessageTimer <= 0) {
+        let user = (Math.random() < 0.5) ? smallFriendServer.users[0] : smallFriendServer.users[1];
+        smallFriendServer.textchannels[0].messages.push(
+            new Message(user, getText()),
+        );
+
+        if (smallFriendServer.textchannels[0].messages.length > 20) {
+            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-20);
+        }
+
+        switchTextChannel(smallFriendServer.textchannels[0]);
+        newMessageTimer = 30;
+    }
+    requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
