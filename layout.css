@@ -71,6 +71,8 @@ html {
 }
 
 .message-container {
+    margin-top: 10px;
+    margin-left: 10px;
     display: grid;
     grid-template-columns: 100px 1.56fr;
     grid-template-rows: 0.42fr 1.58fr;
@@ -82,7 +84,6 @@ html {
 }
 
 .profile-pic {
-    margin-top: 20px;
     grid-area: profile-pic;
 }
 
