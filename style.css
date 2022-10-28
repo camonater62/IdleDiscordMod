@@ -82,10 +82,12 @@ h1, p, h2, h3 {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 12px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
-
+.playerbutton:active {
+  background-color: grey;
+}
 .playerbutton:hover {
   /* background-color: grey; */
   color: white;
