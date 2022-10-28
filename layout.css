@@ -29,40 +29,43 @@ html {
 
 .toppane {
     grid-area: toppane;
-    background-color: red;
+    background-color: #36393f;
+    border-bottom: 1px solid black;
 }
 
 .channelpane {
     grid-area: channelpane;
-    background-color: green;
+    background-color: #2f3136;
 }
 
 .serverpane {
     grid-area: serverpane;
-    background-color: yellow;
+    background-color: #202225;
 }
 
 .userpane {
     grid-area: userpane;
-    background-color: deepskyblue;
+    background-color: #292b2f;
 }
 
 .bottompane {
     grid-area: bottompane;
-    background-color: magenta;
+    background-color: #40444b;
 }
 
 .mainpane {
     grid-area: mainpane;
-    background-color: orange;
+    background-color: #36393f;
 }
 
 .shoppane {
     grid-area: shoppane;
-    background-color: dodgerblue;
+    background-color: #2f3136;
+    color: #b0b0b0;
 }
 
 .servernamepane {
     grid-area: servernamepane;
-    background-color: brown;
+    background-color: #2f3136;
+    border-bottom: 1px solid black;
 }
