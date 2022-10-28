@@ -84,7 +84,7 @@ function switchServer(server) {
 
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
-        channelBtn.className = "s1channelButtons vc-container";
+        channelBtn.className = "vcChannelStyles vc-container";
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
 
         const channelName = document.createElement('div');
