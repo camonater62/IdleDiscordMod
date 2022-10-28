@@ -10,8 +10,8 @@ html {
     height: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: 0.1fr 0.25fr 1fr 0.4fr;
-    grid-template-rows: 0.2fr 2.7fr 0.5fr 0.6fr;
+    grid-template-columns: 0.09fr 0.25fr 1fr 0.4fr;
+    grid-template-rows: 0.2fr 2.7fr 0.5fr 0.4fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -87,7 +87,7 @@ html {
 
 
 .text-area {
-    height: 95%; 
+    height: 98%; 
     margin-right: 10px; 
     margin-top: 10px; 
     overflow-y: auto;
