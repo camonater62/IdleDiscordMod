@@ -20,6 +20,7 @@ html {
         "serverpane userpane mainpane shoppane"
         "serverpane userpane bottompane shoppane";
 }
+
 .titlepane {
     grid-area: titlepane;
     width: 100%;
@@ -51,7 +52,7 @@ html {
 
 .bottompane {
     grid-area: bottompane;
-    background-color: #40444b;
+    background-color: #36393f;
 }
 
 .mainpane {
@@ -70,3 +71,48 @@ html {
     background-color: #2f3136;
     border-bottom: 1px solid black;
 }
+
+.message-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 100px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "profile-pic username"
+        "profile-pic text-content";
+}
+
+.profile-pic {
+    grid-area: profile-pic;
+}
+
+.username {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: username;
+}
+
+.text-content {
+    grid-area: text-content;
+}
+
+.vc-container {  display: grid;
+    grid-template-columns: 20px [vc-icon] 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "vc-icon vc-name";
+}
+  
+.vc-icon { 
+    width: 15px;
+    padding-top: 2px;
+    grid-area: vc-icon; 
+}
+  .vc-name { grid-area: vc-name; }
+  
