@@ -61,6 +61,7 @@ html {
 .shoppane {
     grid-area: shoppane;
     background-color: #2f3136;
+    color: #b0b0b0;
 }
 
 .servernamepane {

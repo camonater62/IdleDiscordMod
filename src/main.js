@@ -63,7 +63,7 @@ function switchServer(server) {
     channelPane.innerHTML = "";
     
     const textChannels = document.createElement('div');
-    textChannels.innerHTML = "Text Channels<br />";
+    textChannels.innerHTML = "<h2>Text Channels</h2>";
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
         channelBtn.innerHTML = tc.name;
@@ -74,7 +74,7 @@ function switchServer(server) {
     channelPane.appendChild(textChannels);
 
     const voiceChannels = document.createElement('div');
-    voiceChannels.innerHTML = "Voice Channels<br />";
+    voiceChannels.innerHTML = "<h2>Voice Channels</h2>";
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
         channelBtn.innerHTML = vc.name;
