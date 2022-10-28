@@ -29,7 +29,6 @@ emptyServer.voicechannels = [
 
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
-
     for (const msg of channel.messages) {
         const msgElem = document.createElement('div');
         msgElem.classList = "message-container";

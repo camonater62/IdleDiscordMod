@@ -193,6 +193,26 @@ body {
 
 }
 
+/* Scrollbar Style */
 .hidden {
   display: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #303338; 
+  border-radius: 100px;
+  padding-right: 20px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #212225; 
+  border-radius: 100px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #303338; 
 }
