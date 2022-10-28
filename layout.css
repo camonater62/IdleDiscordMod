@@ -20,6 +20,7 @@ html {
         "serverpane userpane mainpane shoppane"
         "serverpane userpane bottompane shoppane";
 }
+
 .titlepane {
     grid-area: titlepane;
     width: 100%;
@@ -97,3 +98,20 @@ html {
 .text-content {
     grid-area: text-content;
 }
+
+.vc-container {  display: grid;
+    grid-template-columns: 20px [vc-icon] 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "vc-icon vc-name";
+}
+  
+.vc-icon { 
+    width: 15px;
+    padding-top: 2px;
+    grid-area: vc-icon; 
+}
+  .vc-name { grid-area: vc-name; }
+  
