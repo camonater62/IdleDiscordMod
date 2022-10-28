@@ -66,3 +66,78 @@ h1 {
   height: 90px;
   border-radius: 50%;
 }
+
+/* For shop buttons */
+.button {
+  background-color: cyan;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.button:hover {
+  /* background-color: grey; */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/* For shop toggles */
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+label { /*Displays the toggle*/
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 40px;
+	height: 20px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+label:after { /*Displays the white circle inside the toggle*/
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+input:checked + label {
+	background: #bada55;
+}
+input:checked + label:after { /*Moves slider left or right*/
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+label:active:after { /*Stretches circle in toggle*/
+	width: 20px;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+
+/*For shop columns (may need to be modified later for the other grids)*/
+ .column {
+  display:table-cell;
+	table-layout:fxed;
+	padding:0 0 1px;
+
+} 
