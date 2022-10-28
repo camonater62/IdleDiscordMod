@@ -128,11 +128,24 @@ addServerToDOM(smallFriendServer);
 addServerToDOM(emptyServer);
 switchServer(smallFriendServer);
 
+function deleteMessage() {
+    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
+        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
+            smallFriendServer.textchannels[0].messages =
+                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
+                smallFriendServer.textchannels[0].messages.slice(i + 1));
+            addclout('deletebtn', 1);
+            break;
+        }
+    }
+
+    switchTextChannel(smallFriendServer.textchannels[0]);
+}
 
 // TODO:
 // - not hard code
 // - have it based on actual time elapsed
-let newMessageTimer = 30;
+let newMessageTimer = 50;
 function tick() {
     newMessageTimer--;
     if (newMessageTimer <= 0) {
@@ -141,12 +154,12 @@ function tick() {
             new Message(user, getText()),
         );
 
-        if (smallFriendServer.textchannels[0].messages.length > 20) {
-            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-20);
+        if (smallFriendServer.textchannels[0].messages.length > 6) {
+            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-60);
         }
 
         switchTextChannel(smallFriendServer.textchannels[0]);
-        newMessageTimer = 30;
+        newMessageTimer = 50;
     }
     requestAnimationFrame(tick);
 }
