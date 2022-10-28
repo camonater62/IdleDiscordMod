@@ -59,10 +59,12 @@ function switchVoiceChannel(channel) {
     // TODO
 }
 
+
 function switchServer(server) {
     channelPane.innerHTML = "";
     
     const textChannels = document.createElement('div');
+    textChannels.className = "textChannelStyle"
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
     for (const tc of server.textchannels) {
@@ -81,7 +83,7 @@ function switchServer(server) {
 
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
-        channelBtn.className = "s1channelButtons";
+        channelBtn.className = "vcChannelStyles";
         channelBtn.innerHTML = vc.name;
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
         voiceChannels.appendChild(channelBtn);
