@@ -123,6 +123,18 @@ h1, p, h2, h3 {
   width: 100%
 }
 
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
 .s1channelButtons:hover {
   background-color: #43464d;
   color: white;

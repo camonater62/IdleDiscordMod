@@ -74,7 +74,8 @@ function switchServer(server) {
 
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
-        const topText = document.getElementById('toppane');
+        const topText = document.getElementById('topText');
+        topText.className = "topTextStyle";
         channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = tc.name;
         channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
