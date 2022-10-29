@@ -10,8 +10,8 @@ html {
     height: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: 0.1fr 0.25fr 1fr 0.4fr;
-    grid-template-rows: 0.2fr 2.7fr 0.5fr 0.6fr;
+    grid-template-columns: 0.09fr 0.25fr 1fr 0.4fr;
+    grid-template-rows: 0.2fr 2.7fr 0.5fr 0.4fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -20,6 +20,7 @@ html {
         "serverpane userpane mainpane shoppane"
         "serverpane userpane bottompane shoppane";
 }
+
 .titlepane {
     grid-area: titlepane;
     width: 100%;
@@ -29,40 +30,97 @@ html {
 
 .toppane {
     grid-area: toppane;
-    background-color: red;
+    background-color: #36393f;
+    border-bottom: 1px solid black;
 }
 
 .channelpane {
     grid-area: channelpane;
-    background-color: green;
+    background-color: #2f3136;
+    padding-right: 10px;
 }
 
 .serverpane {
     grid-area: serverpane;
-    background-color: yellow;
+    background-color: #202225;
 }
 
 .userpane {
     grid-area: userpane;
-    background-color: deepskyblue;
+    background-color: #292b2f;
 }
 
 .bottompane {
     grid-area: bottompane;
-    background-color: magenta;
+    background-color: #36393f;
 }
 
 .mainpane {
     grid-area: mainpane;
-    background-color: orange;
+    background-color: #36393f;
 }
 
 .shoppane {
     grid-area: shoppane;
-    background-color: dodgerblue;
+    background-color: #2f3136;
+    color: #b0b0b0;
 }
 
 .servernamepane {
     grid-area: servernamepane;
-    background-color: brown;
+    background-color: #2f3136;
+    border-bottom: 1px solid black;
 }
+
+.message-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 100px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "profile-pic username"
+        "profile-pic text-content";
+}
+
+
+.text-area {
+    height: 98%; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    overflow-y: auto;
+}
+
+.profile-pic {
+    grid-area: profile-pic;
+}
+
+.username {
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: username;
+}
+
+.text-content {
+    grid-area: text-content;
+}
+
+.vc-container {  display: grid;
+    grid-template-columns: 20px [vc-icon] 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "vc-icon vc-name";
+}
+  
+.vc-icon { 
+    width: 15px;
+    padding-top: 2px;
+    grid-area: vc-icon; 
+}
+  .vc-name { grid-area: vc-name; }
+  
