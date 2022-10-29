@@ -74,11 +74,13 @@ function switchServer(server) {
 
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
+        const topText = document.getElementById('toppane');
         channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = tc.name;
-        channelBtn.onclick = () => { switchTextChannel(tc); };
+        channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
+        
     }
     channelPane.appendChild(textChannels);
 
