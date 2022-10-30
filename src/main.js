@@ -113,11 +113,11 @@ function addServerToDOM(server) {
     const serverName = document.createElement('b');
     serverName.classList = "hidden";
     serverName.innerHTML = server.name;
-    serverName.style = "position: absolute; height: 50px; width: 150px; margin-top: 25px";
+    // serverName.style = "position: absolute; height: 50px; width: 150px; margin-top: 25px";
     
     serverIcon.src = server.picture;
     // serverIcon.title = server.name;
-    serverIcon.onmouseenter = () => { serverName.classList = "" };
+    serverIcon.onmouseenter = () => { serverName.classList = "server-name" };
     serverIcon.onmouseleave = () => { serverName.classList = "hidden" };
     serverIcon.onclick = () => { switchServer(server); };
     serverPane.appendChild(serverIcon);
