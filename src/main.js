@@ -84,7 +84,7 @@ function switchTextChannel(channel) {
 
         msgElem.append(pfp, name, text);
         elem.appendChild(msgElem);
-        //msgElem.scrollIntoView();
+        msgElem.scrollIntoView();
     }
 }
 
