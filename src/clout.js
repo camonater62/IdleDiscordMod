@@ -2,8 +2,6 @@ let clout = 40;
 let logocounter = 0;
 function addclout(button, multiplier) {
     clout += multiplier;
-    document.getElementById(button).clout = clout;
-    document.getElementById('clout').innerHTML = clout;
 }
 
 function visibility(button, x) {
