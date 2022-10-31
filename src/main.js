@@ -114,6 +114,7 @@ function switchServer(server) {
         channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
+        
     }
     channelPane.appendChild(textChannels);
 

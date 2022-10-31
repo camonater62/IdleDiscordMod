@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'whitney';
-  src: url('fonts/whitneylight.otf');
+  font-family: 'whitneymedium';
+  src: url('fonts/whitneymedium.otf');
 }
 @font-face {
   font-family: 'whitneylight';
@@ -22,11 +22,18 @@
   src: url('fonts/whitneybold.otf');
   
 }
-h1, p, h2, h3 {
+h2, h3, p {
   font-family: 'whitneylight';
   font-size: 20px;
   color: #f2eef2;
   margin: 8px 10px;
+}
+
+h1 {
+  font-family: 'whitneysemibold';
+  font-size: 18px;
+  color: #f2eef2;
+  margin-top: 0;
 }
 
 .profile-icon {
@@ -45,9 +52,9 @@ h1, p, h2, h3 {
 
 
 .server-icon {
+  width: 75px;
+  height: 75px;
   padding: 1.5px 8px;
-  width: 70px;
-  height: 70px;
   border-radius: 50%;
 }
 
@@ -61,12 +68,12 @@ h1, p, h2, h3 {
   height: 25px; 
   width: 150px; 
   margin: 10px 20px 0;
-  background-color: #44DDBF;
-  color: #202225;
+  background-color: #111113;
+  color: #f2eef2;
   border-radius: 10px;
   padding: 10px 20px;
   padding-left: 0;
-  font-family: "whitneylight";
+  font-family: "whitneymedium";
 }
 /* little triangle for server name */
 .server-name::after {
@@ -75,7 +82,7 @@ h1, p, h2, h3 {
   width: 0;
   height: 0;
   border-top: 15px solid transparent;
-  border-right: 25px solid #44DDBF;
+  border-right: 25px solid #111113;
   border-bottom: 15px solid transparent;
   border-left: 0 solid transparent;
   margin-right: 0;
@@ -112,7 +119,53 @@ h1, p, h2, h3 {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor: pointer;
 }
-
+/* For generic wrapper around elements */
+.userbox {
+  background-color: #41444b;
+  width:30%;
+  border: none;
+  padding: 18px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+.shopbox {
+  background-color: #41444b;
+  border: none;
+  width: 85%;
+  padding: 5%;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+.clout-bar {
+  background-color: #292b2f;
+  border: none;
+  padding: 5px;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 0px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
 /* For action buttons */
 .playerbutton {
   background-color: #41444b;
@@ -141,7 +194,7 @@ h1, p, h2, h3 {
 }
 
 .s1channelButtons {
-  font-family: 'whitneysemibold';
+  font-family: 'whitney';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -180,8 +233,20 @@ h1, p, h2, h3 {
   transition-duration: 0.4s;
 }
 
-.vcChannelStyles:hover {
-  cursor: pointer;
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
+.s1channelButtons:hover {
+  background-color: #43464d;
   color: white;
   background-color: #43464d;
 }
@@ -203,8 +268,6 @@ h1, p, h2, h3 {
 
 /* For shop toggles */
 input[type=checkbox]{
-	height: 0;
-	width: 0;
 	visibility: hidden;
 }
 label { /*Displays the toggle*/
@@ -213,9 +276,12 @@ label { /*Displays the toggle*/
 	width: 40px;
 	height: 20px;
 	background: grey;
-	display: block;
+    right: 20px;
+	display: inline-block;
 	border-radius: 100px;
-	position: relative;
+    margin-left: 20px;
+    margin-right: auto;
+    position: relative;
 }
 label:after { /*Displays the white circle inside the toggle*/
 	content: '';
@@ -259,8 +325,7 @@ body {
   font-size: 12px;
   color: grey;
   padding-top: 15px;
-  padding-bottom: 5px;
-
+  padding-bottom: 7px;
 }
 
 /* Scrollbar Style */
