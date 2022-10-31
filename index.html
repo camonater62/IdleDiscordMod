@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idle Discord Mod</title>
-    <script src="src/clout.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="layout.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Idle Discord Mod</title>
+        <script src="src/clout.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="layout.css" />
     </head>
     <body>
         <div class="container">
             <div class="toppane" id="toppane">
-                <h1 id = 'topText'>170 Jam 2 Collective 11</h1>
+                <h1 id="topText">170 Jam 2 Collective 11</h1>
             </div>
             <div class="serverpane" id="serverpane">
-                <input type="image" id="icon" src="imgs/logos/suscord_logo.png" class="server-icon" onclick="changeicon(1)"/>
+                <input
+                    type="image"
+                    id="icon"
+                    src="imgs/logos/suscord_logo.png"
+                    class="server-icon"
+                    onclick="changeicon(1)"
+                />
                 <div class="separator"></div>
             </div>
             <div class="servernamepane" id="servernamepane">
-                <h1 class = 'serverNameText'>Cool friend server</h1> <!-- May need to change it to id instead of class later if server names are different -->
+                <h1 class="serverNameText">Cool friend server</h1>
+                <!-- May need to change it to id instead of class later if server names are different -->
             </div>
             <div class="channelpane" id="channelpane">
                 <h1>Channels</h1>
             </div>
             <div class="userpane" id="userpane">
                 <h1>User Info</h1>
-                <p class="userbox"> <span id="clout"><b>0</b></span><br /><img src="./imgs/Clout Glasses-28x10.png"></p>
-                <p class="userbox"> <span id="member"><b>0</b></span><br /><img src="./imgs/Members-10x10.png"></p>
+                <p class="userbox">
+                    <span id="clout"><b>0</b></span
+                    ><br /><img src="./imgs/Clout Glasses-28x10.png" />
+                </p>
+                <p class="userbox">
+                    <span id="member"><b>0</b></span
+                    ><br /><img src="./imgs/Members-10x10.png" />
+                </p>
                 <!-- <h1>LVL <span id="server">1</span> <progress id="server_progress" value="1" max="7"></progress></h1> -->
             </div>
-            <div class="mainpane" id='mainpane'>
+            <div class="mainpane" id="mainpane">
                 <h1>Main</h1>
             </div>
             <div class="shoppane" id="shoppane">
@@ -43,23 +56,66 @@
                 </div> -->
                 <br />
                 <div>
-                    <div  class="shopbox">
-                        <h1>Disconnect<input type="checkbox" id="disconnectswitch" onclick="this.disabled = true; visibility('disconnectbtn', 1)" /><label for="disconnectswitch"></label></h1>
-                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-40 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+20     <img src="./imgs/Clout Glasses-28x10.png"> / click
-                        </div>
+                    <div class="shopbox">
+                        <h1>
+                            Disconnect
+                            <input
+                                type="checkbox"
+                                id="disconnectswitch"
+                                onclick="this.disabled = true; visibility('disconnectbtn', 1)"
+                            />
+                            <label for="disconnectswitch"></label>
+                        </h1>
+                        <h1 class="clout-bar" style="color: aquamarine">
+                            <span id="ban_button_cost">-40 </span>
+                            <img src="./imgs/Clout Glasses-28x10.png" />
+                        </h1>
+                        <h1 class="clout-bar">
+                            +20 <img src="./imgs/Clout Glasses-28x10.png" /> /
+                            click
+                        </h1>
+                    </div>
                 </div>
                 <br />
                 <div>
-                    <div  class="shopbox">
-                        <h1>Kick<input type="checkbox" id="kickswitch" onclick="this.disabled = true; visibility('kickbtn', 1)" /><label for="kickswitch"></label></h1>
-                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-80 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+40     <img src="./imgs/Clout Glasses-28x10.png"> / click
-                        </div>
+                    <div class="shopbox">
+                        <h1>
+                            Kick
+                            <input
+                                type="checkbox"
+                                id="kickswitch"
+                                onclick="this.disabled = true; visibility('kickbtn', 1)"
+                            /><label for="kickswitch"></label>
+                        </h1>
+                        <h1 class="clout-bar" style="color: aquamarine">
+                            <span id="ban_button_cost">-80 </span>
+                            <img src="./imgs/Clout Glasses-28x10.png" />
+                        </h1>
+                        <h1 class="clout-bar">
+                            +40 <img src="./imgs/Clout Glasses-28x10.png" /> /
+                            click
+                        </h1>
+                    </div>
                 </div>
                 <br />
                 <div>
-                    <div  class="shopbox">
-                    <h1>Ban<input type="checkbox" id="banswitch" onclick="this.disabled = true; visibility('banbtn', 1)" /><label for="banswitch"></label></h1>
-                    <h1 class="clout-bar"style="color:red"><span id="ban_button_cost">-160 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+80     <img src="./imgs/Clout Glasses-28x10.png"> / click
+                    <div class="shopbox">
+                        <h1>
+                            Ban<input
+                                type="checkbox"
+                                id="banswitch"
+                                onclick="this.disabled = true; visibility('banbtn', 1)"
+                            />
+                            <label for="banswitch"></label>
+                        </h1>
+                        <h1 class="clout-bar" style="color: red">
+                            <span id="ban_button_cost">-160 </span>
+                            <img src="./imgs/Clout Glasses-28x10.png" />
+                        </h1>
+                        <h1 class="clout-bar">
+                            +80 <img src="./imgs/Clout Glasses-28x10.png" /> /
+                            click
+                        </h1>
                     </div>
                 </div>
                 <br />
@@ -81,11 +137,38 @@
             </div>
             <div class="bottompane" id="bottompane">
                 <h1>Player Actions</h1>
-                <button class="playerbutton" style="visibility: visible;;" onclick="deleteMessage()" id="deletebtn">Delete Message</button>
-                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('disconnectbtn', 4)" id="disconnectbtn">Disconnect Person</button>
-                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('kickbtn', 2)" id="kickbtn">Kick Person</button>
-                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('banbtn', 4)" id="banbtn">Ban Person</button>
-
+                <button
+                    class="playerbutton"
+                    style="visibility: visible ;"
+                    onclick="deleteMessage()"
+                    id="deletebtn"
+                >
+                    Delete Message
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="addclout('disconnectbtn', 4)"
+                    id="disconnectbtn"
+                >
+                    Disconnect Person
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="addclout('kickbtn', 2)"
+                    id="kickbtn"
+                >
+                    Kick Person
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="addclout('banbtn', 4)"
+                    id="banbtn"
+                >
+                    Ban Person
+                </button>
             </div>
         </div>
     </body>
@@ -93,5 +176,4 @@
     <script src="src/UserGen.js"></script>
     <script src="src/Server.js"></script>
     <script src="src/main.js"></script>
-    
 </html>
