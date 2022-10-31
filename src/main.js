@@ -2,11 +2,17 @@ const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
 
+// this is the starter/initial server
+// TODO:
+// - Change server icon
+// - Change name?
+// - Change the users to not be so hard coded
 const smallFriendServer = new Server("imgs/server-icons/choco.jpg", "Me and my buds :)");
 smallFriendServer.users = [
     new User("imgs/profile-pics/ame.png", "Me!"),
     new User("imgs/profile-pics/anime.png", "Friend #1")
 ];
+// empty text is just here for testing, we can delete later
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
     new TextChannel("# empty text"),
@@ -14,11 +20,8 @@ smallFriendServer.textchannels = [
 smallFriendServer.voicechannels = [
     new VoiceChannel("voice channel"),
 ];
-smallFriendServer.textchannels[0].messages = [
-    new Message(smallFriendServer.users[0], getText()),
-    new Message(smallFriendServer.users[1], getText()),
-];
 
+// testing server, please keep for now
 const emptyServer = new Server("imgs/profile-pics/anime.png", "Empty Server");
 emptyServer.textchannels = [
     new TextChannel("This is a different text channel"),
@@ -27,6 +30,7 @@ emptyServer.voicechannels = [
     new VoiceChannel("This is a different voice channel"),
 ]
 
+// another testing server
 const randomServer = new Server("imgs/profile-pics/anime.png", "Random Server");
 randomServer.textchannels = [
     new TextChannel("This is a different text channel"),
@@ -39,6 +43,7 @@ randomServer.users = [
     new User("imgs/profile-pics/anime.png", "Friend #1")
 ];
 
+// update the text area dom to represent this text channel
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
 
@@ -68,23 +73,23 @@ function switchTextChannel(channel) {
     }
 }
 
+// TODO
 function switchVoiceChannel(channel) {
-    // TODO
-
 }
 
 
+// this function changes the dom elements to be a new server
 function switchServer(server) {
+    // clear all the previous channels
     channelPane.innerHTML = "";
     
+    // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
-    const vcIcon = document.createElement('img');
-    vcIcon.src = 'imgs/vc-icon.png'
-    vcIcon.classList = 'vc-icon';
 
+    // craete a button for every text channel
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
         const topText = document.getElementById('topText');
@@ -94,14 +99,20 @@ function switchServer(server) {
         channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
-        
     }
     channelPane.appendChild(textChannels);
 
+    // container for voice channels
     const voiceChannels = document.createElement('div');
     voiceChannels.className = "textChannelStyle";
     voiceChannels.innerHTML = "VOICE CHANNELS<br />";
 
+    // the speaker icon for each vc
+    const vcIcon = document.createElement('img');
+    vcIcon.src = 'imgs/vc-icon.png'
+    vcIcon.classList = 'vc-icon';
+
+    // create a button for every voice channel and add it
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
         channelBtn.className = "vcChannelStyles vc-container";
@@ -119,10 +130,12 @@ function switchServer(server) {
     }
     channelPane.appendChild(voiceChannels);
 
+    // switch to the primary text channel for the default view
     switchTextChannel(server.textchannels[0]);
-    switchVoiceChannel(server.voicechannels[0]);
 }
 
+// this function creates an icon on the left side and binds the 
+// onclick to switch the main dom elements to represent this server
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
     serverIcon.classList = "server-icon";
@@ -145,7 +158,7 @@ addServerToDOM(emptyServer);
 addServerToDOM(randomServer);
 switchServer(smallFriendServer);
 
-
+// finds the latest bad message and removes it
 function deleteMessage() {
     for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
         if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
