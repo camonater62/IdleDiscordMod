@@ -351,3 +351,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #303338; 
 }
+
+.separator {
+  width: 55%;
+  margin-top: 2px;
+  margin-left: 22.5%;
+  margin-right: 22.5%;
+  border-bottom: 3px solid #36393f;
+  margin-bottom: 5px;
+}
