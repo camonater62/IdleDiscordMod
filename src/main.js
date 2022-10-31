@@ -27,6 +27,18 @@ emptyServer.voicechannels = [
     new VoiceChannel("This is a different voice channel"),
 ]
 
+const randomServer = new Server("imgs/profile-pics/anime.png", "Random Server");
+randomServer.textchannels = [
+    new TextChannel("This is a different text channel"),
+]
+randomServer.voicechannels = [
+    new VoiceChannel("This is another different voice channel"),
+]
+randomServer.users = [
+    new User("imgs/profile-pics/ame.png", "eeee!"),
+    new User("imgs/profile-pics/anime.png", "Friend #1")
+];
+
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
 
@@ -58,6 +70,7 @@ function switchTextChannel(channel) {
 
 function switchVoiceChannel(channel) {
     // TODO
+
 }
 
 
@@ -126,7 +139,9 @@ function addServerToDOM(server) {
 
 addServerToDOM(smallFriendServer);
 addServerToDOM(emptyServer);
+addServerToDOM(randomServer);
 switchServer(smallFriendServer);
+
 
 function deleteMessage() {
     for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
