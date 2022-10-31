@@ -46,7 +46,7 @@ html {
 .serverpane {
     grid-area: serverpane;
     background-color: #202225;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
 }
