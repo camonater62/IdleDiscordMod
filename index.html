@@ -24,55 +24,41 @@
                 <h1>Channels</h1>
             </div>
             <div class="userpane" id="userpane">
-                <h1>User info</h1>
-                <p>Clout: <span id="clout">0</span></p>
+                <h1>User Info</h1>
+                <p class="userbox"> <span id="clout"><b>126</b></span><br /><img src="./imgs/Clout Glasses-28x10.png"></p>
+                <p class="userbox"> <span id="member"><b>2,000,000</b></span><br /><img src="./imgs/Members-10x10.png"></p>
+                <!-- <h1>LVL <span id="server">1</span> <progress id="server_progress" value="1" max="7"></progress></h1> -->
             </div>
             <div class="mainpane" id='mainpane'>
                 <h1>Main</h1>
             </div>
             <div class="shoppane" id="shoppane">
-                <h1>Shop Stuff</h1>
+                <h1>Shop</h1>
+                <!-- <div>
+                    <div  class="shopbox">
+                        <h1>Delete Message<input type="checkbox" id="delswitch" onclick="this.disabled = true; visibility('deletebtn', 1)" /><label for="delswitch"></label></h1>
+                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-20 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+10     <img src="./imgs/Clout Glasses-28x10.png"> / click
+                        </div>
+                </div> -->
+                <br />
                 <div>
-                    <div  class="column col1">
-                    Delete Message <br />
-                    -20 clout <br />
-                    +10 clout per deletion
-                    </div>
-                    <div  class="column col2">
-                    <input type="checkbox" id="delswitch" onclick="this.disabled = true; visibility('deletebtn', 1)" /><label for="delswitch">Toggle</label>
-                    </div>
+                    <div  class="shopbox">
+                        <h1>Disconnect<input type="checkbox" id="disconnectswitch" onclick="this.disabled = true; visibility('disconnectbtn', 1)" /><label for="disconnectswitch"></label></h1>
+                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-40 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+20     <img src="./imgs/Clout Glasses-28x10.png"> / click
+                        </div>
                 </div>
                 <br />
                 <div>
-                    <div  class="column col1">
-                    Disconnect Member <br />
-                    -40 cloud <br />
-                    +20 clout per disconnect
-                    </div>
-                    <div  class="column col2">
-                        <input type="checkbox" id="disswitch" onclick="this.disabled = true; visibility('disconnectbtn', 1)" /><label for="disswitch">Toggle</label>
-                    </div>
+                    <div  class="shopbox">
+                        <h1>Kick<input type="checkbox" id="kickswitch" onclick="this.disabled = true; visibility('kickbtn', 1)" /><label for="kickswitch"></label></h1>
+                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-80 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+40     <img src="./imgs/Clout Glasses-28x10.png"> / click
+                        </div>
                 </div>
                 <br />
                 <div>
-                    <div  class="column col1">
-                    Kick <br />
-                    -80 clout <br />
-                    +40 clout per kick
-                    </div>
-                    <div  class="column col2">
-                        <input type="checkbox" id="kickswitch" onclick="this.disabled = true; visibility('kickbtn', 1)" /><label for="kickswitch">Toggle</label>
-                    </div>
-                </div>
-                <br />
-                <div>
-                    <div  class="column col1">
-                    Ban <br />
-                    -160 clout <br />
-                    +80 clout per ban
-                    </div>
-                    <div  class="column col2">
-                        <input type="checkbox" id="switch4" onclick="this.disabled = true; visibility('banbtn', 1)" /><label for="switch4">Toggle</label>
+                    <div  class="shopbox">
+                    <h1>Ban<input type="checkbox" id="banswitch" onclick="this.disabled = true; visibility('banbtn', 1)" /><label for="banswitch"></label></h1>
+                    <h1 class="clout-bar"style="color:red"><span id="ban_button_cost">-160 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+80     <img src="./imgs/Clout Glasses-28x10.png"> / click
                     </div>
                 </div>
                 <br />
@@ -84,7 +70,7 @@
                 <button class="button">
                     Add Music Bot <br />
                     -80 Clout <br />
-                    + 5 cloud per second <br />
+                    + 5 clout per second <br />
                 </button>
                 <br />
                 <button class="button">
@@ -94,8 +80,8 @@
             </div>
             <div class="bottompane" id="bottompane">
                 <h1>Player Actions</h1>
-                <button class="playerbutton" style="visibility: hidden;" onclick="deleteMessage()" id="deletebtn">Delete Message</button>
-                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('banbtn', 4)" id="disconnectbtn">Disconnect Person</button>
+                <button class="playerbutton" style="visibility: visible;;" onclick="deleteMessage()" id="deletebtn">Delete Message</button>
+                <button class="playerbutton" style="visibility: hidden;" onclick="addclout('disconnectbtn', 4)" id="disconnectbtn">Disconnect Person</button>
                 <button class="playerbutton" style="visibility: hidden;" onclick="addclout('kickbtn', 2)" id="kickbtn">Kick Person</button>
                 <button class="playerbutton" style="visibility: hidden;" onclick="addclout('banbtn', 4)" id="banbtn">Ban Person</button>
 

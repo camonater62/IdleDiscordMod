@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'whitney';
-  src: url('fonts/whitneybook.otf');
+  font-family: 'whitneymedium';
+  src: url('fonts/whitneymedium.otf');
 }
 @font-face {
   font-family: 'whitneylight';
@@ -26,7 +26,7 @@ h2, h3, p {
   font-family: 'whitneylight';
   font-size: 20px;
   color: #f2eef2;
-  margin-top: 0;
+  margin: 8px 10px;
 }
 
 h1 {
@@ -38,14 +38,50 @@ h1 {
 
 .profile-icon {
   padding-left: 5px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-.server-icon {
   width: 75px;
   height: 75px;
   border-radius: 50%;
+}
+
+.server-icon {
+  width: 75px;
+  height: 75px;
+  padding: 1.5px 8px;
+  border-radius: 50%;
+}
+
+.server-icon:hover {
+  cursor: pointer;
+}
+
+.server-name {
+  position: absolute; 
+  display: inline;
+  height: 25px; 
+  width: 150px; 
+  margin: 10px 20px 0;
+  background-color: #111113;
+  color: #f2eef2;
+  border-radius: 10px;
+  padding: 10px 20px;
+  padding-left: 0;
+  font-family: "whitneymedium";
+}
+/* little triangle for server name */
+.server-name::after {
+  content: "";
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 25px solid #111113;
+  border-bottom: 15px solid transparent;
+  border-left: 0 solid transparent;
+  margin-right: 0;
+  padding: 0;
+  float: left;
+  left: -15px;
+  top: -3px;
 }
 
 .emoji {
@@ -71,34 +107,84 @@ h1 {
 }
 
 .button:hover {
-  /* background-color: grey; */
   color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
 }
-
+/* For generic wrapper around elements */
+.userbox {
+  background-color: #41444b;
+  width:30%;
+  border: none;
+  padding: 18px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+.shopbox {
+  background-color: #41444b;
+  border: none;
+  width: 85%;
+  padding: 5%;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+.clout-bar {
+  background-color: #292b2f;
+  border: none;
+  padding: 5px;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 0px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
 /* For action buttons */
 .playerbutton {
   background-color: #41444b;
   border: none;
-  padding: 20px;
+  padding: 18px;
   text-align: center;
   color: #9398a4;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 5px 0 10px;
+  margin-left: 8px;
   border-radius: 12px;
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
-.playerbutton:active {
+/* .playerbutton:active {
   background-color: grey;
-}
+} */
 .playerbutton:hover {
   /* background-color: grey; */
-  color: white;
+  color: #202225;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  cursor: pointer;
+  background-color: #44DDBF;
 }
+
 .s1channelButtons {
   font-family: 'whitney';
   background-color: #2f3136;
@@ -116,6 +202,14 @@ h1 {
   width: 100%
   
 }
+
+.s1channelButtons:hover {
+  background-color: #43464d;
+  color: white;
+  cursor: pointer;
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
 .vcChannelStyles {
   font-family: 'whitneysemibold';
   background-color: #2f3136;
@@ -126,7 +220,9 @@ h1 {
   text-decoration: none;
   font-size: 16px;
   margin: 1px 2px;
-  width: 100%
+  width: 100%;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
 .topTextStyle {
@@ -144,13 +240,11 @@ h1 {
 .s1channelButtons:hover {
   background-color: #43464d;
   color: white;
-  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+  background-color: #43464d;
 }
 
 /* For shop toggles */
 input[type=checkbox]{
-	height: 0;
-	width: 0;
 	visibility: hidden;
 }
 label { /*Displays the toggle*/
@@ -159,9 +253,12 @@ label { /*Displays the toggle*/
 	width: 40px;
 	height: 20px;
 	background: grey;
-	display: block;
+    right: 20px;
+	display: inline-block;
 	border-radius: 100px;
-	position: relative;
+    margin-left: 20px;
+    margin-right: auto;
+    position: relative;
 }
 label:after { /*Displays the white circle inside the toggle*/
 	content: '';
