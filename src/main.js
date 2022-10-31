@@ -7,10 +7,14 @@ const channelPane = document.getElementById('channelpane');
 // - Change server icon
 // - Change name?
 // - Change the users to not be so hard coded
-const smallFriendServer = new Server("imgs/server-icons/choco.jpg", "Me and my buds :)");
+const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)");
 smallFriendServer.users = [
-    new User("imgs/profile-pics/ame.png", "Me!"),
-    new User("imgs/profile-pics/anime.png", "Friend #1")
+    new User(),
+    new User(),
+    new User(),
+    new User(),
+    new User(),
+    new User(),
 ];
 // empty text is just here for testing, we can delete later
 smallFriendServer.textchannels = [
@@ -22,25 +26,25 @@ smallFriendServer.voicechannels = [
 ];
 
 // testing server, please keep for now
-const emptyServer = new Server("imgs/profile-pics/anime.png", "Empty Server");
-emptyServer.textchannels = [
+const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
+bigFriendServer.textchannels = [
     new TextChannel("This is a different text channel"),
 ]
-emptyServer.voicechannels = [
+bigFriendServer.voicechannels = [
     new VoiceChannel("This is a different voice channel"),
 ]
 
 // another testing server
-const randomServer = new Server("imgs/profile-pics/anime.png", "Random Server");
-randomServer.textchannels = [
+const classServer = new Server("imgs/server-icons/classserver.png", "Class Server");
+classServer.textchannels = [
     new TextChannel("This is a different text channel"),
 ]
-randomServer.voicechannels = [
+classServer.voicechannels = [
     new VoiceChannel("This is another different voice channel"),
 ]
-randomServer.users = [
-    new User("imgs/profile-pics/ame.png", "eeee!"),
-    new User("imgs/profile-pics/anime.png", "Friend #1")
+classServer.users = [
+    new User(),
+    new User()
 ];
 
 // update the text area dom to represent this text channel
@@ -165,8 +169,8 @@ function addServerToDOM(server) {
 }
 
 addServerToDOM(smallFriendServer);
-addServerToDOM(emptyServer);
-addServerToDOM(randomServer);
+addServerToDOM(bigFriendServer);
+addServerToDOM(classServer);
 switchServer(smallFriendServer);
 
 // finds the latest bad message and removes it
@@ -192,7 +196,8 @@ let newMessageTimer = 50;
 function tick() {
     newMessageTimer--;
     if (newMessageTimer <= 0) {
-        let user = (Math.random() < 0.5) ? smallFriendServer.users[0] : smallFriendServer.users[1];
+        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
+        let user = smallFriendServer.users[rndIndex];
         smallFriendServer.textchannels[0].messages.push(
             new Message(user, getText()),
         );
