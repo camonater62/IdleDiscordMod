@@ -182,15 +182,18 @@ h1 {
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
-/* .playerbutton:active {
-  background-color: grey;
-} */
+
 .playerbutton:hover {
   /* background-color: grey; */
   color: #202225;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor: pointer;
   background-color: #44DDBF;
+}
+
+.playerbutton:active {
+  transform: scale(0.98);
+  background-color: grey;
 }
 
 .s1channelButtons {
