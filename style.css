@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'whitney';
-  src: url('fonts/whitneylight.otf');
+  font-family: 'whitneymedium';
+  src: url('fonts/whitneymedium.otf');
 }
 @font-face {
   font-family: 'whitneylight';
@@ -53,12 +53,12 @@ h1, p, h2, h3 {
   height: 25px; 
   width: 150px; 
   margin: 10px 20px 0;
-  background-color: #44DDBF;
-  color: #202225;
+  background-color: #111113;
+  color: #f2eef2;
   border-radius: 10px;
   padding: 10px 20px;
   padding-left: 0;
-  font-family: "whitneylight";
+  font-family: "whitneymedium";
 }
 /* little triangle for server name */
 .server-name::after {
@@ -67,7 +67,7 @@ h1, p, h2, h3 {
   width: 0;
   height: 0;
   border-top: 15px solid transparent;
-  border-right: 25px solid #44DDBF;
+  border-right: 25px solid #111113;
   border-bottom: 15px solid transparent;
   border-left: 0 solid transparent;
   margin-right: 0;
@@ -234,10 +234,12 @@ label { /*Displays the toggle*/
 	width: 40px;
 	height: 20px;
 	background: grey;
-  right: 20px;
+    right: 20px;
 	display: inline-block;
 	border-radius: 100px;
-	position: fixed;
+    margin-left: 20px;
+    margin-right: auto;
+    position: relative;
 }
 label:after { /*Displays the white circle inside the toggle*/
 	content: '';
@@ -282,7 +284,6 @@ body {
   color: grey;
   padding-top: 15px;
   padding-bottom: 5px;
-
 }
 
 /* Scrollbar Style */
