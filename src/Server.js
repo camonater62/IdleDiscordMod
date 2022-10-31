@@ -1,7 +1,7 @@
 class User {
-    constructor(pfp, name) {
-        this.pfp = pfp;
-        this.name = name;
+    constructor() {
+        this.pfp = randomPfp();
+        this.name = randomUsername();
     }
 }
 
