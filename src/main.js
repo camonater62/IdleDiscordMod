@@ -209,6 +209,7 @@ function tick() {
 
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
+
     }
 
     const userCountElem = document.getElementById('member');

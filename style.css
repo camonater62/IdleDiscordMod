@@ -137,6 +137,7 @@ h1 {
   transition-duration: 0.4s;
 }
 .shopbox {
+  visibility: hidden;
   background-color: #41444b;
   border: none;
   width: 85%;
@@ -273,6 +274,7 @@ h1 {
 input[type=checkbox]{
 	visibility: hidden;
 }
+
 label { /*Displays the toggle*/
 	cursor: pointer;
 	text-indent: -9999px;
