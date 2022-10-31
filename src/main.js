@@ -214,6 +214,9 @@ function tick() {
     const userCountElem = document.getElementById('member');
     userCountElem.innerHTML = `<b>${smallFriendServer.users.length}</b>`
 
+    const cloutElem = document.getElementById('clout');
+    cloutElem.innerHTML = `<b>${clout}</b>`;
+
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
