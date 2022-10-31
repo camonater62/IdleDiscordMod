@@ -209,7 +209,7 @@ function tick() {
 
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
-    }
+    } 
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
