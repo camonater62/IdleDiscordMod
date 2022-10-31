@@ -210,6 +210,10 @@ function tick() {
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
     }
+
+    const userCountElem = document.getElementById('member');
+    userCountElem.innerHTML = `<b>${smallFriendServer.users.length}</b>`
+
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
