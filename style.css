@@ -124,8 +124,8 @@ h1, p, h2, h3 {
 .shopbox {
   background-color: #41444b;
   border: none;
-  width:88%;
-  padding: 18px;
+  width: 85%;
+  padding: 5%;
   text-align: left;
   color: white;
   text-decoration: none;
