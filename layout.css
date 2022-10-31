@@ -125,7 +125,8 @@ html {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "vc-icon vc-name";
+      "vc-icon vc-name"
+      "vc-img username";
 }
   
 .vc-icon { 

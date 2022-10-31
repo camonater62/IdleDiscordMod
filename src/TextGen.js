@@ -17,6 +17,8 @@ class Text {
     }
 }
 
+// returns a series of emojis
+// 20% chance for a bad message
 function getText() {
     let good = true;
     let source = GOOD_EMOJI;

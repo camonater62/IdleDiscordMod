@@ -43,6 +43,14 @@ h1 {
   border-radius: 50%;
 }
 
+.vc-img {
+  padding-left: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+
 .server-icon {
   width: 75px;
   height: 75px;
@@ -242,6 +250,21 @@ h1 {
   color: white;
   background-color: #43464d;
 }
+
+/* For top middle text styles */
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+
+/* For server name text on top left */
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
 
 /* For shop toggles */
 input[type=checkbox]{
