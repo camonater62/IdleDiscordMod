@@ -47,18 +47,29 @@ randomServer.users = [
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
 
+    // area for a all text messages
+    // using another elem so the scrollbar
+    // can be offset
     const elem = document.createElement('div');
     elem.classList = "text-area";
     mainPane.appendChild(elem);
+
     for (const msg of channel.messages) {
+        // container for whole message
         const msgElem = document.createElement('div');
         msgElem.classList = "message-container";
+
+        // user icon
         const pfp = document.createElement('img');
         pfp.classList = "profile-icon profile-pic";
         pfp.src = msg.user.pfp;
+
+        // user name
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
         name.className = "username"
+
+        // text content (emoji)
         const text = document.createElement('p');
         for (const src of msg.text.emojis) {
             const emoji = document.createElement('img');
@@ -176,6 +187,7 @@ function deleteMessage() {
 // TODO:
 // - not hard code
 // - have it based on actual time elapsed
+// - move to another file??
 let newMessageTimer = 50;
 function tick() {
     newMessageTimer--;
