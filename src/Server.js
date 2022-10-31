@@ -27,7 +27,6 @@ class VoiceChannel {
 }
 
 class Server {
-    // TODO: Maybe accept both paths and Image objects?
     constructor(picture, name) {
         this.picture = picture;
 
