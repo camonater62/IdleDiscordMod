@@ -186,6 +186,21 @@ h1, p, h2, h3 {
   background-color: #43464d;
 }
 
+/* For top middle text styles */
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+
+/* For server name text on top left */
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
+
 /* For shop toggles */
 input[type=checkbox]{
 	height: 0;
