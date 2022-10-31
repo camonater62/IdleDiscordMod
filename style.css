@@ -22,11 +22,18 @@
   src: url('fonts/whitneybold.otf');
   
 }
-h1, p, h2, h3 {
+h2, h3, p {
   font-family: 'whitneylight';
   font-size: 20px;
   color: #f2eef2;
   margin: 8px 10px;
+}
+
+h1 {
+  font-family: 'whitneysemibold';
+  font-size: 18px;
+  color: #f2eef2;
+  margin-top: 0;
 }
 
 .profile-icon {
@@ -37,9 +44,9 @@ h1, p, h2, h3 {
 }
 
 .server-icon {
+  width: 75px;
+  height: 75px;
   padding: 1.5px 8px;
-  width: 70px;
-  height: 70px;
   border-radius: 50%;
 }
 
@@ -179,7 +186,7 @@ h1, p, h2, h3 {
 }
 
 .s1channelButtons {
-  font-family: 'whitneysemibold';
+  font-family: 'whitney';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -218,8 +225,20 @@ h1, p, h2, h3 {
   transition-duration: 0.4s;
 }
 
-.vcChannelStyles:hover {
-  cursor: pointer;
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
+.s1channelButtons:hover {
+  background-color: #43464d;
   color: white;
   background-color: #43464d;
 }
@@ -283,7 +302,7 @@ body {
   font-size: 12px;
   color: grey;
   padding-top: 15px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 /* Scrollbar Style */
