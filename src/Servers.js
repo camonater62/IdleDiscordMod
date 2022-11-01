@@ -14,21 +14,20 @@ smallFriendServer.textchannels = [
     new TextChannel("# empty text"),
 ];
 
-console.log(smallFriendServer.users.length);
-smallFriendServer.voicechannels = Vclist(2,smallFriendServer.users);
-for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){
+console.log(smallFriendServer.users.length); //testing code, plz save it for now
+smallFriendServer.voicechannels = Vclist(2,smallFriendServer.users);//add 2 voice channels with random members
+for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){//testing code, prints out vc members
     console.log(smallFriendServer.voicechannels[0].currentUsers[i].name);
 }
 //Voiceuser(smallFriendServer.users);
 
 // testing server, please keep for now
 const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
+bigFriendServer.users = Userlist(15);
 bigFriendServer.textchannels = [
     new TextChannel("This is a different text channel"),
 ]
-bigFriendServer.voicechannels = [
-    new VoiceChannel("This is a different voice channel"),
-]
+bigFriendServer.voicechannels = bigFriendServer.voicechannels = Vclist(1,bigFriendServer.users);
 
 // another testing server
 const classServer = new Server("imgs/server-icons/classserver.png", "Class Server");
@@ -40,7 +39,7 @@ classServer.voicechannels = [
 ]
 classServer.users = Userlist(2);
 
-function Userlist(num){
+function Userlist(num){           // generate random userlist for new server, num = numbers of users
     names=[];
     for(var i =0; i<num; i++){
         names.push(new User());
@@ -48,7 +47,7 @@ function Userlist(num){
     return names;
 }
 
-function Voiceuser(users){
+function Voiceuser(users){       // randomly pick a few users from server user list to show up in the voice channel
     names=[];
     var voice_users = Math.floor(Math.random()*users.length);
     for(var i =0; i<voice_users; i++){
@@ -58,7 +57,8 @@ function Voiceuser(users){
     return names;
 }
 
-function Vclist(num, users){
+function Vclist(num, users){     //num = voice channel numbers
+                                 //add num voice channels to server
     vc=[];
     for(var i =0; i<num; i++){
         vc.push(new VoiceChannel("this is a new voice channel",Voiceuser(users)));
