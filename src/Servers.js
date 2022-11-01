@@ -7,7 +7,7 @@
 // - Change name?
 // - Change the users to not be so hard coded
 const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)");
-smallFriendServer.users = Userlist(7); //aff 7 users
+smallFriendServer.users = Userlist(7); //add 7 users
 // empty text is just here for testing, we can delete later
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
@@ -16,7 +16,9 @@ smallFriendServer.textchannels = [
 
 console.log(smallFriendServer.users.length);
 smallFriendServer.voicechannels = Vclist(2,smallFriendServer.users);
-
+for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){
+    console.log(smallFriendServer.voicechannels[0].currentUsers[i].name);
+}
 //Voiceuser(smallFriendServer.users);
 
 // testing server, please keep for now
@@ -50,8 +52,8 @@ function Voiceuser(users){
     names=[];
     var voice_users = Math.floor(Math.random()*users.length);
     for(var i =0; i<voice_users; i++){
-        names.push(users[i].name);
-        console.log(users[i].name);
+        names.push(users[i]);
+        //console.log(users[i].name);
     }
     return names;
 }

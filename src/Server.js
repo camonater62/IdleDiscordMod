@@ -20,9 +20,9 @@ class TextChannel {
 }
 
 class VoiceChannel {
-    constructor(name) {
+    constructor(name,users) {
         this.name = name;
-        this.currentUsers = [];
+        this.currentUsers = users;
     }
 }
 
