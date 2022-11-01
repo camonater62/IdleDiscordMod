@@ -44,7 +44,7 @@ function switchTextChannel(channel) {
 }
 
 // TODO
-function switchVoiceChannel(channel) {
+/*function switchVoiceChannel(channel) {
     channelPane.innerHTML = "";
 
     // area for a all text messages
@@ -76,7 +76,7 @@ function switchVoiceChannel(channel) {
     }
 
 
-}
+}*/
 
 
 
