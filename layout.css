@@ -10,7 +10,7 @@ html {
     height: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: 0.09fr 0.25fr 1fr 0.4fr;
+    grid-template-columns: 111px 250px auto 280px;
     grid-template-rows: 0.2fr 2.7fr 0.5fr 0.4fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -32,17 +32,23 @@ html {
     grid-area: toppane;
     background-color: #36393f;
     border-bottom: 1px solid black;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 .channelpane {
     grid-area: channelpane;
     background-color: #2f3136;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .serverpane {
     grid-area: serverpane;
     background-color: #202225;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .userpane {
@@ -64,12 +70,18 @@ html {
     grid-area: shoppane;
     background-color: #2f3136;
     color: #b0b0b0;
+    padding-top: 10px;
+    padding-left: 15px;
+    overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 .servernamepane {
     grid-area: servernamepane;
     background-color: #2f3136;
     border-bottom: 1px solid black;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 .message-container {

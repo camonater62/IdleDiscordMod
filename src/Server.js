@@ -1,7 +1,7 @@
 class User {
-    constructor(pfp, name) {
-        this.pfp = pfp;
-        this.name = name;
+    constructor() {
+        this.pfp = randomPfp();
+        this.name = randomUsername();
     }
 }
 
@@ -27,7 +27,6 @@ class VoiceChannel {
 }
 
 class Server {
-    // TODO: Maybe accept both paths and Image objects?
     constructor(picture, name) {
         this.picture = picture;
 
