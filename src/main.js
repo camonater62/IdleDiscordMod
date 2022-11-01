@@ -82,7 +82,7 @@ function switchServer(server) {
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
     const vcIcon = document.createElement('img');
-    vcIcon.src = 'imgs/vc-icon.png'
+    vcIcon.src = 'imgs/vc-icon.png' 
     vcIcon.classList = 'vc-icon';
 
     for (const tc of server.textchannels) {
@@ -94,7 +94,15 @@ function switchServer(server) {
         textChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(textChannels);
-
+    /*for (const us of server.users) {
+        const channelBtn= document.createElement('button');
+        channelBtn.className = "s1channelButtons";
+        channelBtn.innerHTML = tc.name;
+        channelBtn.onclick = () => { switchTextChannel(tc); };
+        textChannels.appendChild(channelBtn);
+        textChannels.appendChild(document.createElement('br'));
+    }*/
+    channelPane.appendChild(textChannels);
     const voiceChannels = document.createElement('div');
     voiceChannels.className = "textChannelStyle";
     voiceChannels.innerHTML = "VOICE CHANNELS<br />";
