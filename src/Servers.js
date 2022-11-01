@@ -7,23 +7,20 @@
 // - Change name?
 // - Change the users to not be so hard coded
 const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)");
-smallFriendServer.users = [
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-];
+smallFriendServer.users = Userlist(7);
 // empty text is just here for testing, we can delete later
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
     new TextChannel("# empty text"),
 ];
+
+console.log(smallFriendServer.users.length);
 smallFriendServer.voicechannels = [
     new VoiceChannel("voice channel"),
+    
 ];
+
+
 
 // testing server, please keep for now
 const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
@@ -46,3 +43,11 @@ classServer.users = [
     new User(),
     new User()
 ];
+
+function Userlist(num){
+    names=[];
+    for(var i =0; i<num; i++){
+        names.push(new User());
+    }
+    return names;
+}

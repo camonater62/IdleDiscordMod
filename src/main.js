@@ -45,7 +45,39 @@ function switchTextChannel(channel) {
 
 // TODO
 function switchVoiceChannel(channel) {
+    channelPane.innerHTML = "";
+
+    // area for a all text messages
+    // using another elem so the scrollbar
+    // can be offset
+    const elem = document.createElement('div');
+    elem.classList = "vc-area";
+    channelPane.appendChild(elem);
+
+    for (const u of channel.currentUsers) {
+        // container for whole message
+        console.log(u.name);
+        const vcElem = document.createElement('div');
+        vcElem.classList = "vc-user-container";
+
+        // user icon
+        const pfp = document.createElement('img');
+        pfp.classList = "vc-img vc-pic";
+        pfp.src = u.pfp;
+
+        // user name
+        const name = document.createElement('h3');
+        name.innerHTML = u.name;
+        name.className = "username"
+
+        vcElem.append(u, name);
+        elem.appendChild(vcElem);
+        //msgElem.scrollIntoView();
+    }
+
+
 }
+
 
 
 // this function changes the dom elements to be a new server

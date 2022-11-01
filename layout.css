@@ -126,8 +126,28 @@ html {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "vc-icon vc-name"
-      "vc-img username";
+      "vc-icon vc-name";
+     
+}
+
+.vc-user-container {  
+    margin-top: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 1px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "vc-pic username";
+     
+}
+
+.vc-area {
+    height: 98%; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    overflow-y: auto;
 }
   
 .vc-icon { 
@@ -135,5 +155,9 @@ html {
     padding-top: 2px;
     grid-area: vc-icon; 
 }
-  .vc-name { grid-area: vc-name; }
+
+.vc-name { grid-area: vc-name; }
+
+.vc-pic { grid-area: vc-pic; }
+
   
