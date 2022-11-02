@@ -35,6 +35,10 @@ h1 {
   color: #f2eef2;
   margin-top: 0;
 }
+/* class that adjusts margins of certain h1*/
+.margin {
+  margin: 12px;
+}
 
 .profile-icon {
   padding-left: 5px;
@@ -116,10 +120,17 @@ h1 {
 }
 
 .button:hover {
-  color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+  background-color: #44DDBF;
+  color: #292b2f
 }
+/* makes bold (used for shop button header) */
+.bold {
+  font-weight: bold;
+}
+
+
 /* For generic wrapper around elements */
 .userbox {
   background-color: #41444b;
@@ -168,10 +179,12 @@ h1 {
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
+
 /* For action buttons */
 .playerbutton {
   background-color: #41444b;
   border: none;
+  font-family: "whitneymedium";
   padding: 18px;
   text-align: center;
   color: #9398a4;
@@ -199,7 +212,7 @@ h1 {
 }
 
 .s1channelButtons {
-  font-family: 'whitney';
+  font-family: 'whitneymedium';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -213,7 +226,6 @@ h1 {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   width: 100%
-  
 }
 
 .s1channelButtons:hover {
@@ -224,7 +236,7 @@ h1 {
 }
 
 .vcChannelStyles {
-  font-family: 'whitneysemibold';
+  font-family: 'whitneymedium';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -238,6 +250,18 @@ h1 {
   transition-duration: 0.4s;
 }
 
+.vcChannelStyles:hover {
+  background-color: #43464d;
+  color: white;
+  cursor: pointer;
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
+#clout-box {
+  background-color: #44DDBF;
+  color: #292b2f;
+}
+
 .topTextStyle {
   font-family: 'whitneysemibold';
   font-size: 25;
@@ -248,12 +272,6 @@ h1 {
   font-family: 'whitneysemibold';
   font-size: 25;
   padding: 10px;
-}
- 
-.s1channelButtons:hover {
-  background-color: #43464d;
-  color: white;
-  background-color: #43464d;
 }
 
 /* For top middle text styles */
@@ -301,7 +319,7 @@ label:after { /*Displays the white circle inside the toggle*/
 	transition: 0.3s;
 }
 input:checked + label {
-	background: #bada55;
+	background: #44DDBF;
 }
 input:checked + label:after { /*Moves slider left or right*/
 	left: calc(100% - 5px);
