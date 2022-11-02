@@ -106,7 +106,7 @@ function switchServer(server) {
         const input = document.createElement("input");
         input.type = "checkbox";
         input.id = shopbtn.button_name;
-        input.onclick = () => {shopbtn.togglebutton();};
+        input.onclick = () => {{shopbtn.togglebutton();document.getElementById('switch').play();}};
         input.disabled = true;
         const labelling = document.createElement("label");
         labelling.htmlFor= shopbtn.button_name;
@@ -149,9 +149,9 @@ function switchServer(server) {
         const outerButton = document.createElement('button');
         outerButton.className = "button"
         outerButton.id = shopbtn.div_name;
-        if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember();};
-        if (shopbtn.text == "AddMusic Bot") {outerButton.onclick = () => server.addbot("musicbot");};
-        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot("automuterbot");};
+        if (shopbtn.text == "Add Member") {outerButton.onclick = () => {server.addmember(); document.getElementById('pop').play();}};
+        if (shopbtn.text == "AddMusic Bot") {outerButton.onclick = () => {server.addbot("musicbot"); document.getElementById('pop').play();}};
+        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => {server.addbot("automuterbot");document.getElementById('pop').play();}};
         const topRow = document.createElement("h1");
         topRow.innerText = shopbtn.text
         const bottomRow = document.createElement("h1");

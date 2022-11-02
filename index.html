@@ -7,8 +7,7 @@
         <title>Idle Discord Mod</title>
         
         <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="layout.css" />
-        
+        <link rel="stylesheet" href="layout.css" />  
     </head>
     <body>
         <div class="container">
@@ -53,7 +52,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: visible ;"
-                    onclick="deleteMessage()"
+                    onclick="deleteMessage(); document.getElementById('pop').play();"
                     id="deletebtn"
                 >
                     Delete Message
@@ -61,7 +60,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: hidden"
-                    onclick="addclout('disconnectbtn', 20)"
+                    onclick="addclout('disconnectbtn', 20); document.getElementById('pop').play();"
                     id="disconnectbtn"
                 >
                     Disconnect Person
@@ -69,7 +68,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: hidden"
-                    onclick="addclout('kickbtn', 40)"
+                    onclick="addclout('kickbtn', 40); document.getElementById('pop').play();"
                     id="kickbtn"
                 >
                     Kick Person
@@ -77,7 +76,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: hidden"
-                    onclick="addclout('banbtn', 80)"
+                    onclick="addclout('banbtn', 80); document.getElementById('pop').play();"
                     id="banbtn"
                 >
                     Ban Person
@@ -92,4 +91,16 @@
     <script src="src/Server.js"></script>
     <script src="src/Servers.js"></script>
     <script src="src/main.js"></script>
+
+    <!--ALL SOUNDS (TEMPORARY)-->
+    <iframe src="../IdleDiscordMod/sounds/BgMusic/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe> <!--BG Music Test-->
+    <audio playsinline autoplay loop>
+        <source src="../IdleDiscordMod/sounds/BgMusic/030 - 5 PM.mp3" type="audio/mp3"> <!--Chrome autoplay policy doesn't allow music playing in the background(not sure if there's other ways). Firefox allows it if you enable autoplay-->
+    </audio>
+    <audio id="pop"> <!--Popping sound for buttons (works fine on chrome and Firefox)-->
+        <source src="../IdleDiscordMod/sounds/SFX/pop.mp3" type="audio/mp3">
+    </audio>
+    <audio id="switch"> <!--Toggle Switch Sound (works fine)-->
+        <source src="../IdleDiscordMod/sounds/SFX/switch.mp3" type="audio/mp3">
+    </audio>
 </html>
