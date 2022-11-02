@@ -15,7 +15,7 @@ smallFriendServer.textchannels = [
 ];
 
 console.log(smallFriendServer.users.length); //testing code, plz save it for now
-smallFriendServer.voicechannels = Vclist(2,smallFriendServer.users);//add 2 voice channels with random members
+smallFriendServer.voicechannels = Vclist(1,smallFriendServer.users);//add 2 voice channels with random members
 for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){//testing code, prints out vc members
     console.log(smallFriendServer.voicechannels[0].currentUsers[i].name);
 }

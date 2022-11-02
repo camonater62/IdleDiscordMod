@@ -45,7 +45,7 @@ function switchTextChannel(channel) {
 
 // TODO
 function switchVoiceChannel(channel) {
-    channelPane.innerHTML = "";
+    //channelPane.innerHTML = "";
 
     // area for a all text messages
     // using another elem so the scrollbar
