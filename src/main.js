@@ -72,7 +72,7 @@ function switchVoiceChannel(channel) {
 
         vcElem.append(pfp, name);
         elem.appendChild(vcElem);
-        vcElem.scrollIntoView();
+        //vcElem.scrollIntoView();
     }
 
 

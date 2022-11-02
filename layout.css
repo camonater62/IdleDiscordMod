@@ -138,10 +138,10 @@ html {
 }
 
 .vc-user-container {  
-    margin-top: 10px;
+    margin-top: 1px;
     margin-left: 10px;
     display: grid;
-    grid-template-columns: 30px 1.56fr;
+    grid-template-columns: 25px 1.56fr;
     grid-template-rows: 0.42fr 1.58fr;
     gap: 0px 0px;
     grid-auto-flow: row;
