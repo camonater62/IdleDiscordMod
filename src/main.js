@@ -175,6 +175,9 @@ function deleteMessage() {
 
     switchTextChannel(smallFriendServer.textchannels[0]);
 }
+disconnect_shopbtn = new ShopButton("disconnectswitch", parseInt(document.getElementById("disconnect_button_cost").textContent) * -1, "disconnect_button_cost", false, "red");
+kick_shopbtn = new ShopButton("kickswitch", parseInt(document.getElementById("kick_button_cost").textContent) * -1, "kick_button_cost", false, "red")
+ban_shopbtn = new ShopButton("banswitch", parseInt(document.getElementById("ban_button_cost").textContent) * -1, "ban_button_cost", false, "red")
 
 // TODO:
 // - not hard code
@@ -204,6 +207,10 @@ function tick() {
 
     const cloutElem = document.getElementById('clout');
     cloutElem.innerHTML = `<b>${clout}</b>`;
+
+    if (!disconnect_shopbtn.is_bought) {disconnect_shopbtn.updatebutton()}
+    if (!kick_shopbtn.is_bought) {kick_shopbtn.updatebutton()}
+    if (!ban_shopbtn.is_bought) {ban_shopbtn.updatebutton()}
 
     requestAnimationFrame(tick);
 }

@@ -37,4 +37,11 @@ class Server {
         this.textchannels = [];
         this.voicechannels = [];
     }
+    addmember() {
+        // TODO: Add UserCost
+        if (clout >= 20) {
+            this.users.push(new User());
+            clout -= 20
+        }
+    }
 }

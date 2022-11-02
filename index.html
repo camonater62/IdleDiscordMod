@@ -61,12 +61,13 @@
                             <input
                                 type="checkbox"
                                 id="disconnectswitch"
-                                onclick="shopbutton('disconnectswitch')"
+                                onclick="disconnect_shopbtn.togglebutton()"
+                                disabled
                             />
                             <label for="disconnectswitch"></label>
                         </h1>
-                        <h1 class="clout-bar" style="color: aquamarine">
-                            <span id="ban_button_cost">-40 </span>
+                        <h1 class="clout-bar" style="color: red">
+                            <span id="disconnect_button_cost">-40 </span>
                             <img src="./imgs/Clout Glasses-28x10.png" />
                         </h1>
                         <h1 class="clout-bar">
@@ -83,11 +84,12 @@
                             <input
                                 type="checkbox"
                                 id="kickswitch"
-                                onclick="shopbutton('kickswitch')"
+                                onclick="kick_shopbtn.togglebutton()"
+                                disabled
                             /><label for="kickswitch"></label>
                         </h1>
-                        <h1 class="clout-bar" style="color: aquamarine">
-                            <span id="ban_button_cost">-80 </span>
+                        <h1 class="clout-bar" style="color: red">
+                            <span id="kick_button_cost">-80 </span>
                             <img src="./imgs/Clout Glasses-28x10.png" />
                         </h1>
                         <h1 class="clout-bar">
@@ -103,7 +105,8 @@
                             Ban<input
                                 type="checkbox"
                                 id="banswitch"
-                                onclick="shopbutton('banswitch')"
+                                onclick="ban_shopbtn.togglebutton()"
+                                disabled
                             />
                             <label for="banswitch"></label>
                         </h1>
@@ -117,21 +120,36 @@
                         </h1>
                     </div>
                 </div>
+                <hr color="#41444b">
+                <br />      
+                    <button class="button" id="addmemberbtn" onclick="smallFriendServer.addmember()">
+                        <h1>Add Member
+                        <h1 class="clout-bar" style="color: red">
+                            <span id="add_member_cost">-20 </span>
+                            <img src="./imgs/Clout Glasses-28x10.png" /></h1>
+                        </h1>
+                    </button>
                 <br />
-                <button class="button">
-                    Add Member <br />
-                    - 20 clout <br />
+                <button class="button" id="addmusicbotbtn">
+                    <h1>Add Music Bot
+                    <h1 class="clout-bar" style="color: red">
+                        <span id="add_music_cost">-80 </span>
+                        <img src="./imgs/Clout Glasses-28x10.png" /></h1>
+                    </h1>
+                    <h1 class="clout-bar">
+                        + 5 <img src="./imgs/Clout Glasses-28x10.png" /> / s
+                    </h1>
                 </button>
                 <br />
-                <button class="button">
-                    Add Music Bot <br />
-                    -80 Clout <br />
-                    + 5 clout per second <br />
-                </button>
-                <br />
-                <button class="button">
-                    Add AutoMuter Bot <br />
-                    -160 clout <br />
+                <button class="button" id="addautomuterbtn">
+                    <h1>Add AutoMuter Bot
+                    <h1 class="clout-bar" style="color: red">
+                        <span id="add_music_cost">-160 </span>
+                        <img src="./imgs/Clout Glasses-28x10.png" /></h1>
+                    </h1>
+                    <h1 class="clout-bar">
+                        + 10 <img src="./imgs/Clout Glasses-28x10.png" /> / s
+                    </h1>    
                 </button>
             </div>
             <div class="bottompane" id="bottompane">
