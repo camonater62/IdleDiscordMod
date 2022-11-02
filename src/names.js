@@ -1,4 +1,4 @@
-KoalaKopter
+let users = `KoalaKopter
 Denial
 Reinhard
 Mr. Robot
@@ -1496,4 +1496,4 @@ Red_1
 Alex D
 Seamus
 derekk
-Camo
+Camo`.split('\n');
