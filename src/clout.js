@@ -2,12 +2,15 @@ let clout = 39;
 let logocounter = 0;
 
 class ShopButton {
-    constructor(button_name, cost, cost_name, is_bought, button_color) {
+    constructor(text, div_name, button_name, cost, cost_name, is_bought, button_color, cloutgen) {
+        this.text = text;
+        this.div_name = div_name;
         this.button_name = button_name;
         this.cost = cost;
         this.is_bought = is_bought;
         this.button_color = button_color;
         this.cost_name = cost_name;
+        this.cloutgen = cloutgen
     }
     updatebutton() {
         if (clout >= this.cost) {
@@ -65,3 +68,11 @@ function changeicon() {
     }
 }
 
+function updatetext(cost_name, cost) {
+    if (clout >= cost) {
+        document.getElementById(cost_name).style.color = "aquamarine";
+    }
+    else {
+        document.getElementById(cost_name).style.color = "red";
+    }
+}

@@ -1,7 +1,8 @@
 const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
-
+const shopPane = document.getElementById('shoppane');
+currentServer = ""
 // update the text area dom to represent this text channel
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
@@ -85,6 +86,7 @@ function switchServer(server) {
     // clear all the previous channels
     channelPane.innerHTML = "";
     
+
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
@@ -135,6 +137,7 @@ function switchServer(server) {
 
     // switch to the primary text channel for the default view
     switchTextChannel(server.textchannels[0]);
+    currentServer = server
 }
 
 // this function creates an icon on the left side and binds the 
@@ -175,17 +178,17 @@ function deleteMessage() {
 
     switchTextChannel(smallFriendServer.textchannels[0]);
 }
-disconnect_shopbtn = new ShopButton("disconnectswitch", parseInt(document.getElementById("disconnect_button_cost").textContent) * -1, "disconnect_button_cost", false, "red");
-kick_shopbtn = new ShopButton("kickswitch", parseInt(document.getElementById("kick_button_cost").textContent) * -1, "kick_button_cost", false, "red")
-ban_shopbtn = new ShopButton("banswitch", parseInt(document.getElementById("ban_button_cost").textContent) * -1, "ban_button_cost", false, "red")
+
 
 // TODO:
 // - not hard code
 // - have it based on actual time elapsed
 // - move to another file??
 let newMessageTimer = 50;
+let cloutgenTimer = 50;
 function tick() {
     newMessageTimer--;
+    cloutgenTimer--;
     if (newMessageTimer <= 0) {
         const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
         let user = smallFriendServer.users[rndIndex];
@@ -199,18 +202,19 @@ function tick() {
 
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
-
     }
-
+    if (cloutgenTimer <= 0) {
+        clout += smallFriendServer.cloutgenrate + bigFriendServer.cloutgenrate + classServer.cloutgenrate;
+        cloutgenTimer = 50;
+    }
     const userCountElem = document.getElementById('member');
-    userCountElem.innerHTML = `<b>${smallFriendServer.users.length}</b>`
-
+    userCountElem.innerHTML = `<b>${currentServer.users.length}</b>`
     const cloutElem = document.getElementById('clout');
     cloutElem.innerHTML = `<b>${clout}</b>`;
 
-    if (!disconnect_shopbtn.is_bought) {disconnect_shopbtn.updatebutton()}
-    if (!kick_shopbtn.is_bought) {kick_shopbtn.updatebutton()}
-    if (!ban_shopbtn.is_bought) {ban_shopbtn.updatebutton()}
+    if (!currentServer.disconnect_shopbtn.is_bought) {currentServer.disconnect_shopbtn.updatebutton()}
+    if (!currentServer.kick_shopbtn.is_bought) {currentServer.kick_shopbtn.updatebutton()}
+    if (!currentServer.ban_shopbtn.is_bought) {currentServer.ban_shopbtn.updatebutton()}
 
     requestAnimationFrame(tick);
 }

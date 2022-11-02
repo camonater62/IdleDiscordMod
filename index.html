@@ -47,13 +47,6 @@
             </div>
             <div class="shoppane" id="shoppane">
                 <h1>Shop</h1>
-                <!-- <div>
-                    <div  class="shopbox">
-                        <h1>Delete Message<input type="checkbox" id="delswitch" onclick="this.disabled = true; visibility('deletebtn', 1)" /><label for="delswitch"></label></h1>
-                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-20 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+10     <img src="./imgs/Clout Glasses-28x10.png"> / click
-                        </div>
-                </div> 
-                <br /> -->
                 <div>
                     <div class="shopbox" id="disconnectshop" style="visibility: visible">
                         <h1>
@@ -61,7 +54,7 @@
                             <input
                                 type="checkbox"
                                 id="disconnectswitch"
-                                onclick="disconnect_shopbtn.togglebutton()"
+                                onclick="currentServer.disconnect_shopbtn.togglebutton()"
                                 disabled
                             />
                             <label for="disconnectswitch"></label>
@@ -84,7 +77,7 @@
                             <input
                                 type="checkbox"
                                 id="kickswitch"
-                                onclick="kick_shopbtn.togglebutton()"
+                                onclick="currentServer.kick_shopbtn.togglebutton()"
                                 disabled
                             /><label for="kickswitch"></label>
                         </h1>
@@ -105,7 +98,7 @@
                             Ban<input
                                 type="checkbox"
                                 id="banswitch"
-                                onclick="ban_shopbtn.togglebutton()"
+                                onclick="currentServer.ban_shopbtn.togglebutton()"
                                 disabled
                             />
                             <label for="banswitch"></label>
@@ -121,8 +114,8 @@
                     </div>
                 </div>
                 <hr color="#41444b">
-                <br />      
-                    <button class="button" id="addmemberbtn" onclick="smallFriendServer.addmember()">
+                <br /> <!--Change to server ID later.-->
+                    <button class="button" id="addmemberbtn" onclick="currentServer.addmember()">
                         <h1>Add Member
                         <h1 class="clout-bar" style="color: red">
                             <span id="add_member_cost">-20 </span>
@@ -130,7 +123,7 @@
                         </h1>
                     </button>
                 <br />
-                <button class="button" id="addmusicbotbtn">
+                <button class="button" id="addmusicbotbtn" onclick="currentServer.addbot('musicbot')">
                     <h1>Add Music Bot
                     <h1 class="clout-bar" style="color: red">
                         <span id="add_music_cost">-80 </span>
@@ -141,7 +134,7 @@
                     </h1>
                 </button>
                 <br />
-                <button class="button" id="addautomuterbtn">
+                <button class="button" id="addautomuterbtn" onclick="currentServer.addbot('automuterbot')">
                     <h1>Add AutoMuter Bot
                     <h1 class="clout-bar" style="color: red">
                         <span id="add_music_cost">-160 </span>
