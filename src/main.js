@@ -85,15 +85,105 @@ function switchVoiceChannel(channel) {
 function switchServer(server) {
     // clear all the previous channels
     channelPane.innerHTML = "";
-    
 
+    // Save visible elements.
+    for (const shopbtn of server.toggleshopbuttons) {
+        if (shopbtn.button_name == "disconnectswitch" && shopbtn.is_bought) {
+            server.toggleshopbuttons[1].is_visible = true
+        } else if (shopbtn.button_name == "kickswitch" && shopbtn.is_bought) {
+            server.toggleshopbuttons[2].is_visible = true
+        }
+    }
+    // Generate shop panel.
+    shopPane.innerHTML = "<h1>Shop</h1>";
+    for (const shopbtn of server.toggleshopbuttons) {
+        const outerDiv = document.createElement("div");
+        const shopBox = document.createElement("div");
+        shopBox.className = "shopbox";
+        shopBox.id = shopbtn.div_name;
+        const topRow = document.createElement("h1");
+        topRow.innerHTML = shopbtn.text;
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.id = shopbtn.button_name;
+        input.onclick = () => {shopbtn.togglebutton();};
+        input.disabled = true;
+        const labelling = document.createElement("label");
+        labelling.htmlFor= shopbtn.button_name;
+        const bottomRow = document.createElement("h1");
+        bottomRow.className = "clout-bar";
+        bottomRow.style.color = "red";
+        const button_cost = document.createElement("span");
+        button_cost.innerText = shopbtn.cost * -1 + " ";
+        button_cost.id = shopbtn.cost_name;
+        const button_img = document.createElement("img");
+        button_img.src = "./imgs/Clout Glasses-28x10.png";
+        if (shopbtn.div_name == "disconnectshop") {shopBox.style.visibility = "visible"}
+        if (shopbtn.is_bought || shopbtn.is_visible) {shopBox.style.visibility = "visible"}
+        shopPane.appendChild(outerDiv);
+        outerDiv.appendChild(shopBox);
+        shopBox.appendChild(topRow);
+        topRow.appendChild(input);
+        topRow.appendChild(labelling);
+        shopBox.appendChild(bottomRow);
+        bottomRow.appendChild(button_cost);
+        bottomRow.appendChild(button_img);
+        if (shopbtn.cloutgen != 0) {
+            const button_genrate = document.createElement("h1");
+            button_genrate.className = "clout-bar";
+            button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / click";
+            shopBox.appendChild(button_genrate);
+        }
+
+        shopbtn.updatebutton();
+    }
+    // Create Header to separate shop elements.
+    const header = document.createElement('hr');
+    // TODO: Deprecated html.color attribute here but header.style.color doesn't
+    // work either?
+    header.color = "#41444b";
+    shopPane.appendChild(header);
+
+    // Create add buttons
+    for (const shopbtn of server.addshopbuttons) {
+        const outerButton = document.createElement('button');
+        outerButton.className = "button"
+        outerButton.id = shopbtn.div_name;
+        if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember();};
+        if (shopbtn.text == "AddMusic Bot") {outerButton.onclick = () => server.addbot("musicbot");};
+        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot("automuterbot");};
+        const topRow = document.createElement("h1");
+        topRow.innerText = shopbtn.text
+        const bottomRow = document.createElement("h1");
+        bottomRow.className = "clout-bar";
+        bottomRow.style.color = "red";
+        const button_cost = document.createElement("span");
+        button_cost.innerText = shopbtn.cost * -1 + " ";
+        button_cost.id = shopbtn.cost_name;
+        const button_img = document.createElement("img");
+        button_img.src = "./imgs/Clout Glasses-28x10.png";
+        shopPane.appendChild(outerButton);
+        outerButton.appendChild(topRow);
+        outerButton.appendChild(bottomRow);
+        bottomRow.append(button_cost);
+        bottomRow.append(button_img);
+        if (shopbtn.cloutgen != 0) {
+            const button_genrate = document.createElement("h1");
+            button_genrate.className = "clout-bar";
+            button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / s";
+            outerButton.appendChild(button_genrate);
+        }
+
+        shopbtn.updatebutton();
+    }
+    
+    console.log(shopPane);
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
-
-    // craete a button for every text channel
+    // create a button for every text channel
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
         const topText = document.getElementById('topText');
@@ -103,7 +193,6 @@ function switchServer(server) {
         channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
-        
     }
     channelPane.appendChild(textChannels);
 
@@ -212,9 +301,12 @@ function tick() {
     const cloutElem = document.getElementById('clout');
     cloutElem.innerHTML = `<b>${clout}</b>`;
 
-    if (!currentServer.disconnect_shopbtn.is_bought) {currentServer.disconnect_shopbtn.updatebutton()}
-    if (!currentServer.kick_shopbtn.is_bought) {currentServer.kick_shopbtn.updatebutton()}
-    if (!currentServer.ban_shopbtn.is_bought) {currentServer.ban_shopbtn.updatebutton()}
+    for (const shopbtn of currentServer.toggleshopbuttons) {
+        if (!shopbtn.is_bought) {shopbtn.updatebutton();};
+    }
+    for (const shopbtn of currentServer.addshopbuttons) {
+        shopbtn.updatebutton();
+    }
 
     requestAnimationFrame(tick);
 }
