@@ -104,10 +104,11 @@ h1 {
 
 /* For shop buttons */
 .button {
-  background-color: #41444b;
+  background-color: #7289da;
+  font-family: "whitneymedium";
   border: none;
   width: 100%;
-  color: white;
+  color: #9398a4;
   padding: 20px;
   text-align: center;
   text-decoration: none;
