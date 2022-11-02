@@ -55,24 +55,24 @@ function switchVoiceChannel(channel) {
     channelPane.appendChild(elem);
 
     for (const u of channel.currentUsers) {
-        // container for whole message
-        console.log(u.name);
+        // container for profile and name
+        console.log("AaAaaa");
         const vcElem = document.createElement('div');
         vcElem.classList = "vc-user-container";
 
         // user icon
         const pfp = document.createElement('img');
-        pfp.classList = "vc-img vc-pic";
+        pfp.classList = "vc-img vc-pic";        
         pfp.src = u.pfp;
 
         // user name
         const name = document.createElement('h3');
         name.innerHTML = u.name;
-        name.className = "username"
+        name.className = "vcname"
 
-        vcElem.append(u, name);
+        vcElem.append(pfp, name);
         elem.appendChild(vcElem);
-        //msgElem.scrollIntoView();
+        //vcElem.scrollIntoView();
     }
 
 

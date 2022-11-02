@@ -19,10 +19,10 @@ class TextChannel {
     }
 }
 
-class VoiceChannel {
-    constructor(name) {
+class VoiceChannel { //name = vc name, users = server.users
+    constructor(name,users) {
         this.name = name;
-        this.currentUsers = [];
+        this.currentUsers = users;
     }
 }
 

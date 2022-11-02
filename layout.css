@@ -116,6 +116,13 @@ html {
     grid-area: username;
 }
 
+.vcname {
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: vcname;
+}
+
 .text-content {
     grid-area: text-content;
 }
@@ -131,20 +138,20 @@ html {
 }
 
 .vc-user-container {  
-    margin-top: 10px;
+    margin-top: 1px;
     margin-left: 10px;
     display: grid;
-    grid-template-columns: 1px 1.56fr;
+    grid-template-columns: 25px 1.56fr;
     grid-template-rows: 0.42fr 1.58fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-        "vc-pic username";
+        "vc-pic vcname";
      
 }
 
 .vc-area {
-    height: 98%; 
+    height: 50%; 
     margin-right: 10px; 
     margin-top: 10px; 
     overflow-y: auto;
