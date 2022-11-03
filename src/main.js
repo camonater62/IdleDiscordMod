@@ -59,12 +59,12 @@ function switchVoiceChannel(channel) {
     // area for a all text messages
     // using another elem so the scrollbar
     // can be offset
-    console.log(channel.opened);
+    // console.log(channel.opened);
     if (channel.opened == false) {
         const elem = document.createElement('div');
         elem.classList = "vc-area";
         channelPane.appendChild(elem);
-        console.log(channel.currentUsers);
+        // console.log(channel.currentUsers);
         for (const u of channel.currentUsers) {
             // container for profile and name
             const vcElem = document.createElement('div');
@@ -308,10 +308,10 @@ switchServer(allServers[0]);
 // finds the latest bad message and removes it
 function deleteMessage() {
     for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
-        if (currentTextChannel.textchannels[0].messages[i].text.good == false) {
-            currentTextChannel.textchannels[0].messages =
-                currentTextChannel.textchannels[0].messages.slice(0, i).concat(
-                currentTextChannel.textchannels[0].messages.slice(i + 1));
+        if (currentTextChannel.messages[i].text.good == false) {
+            currentTextChannel.messages =
+                currentTextChannel.messages.slice(0, i).concat(
+                currentTextChannel.messages.slice(i + 1));
             clout += 5;
             break;
         }
