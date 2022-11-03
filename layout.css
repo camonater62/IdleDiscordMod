@@ -10,7 +10,7 @@ html {
     height: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: 0.09fr 0.25fr 1fr 0.4fr;
+    grid-template-columns: 111px 250px auto 280px;
     grid-template-rows: 0.2fr 2.7fr 0.5fr 0.4fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -46,7 +46,7 @@ html {
 .serverpane {
     grid-area: serverpane;
     background-color: #202225;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -70,6 +70,7 @@ html {
     grid-area: shoppane;
     background-color: #2f3136;
     color: #b0b0b0;
+    padding-top: 10px;
     padding-left: 15px;
     overflow-y: scroll;
     overflow-x:hidden;
@@ -115,6 +116,13 @@ html {
     grid-area: username;
 }
 
+.vcname {
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: vcname;
+}
+
 .text-content {
     grid-area: text-content;
 }
@@ -126,6 +134,27 @@ html {
     grid-auto-flow: row;
     grid-template-areas:
       "vc-icon vc-name";
+     
+}
+
+.vc-user-container {  
+    margin-top: 1px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 25px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "vc-pic vcname";
+     
+}
+
+.vc-area {
+    height: 50%; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    overflow-y: auto;
 }
   
 .vc-icon { 
@@ -133,5 +162,9 @@ html {
     padding-top: 2px;
     grid-area: vc-icon; 
 }
-  .vc-name { grid-area: vc-name; }
+
+.vc-name { grid-area: vc-name; }
+
+.vc-pic { grid-area: vc-pic; }
+
   

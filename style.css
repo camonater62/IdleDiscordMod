@@ -35,6 +35,10 @@ h1 {
   color: #f2eef2;
   margin-top: 0;
 }
+/* class that adjusts margins of certain h1*/
+.margin {
+  margin: 12px;
+}
 
 .profile-icon {
   padding-left: 5px;
@@ -42,6 +46,14 @@ h1 {
   height: 75px;
   border-radius: 50%;
 }
+
+.vc-img {
+  padding-left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
 
 .server-icon {
   width: 75px;
@@ -58,7 +70,7 @@ h1 {
   position: absolute; 
   display: inline;
   height: 25px; 
-  width: 150px; 
+  width: auto; 
   margin: 10px 20px 0;
   background-color: #111113;
   color: #f2eef2;
@@ -93,8 +105,10 @@ h1 {
 /* For shop buttons */
 .button {
   background-color: #7289da;
+  font-family: "whitneymedium";
   border: none;
-  color: white;
+  width: 100%;
+  color: #9398a4;
   padding: 20px;
   text-align: center;
   text-decoration: none;
@@ -107,10 +121,17 @@ h1 {
 }
 
 .button:hover {
-  color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+  background-color: #44DDBF;
+  color: #292b2f
 }
+/* makes bold (used for shop button header) */
+.bold {
+  font-weight: bold;
+}
+
+
 /* For generic wrapper around elements */
 .userbox {
   background-color: #41444b;
@@ -129,6 +150,7 @@ h1 {
   transition-duration: 0.4s;
 }
 .shopbox {
+  visibility: hidden;
   background-color: #41444b;
   border: none;
   width: 85%;
@@ -158,10 +180,12 @@ h1 {
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
+
 /* For action buttons */
 .playerbutton {
   background-color: #41444b;
   border: none;
+  font-family: "whitneymedium";
   padding: 18px;
   text-align: center;
   color: #9398a4;
@@ -174,9 +198,7 @@ h1 {
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
-/* .playerbutton:active {
-  background-color: grey;
-} */
+
 .playerbutton:hover {
   /* background-color: grey; */
   color: #202225;
@@ -185,8 +207,13 @@ h1 {
   background-color: #44DDBF;
 }
 
+.playerbutton:active {
+  transform: scale(0.98);
+  background-color: grey;
+}
+
 .s1channelButtons {
-  font-family: 'whitney';
+  font-family: 'whitneymedium';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -200,7 +227,6 @@ h1 {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   width: 100%
-  
 }
 
 .s1channelButtons:hover {
@@ -211,7 +237,7 @@ h1 {
 }
 
 .vcChannelStyles {
-  font-family: 'whitneysemibold';
+  font-family: 'whitneymedium';
   background-color: #2f3136;
   border: none;
   color: grey;
@@ -225,6 +251,18 @@ h1 {
   transition-duration: 0.4s;
 }
 
+.vcChannelStyles:hover {
+  background-color: #43464d;
+  color: white;
+  cursor: pointer;
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
+#clout-box {
+  background-color: #44DDBF;
+  color: #292b2f;
+}
+
 .topTextStyle {
   font-family: 'whitneysemibold';
   font-size: 25;
@@ -236,17 +274,27 @@ h1 {
   font-size: 25;
   padding: 10px;
 }
- 
-.s1channelButtons:hover {
-  background-color: #43464d;
-  color: white;
-  background-color: #43464d;
+
+/* For top middle text styles */
+.topTextStyle {
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
 }
+
+/* For server name text on top left */
+.serverNameText{
+  font-family: 'whitneysemibold';
+  font-size: 25;
+  padding: 10px;
+}
+ 
 
 /* For shop toggles */
 input[type=checkbox]{
 	visibility: hidden;
 }
+
 label { /*Displays the toggle*/
 	cursor: pointer;
 	text-indent: -9999px;
@@ -272,7 +320,7 @@ label:after { /*Displays the white circle inside the toggle*/
 	transition: 0.3s;
 }
 input:checked + label {
-	background: #bada55;
+	background: #44DDBF;
 }
 input:checked + label:after { /*Moves slider left or right*/
 	left: calc(100% - 5px);
@@ -327,4 +375,13 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #303338; 
+}
+
+.separator {
+  width: 55%;
+  margin-top: 2px;
+  margin-left: 22.5%;
+  margin-right: 22.5%;
+  border-bottom: 3px solid #36393f;
+  margin-bottom: 5px;
 }
