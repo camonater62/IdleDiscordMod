@@ -2,7 +2,11 @@ const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
 const shopPane = document.getElementById('shoppane');
-currentServer = ""
+
+let currentServer;
+let currentTextChannel;
+let currentVoiceChannel; // do we need?
+
 // update the text area dom to represent this text channel
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
@@ -42,13 +46,12 @@ function switchTextChannel(channel) {
         elem.appendChild(msgElem);
         msgElem.scrollIntoView();
     }
+
+    document.getElementById('topText').textContent = channel.name;
+
+    currentTextChannel = channel;
 }
 
-// TODO
-// try and make this run by default, no more vc button
-// auto join, randomly assign user with red/green ("vc-user-container-bad")
-// make sure user is from server users
-// have green members leave after x seconds
 function switchVoiceChannel(channel) {
     //channelPane.innerHTML = "";
 
@@ -93,7 +96,8 @@ function switchVoiceChannel(channel) {
         }
         channel.opened = false;
     }
-    
+
+    currentVoiceChannel = channel;
 }
 
 function deletebadvoice() {
@@ -133,7 +137,7 @@ function switchServer(server) {
         labelling.htmlFor= shopbtn.button_name;
         const bottomRow = document.createElement("h1");
         bottomRow.className = "clout-bar";
-        bottomRow.style.color = "red";
+        bottomRow.style.color = "#FF3880";
         const button_cost = document.createElement("span");
         button_cost.innerText = shopbtn.cost * -1 + " ";
         button_cost.id = shopbtn.cost_name;
@@ -177,7 +181,7 @@ function switchServer(server) {
         topRow.innerText = shopbtn.text
         const bottomRow = document.createElement("h1");
         bottomRow.className = "clout-bar";
-        bottomRow.style.color = "red";
+        bottomRow.style.color = "#FF3880";
         const button_cost = document.createElement("span");
         button_cost.innerText = shopbtn.cost * -1 + " ";
         button_cost.id = shopbtn.cost_name;
@@ -205,13 +209,14 @@ function switchServer(server) {
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
     // create a button for every text channel
+    const topText = document.getElementById('topText');
+    topText.className = "topTextStyle";
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
-        const topText = document.getElementById('topText');
-        topText.className = "topTextStyle";
+       
         channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = tc.name;
-        channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
+        channelBtn.onclick = () => { switchTextChannel(tc); };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
     }
@@ -247,11 +252,11 @@ function switchServer(server) {
         // voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
-
+    switchVoiceChannel(server.voicechannels[0]);
     // switch to the primary text channel for the default view
-    switchTextChannel(server.textchannels[0]);
-    //switchVoiceChannel(server.voicehannels[0]);
     currentServer = server;
+    switchTextChannel(server.textchannels[0]);
+    //switchVoiceChannel(server.voicechannels[0]);
 }
 
 // this function creates an icon on the left side and binds the 
@@ -273,32 +278,29 @@ function addServerToDOM(server) {
     serverPane.appendChild(serverName);
 }
 
-addServerToDOM(smallFriendServer);
-addServerToDOM(bigFriendServer);
-addServerToDOM(classServer);
-switchServer(smallFriendServer);
+for (const server of allServers) {
+    addServerToDOM(server);
+}
+switchServer(allServers[0]);
 
 
 // finds the latest bad message and removes it
 function deleteMessage() {
-    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
-        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
-            smallFriendServer.textchannels[0].messages =
-                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
-                smallFriendServer.textchannels[0].messages.slice(i + 1));
+    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
+        if (currentTextChannel.messages[i].text.good == false) {
+            currentTextChannel.messages =
+                currentTextChannel.messages.slice(0, i).concat(
+                currentTextChannel.messages.slice(i + 1));
             addclout('deletebtn', 1);
             break;
         }
     }
 
-    switchTextChannel(smallFriendServer.textchannels[0]);
+    switchTextChannel(currentTextChannel);
 }
 
 
-// TODO:
-// - not hard code
-// - have it based on actual time elapsed
-// - move to another file??
+
 let newMessageTimer = 50;
 let cloutgenTimer = 50;
 
@@ -307,17 +309,20 @@ function tick() {
     cloutgenTimer--;
     vcTimer--;
     if (newMessageTimer <= 0) {
-        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
-        let user = smallFriendServer.users[rndIndex];
-        smallFriendServer.textchannels[0].messages.push(
-            new Message(user, getText()),
-        );
-
-        if (smallFriendServer.textchannels[0].messages.length > 6) {
-            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-60);
+        if (currentServer.users.length > 0) {
+            const rndIndex = Math.floor(Math.random() * currentServer.users.length);
+            let user = currentServer.users[rndIndex];
+            currentTextChannel.messages.push(
+                new Message(user, getText()),
+            );
+    
+            if (currentTextChannel.messages.length > 40) {
+                currentTextChannel.messages = currentTextChannel.messages.slice(-40);
+            }
+    
+            switchTextChannel(currentTextChannel);
         }
-
-        switchTextChannel(smallFriendServer.textchannels[0]);
+        
         newMessageTimer = 50;
     }
  
