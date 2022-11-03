@@ -45,6 +45,9 @@ function switchTextChannel(channel) {
 }
 
 // TODO
+// try and make this run by default, no more vc button
+// MAYBES
+// hard set number of users per voice channel (set height of vc container)
 function switchVoiceChannel(channel) {
     //channelPane.innerHTML = "";
 
@@ -56,28 +59,33 @@ function switchVoiceChannel(channel) {
         const elem = document.createElement('div');
         elem.classList = "vc-area";
         channelPane.appendChild(elem);
-        
+        console.log(channel.currentUsers);
         for (const u of channel.currentUsers) {
             // container for profile and name
             const vcElem = document.createElement('div');
-            vcElem.classList = "vc-user-container";
-    
-            // user icon
             const pfp = document.createElement('img');
-            pfp.classList = "vc-img vc-pic";        
-            pfp.src = u.pfp;
-    
+            if (Math.random() >= 0.5) {
+                vcElem.classList = "vc-user-container-bad";
+                pfp.classList = "vc-img-bad vc-pic";       
+                pfp.src = u.pfp;
+            } else {
+                vcElem.classList = "vc-user-container";
+                pfp.classList = "vc-img vc-pic";       
+                pfp.src = u.pfp;
+            }
+
             // user name
             const name = document.createElement('h3');
             name.innerHTML = u.name;
-            name.className = "vcname"
-    
+            name.className = "vcname";
+
             vcElem.append(pfp, name);
             elem.appendChild(vcElem);
             vcElem.scrollIntoView();
         }
         channel.opened = true;
     } else {
+        // might mess up other servers (probably)
         const elements = document.getElementsByClassName('vc-area');
         while(elements.length > 0){
             elements[0].parentNode.removeChild(elements[0]);
@@ -87,7 +95,11 @@ function switchVoiceChannel(channel) {
     
 }
 
-
+function deletebadvoice() {
+    const elements = document.getElementsByClassName('vc-user-container-bad');
+    elements[0].parentNode.removeChild(elements[0]);
+    clout += 20;
+}
 
 // this function changes the dom elements to be a new server
 function switchServer(server) {

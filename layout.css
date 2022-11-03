@@ -147,9 +147,18 @@ html {
     grid-template-rows: 0.42fr 0.25fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "vc-pic vcname";
-     
+    grid-template-areas: "vc-pic vcname"; 
+}
+
+.vc-user-container-bad {  
+    margin-top: 1px;
+    margin-left: 25px;
+    display: grid;
+    grid-template-columns: 25px 1.56fr;
+    grid-template-rows: 0.42fr 0.25fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "vc-pic vcname"; 
 }
 
 .vc-area {
