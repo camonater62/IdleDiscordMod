@@ -60,7 +60,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: hidden"
-                    onclick="addclout('disconnectbtn', 20); document.getElementById('pop').play();"
+                    onclick="addclout('disconnectbtn', 20); document.getElementById('discordDisconnectVC').play();"
                     id="disconnectbtn"
                 >
                     Disconnect Person
@@ -102,5 +102,11 @@
     </audio>
     <audio id="switch"> <!--Toggle Switch Sound (works fine)-->
         <source src="../IdleDiscordMod/sounds/SFX/switch.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordJoinVC"> <!--Voice Chat Join sound (works fine)-->
+        <source src="../IdleDiscordMod/sounds/SFX/discordJoinVC.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordDisconnectVC"> <!--Voice Chat Join sound (works fine)-->
+        <source src="../IdleDiscordMod/sounds/SFX/discordDisconnectVC.mp3" type="audio/mp3">
     </audio>
 </html>

@@ -210,7 +210,7 @@ function switchServer(server) {
     for (const vc of server.voicechannels) {
         const channelBtn = document.createElement('button');
         channelBtn.className = "vcChannelStyles vc-container";
-        channelBtn.onclick = () => { switchVoiceChannel(vc); };
+        channelBtn.onclick = () => { switchVoiceChannel(vc); document.getElementById('discordJoinVC').play();};
 
         const channelName = document.createElement('div');
         channelName.textContent = vc.name;
