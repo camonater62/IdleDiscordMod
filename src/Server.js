@@ -30,7 +30,7 @@ class VoiceChannel { //name = vc name, users = server.users
 class Server {
     constructor(picture, name, membercost, toggleshopbuttons, addshopbuttons) {
         this.picture = picture;
-
+        this.member_multiplier = 1;
         this.name = name;
         this.cloutgenrate = 0;
         this.membercost = membercost;
@@ -49,11 +49,16 @@ class Server {
         // members,musicbots,automuterbots,autodeletebots,autokickbots,autobanbots,autoateveryonebots,autoDMerbots
         this.numbers = [0,0,0,0,0,0,0,0,0]
     }
+    set_multiplier(multiplier) {
+        this.member_multiplier = multiplier;
+    }
     addmember() {
         // TODO: Add no no blink if can't afford
-        if (clout >= this.membercost) {
-            this.users.push(new User());
-            clout -= this.membercost;
+        if (clout >= this.membercost * this.member_multiplier) {
+            for (let i = 0; i < this.member_multiplier; i++ ) {
+                this.users.push(new User());
+            }
+            clout -= this.membercost * this.member_multiplier;
         }
     }
     addbot(cloutgenrate, cost, bottype){

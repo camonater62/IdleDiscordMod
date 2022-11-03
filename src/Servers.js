@@ -14,7 +14,7 @@ let add_autoDMerbot_shopbtn = new ShopButton("Add AutoDMer Bot", "addautoDMerbtn
 
 const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :D", 10, [], []);
 smallFriendServer.unlockcount = 0;
-smallFriendServer.users = Userlist(7); //add 7 users
+smallFriendServer.users = Userlist(2); //add 2 users
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
     new TextChannel("# empty text"),
