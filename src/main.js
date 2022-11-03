@@ -257,6 +257,7 @@ function switchServer(server) {
     switchVoiceChannel(server.voicechannels[0]);
 
     document.getElementById("serverNameText").textContent = server.name;
+    document.getElementById("channelpane").scrollTop = 0;
 }
 
 // this function creates an icon on the left side and binds the 
