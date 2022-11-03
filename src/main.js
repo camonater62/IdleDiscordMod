@@ -361,14 +361,34 @@ function tick() {
     }
 
     let totalMemberCount = 0;
+    let lastServer = undefined;
+    let level = 0;
 
     for (const server of allServers) {
         totalMemberCount += server.users.length;
+        
         if (totalMemberCount >= server.unlockcount) {
             const iconElem = document.getElementById(`${server.name.replace(" ", "-") + "-icon"}`);
             iconElem.style.visibility = "visible";
+        } else {
+            lastServer = server;
+            break;
         }
+        level++;
     }
+
+    if (lastServer) {
+        const progress = document.getElementById("server_progress");
+        progress.max = "" + lastServer.unlockcount;
+        progress.value = "" + totalMemberCount;
+        
+        document.getElementById('serverlevel').textContent = level;
+    } else {
+        // TODO: end state
+    }
+
+    
+
 
     requestAnimationFrame(tick);
 }
