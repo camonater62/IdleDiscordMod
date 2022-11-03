@@ -302,7 +302,7 @@ function deleteMessage() {
             smallFriendServer.textchannels[0].messages =
                 smallFriendServer.textchannels[0].messages.slice(0, i).concat(
                 smallFriendServer.textchannels[0].messages.slice(i + 1));
-            clout += 1;
+            clout += 5;
             break;
         }
     }
