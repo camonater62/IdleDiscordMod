@@ -282,21 +282,12 @@ switchServer(allServers[0]);
 
 // finds the latest bad message and removes it
 function deleteMessage() {
-<<<<<<< HEAD
-    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
-        if (currentTextChannel.messages[i].text.good == false) {
-            currentTextChannel.messages =
-                currentTextChannel.messages.slice(0, i).concat(
-                currentTextChannel.messages.slice(i + 1));
-            addclout('deletebtn', 1);
-=======
     for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
         if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
             smallFriendServer.textchannels[0].messages =
                 smallFriendServer.textchannels[0].messages.slice(0, i).concat(
                 smallFriendServer.textchannels[0].messages.slice(i + 1));
             clout += 1;
->>>>>>> db74c10f90245a9879631f0f6b8984169f67d0ca
             break;
         }
     }
