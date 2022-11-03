@@ -1,52 +1,8 @@
 const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
-
-// this is the starter/initial server
-// TODO:
-// - Change server icon
-// - Change name?
-// - Change the users to not be so hard coded
-const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)");
-smallFriendServer.users = [
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-    new User(),
-];
-// empty text is just here for testing, we can delete later
-smallFriendServer.textchannels = [
-    new TextChannel("# general"),
-    new TextChannel("# empty text"),
-];
-smallFriendServer.voicechannels = [
-    new VoiceChannel("voice channel"),
-];
-
-// testing server, please keep for now
-const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
-bigFriendServer.textchannels = [
-    new TextChannel("This is a different text channel"),
-]
-bigFriendServer.voicechannels = [
-    new VoiceChannel("This is a different voice channel"),
-]
-
-// another testing server
-const classServer = new Server("imgs/server-icons/classserver.png", "Class Server");
-classServer.textchannels = [
-    new TextChannel("This is a different text channel"),
-]
-classServer.voicechannels = [
-    new VoiceChannel("This is another different voice channel"),
-]
-classServer.users = [
-    new User(),
-    new User()
-];
-
+const shopPane = document.getElementById('shoppane');
+currentServer = ""
 // update the text area dom to represent this text channel
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
@@ -90,21 +46,144 @@ function switchTextChannel(channel) {
 
 // TODO
 function switchVoiceChannel(channel) {
+    //channelPane.innerHTML = "";
+
+    // area for a all text messages
+    // using another elem so the scrollbar
+    // can be offset
+    const elem = document.createElement('div');
+    elem.classList = "vc-area";
+    channelPane.appendChild(elem);
+
+    for (const u of channel.currentUsers) {
+        // container for profile and name
+        console.log("AaAaaa");
+        const vcElem = document.createElement('div');
+        vcElem.classList = "vc-user-container";
+
+        // user icon
+        const pfp = document.createElement('img');
+        pfp.classList = "vc-img vc-pic";        
+        pfp.src = u.pfp;
+
+        // user name
+        const name = document.createElement('h3');
+        name.innerHTML = u.name;
+        name.className = "vcname"
+
+        vcElem.append(pfp, name);
+        elem.appendChild(vcElem);
+        //vcElem.scrollIntoView();
+    }
+
+
 }
+
 
 
 // this function changes the dom elements to be a new server
 function switchServer(server) {
     // clear all the previous channels
     channelPane.innerHTML = "";
+
+    // Save visible elements.
+    for (const shopbtn of server.toggleshopbuttons) {
+        if (shopbtn.button_name == "disconnectswitch" && shopbtn.is_bought) {
+            server.toggleshopbuttons[1].is_visible = true
+        } else if (shopbtn.button_name == "kickswitch" && shopbtn.is_bought) {
+            server.toggleshopbuttons[2].is_visible = true
+        }
+    }
+    // Generate shop panel.
+    shopPane.innerHTML = "<h1>Shop</h1>";
+    for (const shopbtn of server.toggleshopbuttons) {
+        const outerDiv = document.createElement("div");
+        const shopBox = document.createElement("div");
+        shopBox.className = "shopbox";
+        shopBox.id = shopbtn.div_name;
+        const topRow = document.createElement("h1");
+        topRow.innerHTML = shopbtn.text;
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.id = shopbtn.button_name;
+        input.onclick = () => {shopbtn.togglebutton();};
+        input.disabled = true;
+        const labelling = document.createElement("label");
+        labelling.htmlFor= shopbtn.button_name;
+        const bottomRow = document.createElement("h1");
+        bottomRow.className = "clout-bar";
+        bottomRow.style.color = "red";
+        const button_cost = document.createElement("span");
+        button_cost.innerText = shopbtn.cost * -1 + " ";
+        button_cost.id = shopbtn.cost_name;
+        const button_img = document.createElement("img");
+        button_img.src = "./imgs/Clout Glasses-28x10.png";
+        if (shopbtn.div_name == "disconnectshop") {shopBox.style.visibility = "visible"}
+        if (shopbtn.is_bought || shopbtn.is_visible) {shopBox.style.visibility = "visible"}
+        shopPane.appendChild(outerDiv);
+        outerDiv.appendChild(shopBox);
+        shopBox.appendChild(topRow);
+        topRow.appendChild(input);
+        topRow.appendChild(labelling);
+        shopBox.appendChild(bottomRow);
+        bottomRow.appendChild(button_cost);
+        bottomRow.appendChild(button_img);
+        if (shopbtn.cloutgen != 0) {
+            const button_genrate = document.createElement("h1");
+            button_genrate.className = "clout-bar";
+            button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / click";
+            shopBox.appendChild(button_genrate);
+        }
+
+        shopbtn.updatebutton();
+    }
+    // Create Header to separate shop elements.
+    const header = document.createElement('hr');
+    // TODO: Deprecated html.color attribute here but header.style.color doesn't
+    // work either?
+    header.color = "#41444b";
+    shopPane.appendChild(header);
+
+    // Create add buttons
+    for (const shopbtn of server.addshopbuttons) {
+        const outerButton = document.createElement('button');
+        outerButton.className = "button"
+        outerButton.id = shopbtn.div_name;
+        if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember();};
+        if (shopbtn.text == "AddMusic Bot") {outerButton.onclick = () => server.addbot("musicbot");};
+        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot("automuterbot");};
+        const topRow = document.createElement("h1");
+        topRow.innerText = shopbtn.text
+        const bottomRow = document.createElement("h1");
+        bottomRow.className = "clout-bar";
+        bottomRow.style.color = "red";
+        const button_cost = document.createElement("span");
+        button_cost.innerText = shopbtn.cost * -1 + " ";
+        button_cost.id = shopbtn.cost_name;
+        const button_img = document.createElement("img");
+        button_img.src = "./imgs/Clout Glasses-28x10.png";
+        shopPane.appendChild(outerButton);
+        outerButton.appendChild(topRow);
+        outerButton.appendChild(bottomRow);
+        bottomRow.append(button_cost);
+        bottomRow.append(button_img);
+        if (shopbtn.cloutgen != 0) {
+            const button_genrate = document.createElement("h1");
+            button_genrate.className = "clout-bar";
+            button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / s";
+            outerButton.appendChild(button_genrate);
+        }
+
+        shopbtn.updatebutton();
+    }
     
+    console.log(shopPane);
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
-
-    // craete a button for every text channel
+    // create a button for every text channel
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
         const topText = document.getElementById('topText');
@@ -114,7 +193,6 @@ function switchServer(server) {
         channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
-        
     }
     channelPane.appendChild(textChannels);
 
@@ -148,6 +226,7 @@ function switchServer(server) {
 
     // switch to the primary text channel for the default view
     switchTextChannel(server.textchannels[0]);
+    currentServer = server
 }
 
 // this function creates an icon on the left side and binds the 
@@ -189,13 +268,16 @@ function deleteMessage() {
     switchTextChannel(smallFriendServer.textchannels[0]);
 }
 
+
 // TODO:
 // - not hard code
 // - have it based on actual time elapsed
 // - move to another file??
 let newMessageTimer = 50;
+let cloutgenTimer = 50;
 function tick() {
     newMessageTimer--;
+    cloutgenTimer--;
     if (newMessageTimer <= 0) {
         const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
         let user = smallFriendServer.users[rndIndex];
@@ -209,14 +291,22 @@ function tick() {
 
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
-
     }
-
+    if (cloutgenTimer <= 0) {
+        clout += smallFriendServer.cloutgenrate + bigFriendServer.cloutgenrate + classServer.cloutgenrate;
+        cloutgenTimer = 50;
+    }
     const userCountElem = document.getElementById('member');
-    userCountElem.innerHTML = `<b>${smallFriendServer.users.length}</b>`
-
+    userCountElem.innerHTML = `<b>${currentServer.users.length}</b>`
     const cloutElem = document.getElementById('clout');
     cloutElem.innerHTML = `<b>${clout}</b>`;
+
+    for (const shopbtn of currentServer.toggleshopbuttons) {
+        if (!shopbtn.is_bought) {shopbtn.updatebutton();};
+    }
+    for (const shopbtn of currentServer.addshopbuttons) {
+        shopbtn.updatebutton();
+    }
 
     requestAnimationFrame(tick);
 }

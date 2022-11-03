@@ -116,6 +116,13 @@ html {
     grid-area: username;
 }
 
+.vcname {
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+    grid-area: vcname;
+}
+
 .text-content {
     grid-area: text-content;
 }
@@ -126,8 +133,28 @@ html {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "vc-icon vc-name"
-      "vc-img username";
+      "vc-icon vc-name";
+     
+}
+
+.vc-user-container {  
+    margin-top: 1px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 25px 1.56fr;
+    grid-template-rows: 0.42fr 1.58fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "vc-pic vcname";
+     
+}
+
+.vc-area {
+    height: 50%; 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    overflow-y: auto;
 }
   
 .vc-icon { 
@@ -135,5 +162,9 @@ html {
     padding-top: 2px;
     grid-area: vc-icon; 
 }
-  .vc-name { grid-area: vc-name; }
+
+.vc-name { grid-area: vc-name; }
+
+.vc-pic { grid-area: vc-pic; }
+
   
