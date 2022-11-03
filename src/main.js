@@ -59,12 +59,12 @@ function switchVoiceChannel(channel) {
     // area for a all text messages
     // using another elem so the scrollbar
     // can be offset
-    console.log(channel.opened);
+    // console.log(channel.opened);
     if (channel.opened == false) {
         const elem = document.createElement('div');
         elem.classList = "vc-area";
         channelPane.appendChild(elem);
-        console.log(channel.currentUsers);
+        // console.log(channel.currentUsers);
         for (const u of channel.currentUsers) {
             // container for profile and name
             const vcElem = document.createElement('div');
@@ -103,6 +103,9 @@ function switchVoiceChannel(channel) {
 
 function deletebadvoice() {
     const elements = document.getElementsByClassName('vc-user-container-bad');
+    if (!elements || elements.length == 0) {
+        return;
+    }
     elements[0].parentNode.removeChild(elements[0]);
     clout += 20;
 }
@@ -265,25 +268,28 @@ function switchServer(server) {
     const vcIcon = document.createElement('img');
     vcIcon.src = 'imgs/vc-icon.png'
     vcIcon.classList = 'vc-icon';
-
+    //switchVoiceChannel(server.voicechannels[0]);
     // create a button for every voice channel and add it
     for (const vc of server.voicechannels) {
-        const channelBtn = document.createElement('button');
+        const channelBtn = document.createElement('div');
         channelBtn.className = "vcChannelStyles vc-container";
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
-
+        //switchVoiceChannel(vc);
+    // create a button for every voice channel an
         const channelName = document.createElement('div');
-        channelName.textContent = vc.name;
+        channelName.textContent =server.voicechannels[0].name;
         channelName.classList = "vc-name";
 
         channelBtn.appendChild(vcIcon);
         channelBtn.appendChild(channelName);
 
         voiceChannels.appendChild(channelBtn);
+    //switchVoiceChannel(vc);
+        //switchVoiceChannel(server.voicehannels[0]);
         // voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
-
+    switchVoiceChannel(server.voicechannels[0]);
     // switch to the primary text channel for the default view
     currentServer = server;
     switchTextChannel(server.textchannels[0]);
@@ -319,13 +325,14 @@ for (const server of allServers) {
 }
 switchServer(allServers[0]);
 
+
 // finds the latest bad message and removes it
 function deleteMessage() {
-    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
-        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
-            smallFriendServer.textchannels[0].messages =
-                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
-                smallFriendServer.textchannels[0].messages.slice(i + 1));
+    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
+        if (currentTextChannel.messages[i].text.good == false) {
+            currentTextChannel.messages =
+                currentTextChannel.messages.slice(0, i).concat(
+                currentTextChannel.messages.slice(i + 1));
             clout += 5;
             break;
         }
@@ -333,6 +340,7 @@ function deleteMessage() {
 
     switchTextChannel(currentTextChannel);
 }
+
 
 
 
@@ -346,6 +354,8 @@ function tick() {
 
     newMessageTimer -= deltaTime;
     cloutgenTimer -= deltaTime;
+
+    vcTimer -= deltaTime;
     if (newMessageTimer <= 0) {
         if (currentServer.users.length > 0) {
             const rndIndex = Math.floor(Math.random() * currentServer.users.length);
@@ -363,12 +373,14 @@ function tick() {
         
         newMessageTimer = 10000 / currentServer.users.length;
     }
+
     if (cloutgenTimer <= 0) {
         for (const server of allServers) {
             clout += server.cloutgenrate;
         }
         cloutgenTimer = 500;
     }
+
     const userCountElem = document.getElementById('member');
     userCountElem.innerHTML = `<b>${currentServer.users.length}</b>`
     const cloutElem = document.getElementById('clout');
@@ -414,3 +426,20 @@ function tick() {
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
+
+
+let vcTimer = 500; 
+function vcupdate(){
+    if (vcTimer <= 0 && smallFriendServer.voicechannels[0].currentUsers.length <=smallFriendServer.users.length) {
+        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
+        let user = smallFriendServer.users[rndIndex];
+        smallFriendServer.voicechannels[0].currentUsers.shift();
+        smallFriendServer.voicechannels[0].currentUsers.push(user);
+
+   
+        switchVoiceChannel(smallFriendServer.voicechannels[0]);
+        vcTimer = 100;
+    }
+    requestAnimationFrame(vcupdate);
+}
+requestAnimationFrame(vcupdate);

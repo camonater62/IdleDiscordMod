@@ -307,30 +307,23 @@ h1 {
   color: #292b2f;
 }
 
-.topTextStyle {
-  font-family: 'whitneysemibold';
-  font-size: 25;
-  padding: 10px;
-}
-
-.serverNameText{
-  font-family: 'whitneysemibold';
-  font-size: 25;
-  padding: 10px;
-}
-
 /* For top middle text styles */
 .topTextStyle {
   font-family: 'whitneysemibold';
-  font-size: 25;
-  padding: 10px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 0px;
 }
 
 /* For server name text on top left */
 .serverNameText{
   font-family: 'whitneysemibold';
-  font-size: 25;
-  padding: 10px;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 0px;
+  font-weight: bold;
 }
  
 
