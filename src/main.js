@@ -44,8 +44,9 @@ function switchTextChannel(channel) {
 
         msgElem.append(pfp, name, text);
         elem.appendChild(msgElem);
-        msgElem.scrollIntoView();
     }
+
+    elem.scrollTop = elem.scrollHeight;
 
     document.getElementById('topText').textContent = channel.name;
 

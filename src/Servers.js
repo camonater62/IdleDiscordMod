@@ -26,19 +26,19 @@ clubServer.textchannels = Tclist(5);
 clubServer.voicechannels = Vclist(5, clubServer.users);
 
 const streamerServer = new Server("imgs/server-icons/unknown.png", "Yamakara's Vtuber Server");
-streamerServer.users = Userlist(1250);
+streamerServer.users = Userlist(500);
 streamerServer.textchannels = Tclist(10);
-streamerServer.voicechannels = Vclist(10, streamerServer.users);
+streamerServer.voicechannels = Vclist(5, streamerServer.users);
 
 const subredditServer = new Server("imgs/server-icons/subredditserver.png", "Subreddit Server");
-subredditServer.users = Userlist(12500);
-subredditServer.textchannels = Tclist(20);
-subredditServer.voicechannels = Vclist(20, subredditServer.users);
+subredditServer.users = Userlist(750);
+subredditServer.textchannels = Tclist(10);
+subredditServer.voicechannels = Vclist(5, subredditServer.users);
 
 const gameServer = new Server("imgs/server-icons/gameserver.png", "Game Server");
-gameServer.users = Userlist(125000);
-gameServer.textchannels = Tclist(40);
-gameServer.voicechannels = Vclist(40, gameServer.users);
+gameServer.users = Userlist(1250);
+gameServer.textchannels = Tclist(20);
+gameServer.voicechannels = Vclist(10, gameServer.users);
 
 const allServers = [smallFriendServer, bigFriendServer, classServer, clubServer, streamerServer, subredditServer, gameServer];
 
@@ -52,7 +52,7 @@ function Userlist(num){           // generate random userlist for new server, nu
 
 function Voiceuser(users){       // randomly pick a few users from server user list to show up in the voice channel
     names=[];
-    var voice_users = Math.floor(Math.random()*users.length);
+    var voice_users = Math.floor(Math.random()*Math.min(users.length, 20));
     for(var i =0; i<voice_users; i++){
         names.push(users[i]);
         //console.log(users[i].name);
