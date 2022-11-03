@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'whitneymedium';
+    src: url('../fonts/whitneymedium.otf');
+  }
+  @font-face {
+    font-family: 'whitneylight';
+    src: url('../fonts/whitneylight.otf');
+    
+  }
+  @font-face {
+    font-family: 'unisans';
+    src: url('../fonts/Uni\ Sans\ Heavy.otf');
+    
+  }
+  @font-face {
+    font-family: 'whitneysemibold';
+    src: url('../fonts/whitneysemibold.otf');
+    
+  }
+  @font-face {
+    font-family: 'whitneybold';
+    src: url('../fonts/whitneybold.otf');
+  }
+
+  html {
+    background-color: #41444b;
+    font-family: "whitneymedium";
+    text-align: center;
+  }
+
+  img {
+    margin-top: 100px;
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    color: white;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  h4 {
+    color: #9398a4;
+    font-family: "whitneylight";
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+
+  /* server info */
+
+  .info {
+    display: inline-block;
+    font-size: 12px;
+    background-color: #292b2f;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin: 10px;
+  }
+
+  .info h3 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-family: "whitneylight";
+    letter-spacing: 0.5px;
+  }
+
+  /* circle 1 */
+  #c1 {
+    background-color: #44DDBF;
+    height: 5px;
+    width: 5px;
+    border-radius: 50px;
+    border: solid #44DDBF 3.5px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+  }
+/* circle 2 */
+  #c2 {
+    background-color: #9398a4;
+    height: 5px;
+    width: 5px;
+    border-radius: 50px;
+    border: solid #9398a4 3.5px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+  }
+
+  /* join button */
+  a {
+    border: none;
+    color: #292b2f;
+    background-color: #44DDBF;
+    font-family: "whitneymedium";
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 20px 50px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-decoration: none;
+    display: block;
+  }
+
+  a:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  footer {
+    color: #9398a4;
+    margin-top: 100px;
+  }
