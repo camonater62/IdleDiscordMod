@@ -3,14 +3,14 @@
 
 // this is the starter/initial server
 
-let add_musicbot_shopbtn = new ShopButton("Add Music Bot", "addmusicbotbtn", "addmusicbotswitch", 80, "add_music_cost", false, "red", 5, false);
-let add_automuterbot_shopbtn = new ShopButton("Add AutoMuter Bot", "addautomuterbtn", "addautomuterswitch", 160, "add_automuter_cost", false, "red", 10, false);
-let add_autodeletebot_shopbtn = new ShopButton("Add AutoDelete Bot", "addautodeletebtn", "addautodeleteswitch", 320, "add_autodelete_cost", false, "red", 20, false);
-let add_autodisconnectbot_shopbtn = new ShopButton("Add AutoDisconnect Bot", "addautodisconnectbtn", "addautodisconnectswitch", 640, "add_autodisconnect_cost", false, "red", 40, false);
-let add_autokickbot_shopbtn = new ShopButton("Add AutoKick Bot", "addautokickbtn", "addautokickswitch", 1280, "add_autokick_cost", false, "red", 80, false);
-let add_autobanbot_shopbtn = new ShopButton("Add AutoBan Bot", "addautobanbtn", "addautobanswitch", 2560, "add_autoban_cost", false, "red", 160, false);
-let add_autoateveryonebot_shopbtn = new ShopButton("Add Auto@Everyone Bot", "addauto@Everyonebtn", "addauto@Everyoneswitch", 5120, "add_auto@Everyone_cost", false, "red", 320, false);
-let add_autoDMerbot_shopbtn = new ShopButton("Add AutoDMer Bot", "addautoDMerbtn", "addautoDMerswitch", 10240, "add_autoDMer_cost", false, "red", 640, false);
+let add_musicbot_shopbtn = new ShopButton("Add Music Bot", "addmusicbotbtn", "addmusicbotswitch", 80, "add_music_cost", false, "red", 5, false, "music_bot_num");
+let add_automuterbot_shopbtn = new ShopButton("Add AutoMuter Bot", "addautomuterbtn", "addautomuterswitch", 160, "add_automuter_cost", false, "red", 10, false, "muter_bot_num");
+let add_autodeletebot_shopbtn = new ShopButton("Add AutoDelete Bot", "addautodeletebtn", "addautodeleteswitch", 320, "add_autodelete_cost", false, "red", 20, false, "delete_bot_num");
+let add_autodisconnectbot_shopbtn = new ShopButton("Add AutoDisconnect Bot", "addautodisconnectbtn", "addautodisconnectswitch", 640, "add_autodisconnect_cost", false, "red", 40, false, "disconnect_bot_num");
+let add_autokickbot_shopbtn = new ShopButton("Add AutoKick Bot", "addautokickbtn", "addautokickswitch", 1280, "add_autokick_cost", false, "red", 80, false, "kick_bot_num");
+let add_autobanbot_shopbtn = new ShopButton("Add AutoBan Bot", "addautobanbtn", "addautobanswitch", 2560, "add_autoban_cost", false, "red", 160, false, "ban_bot_num");
+let add_autoateveryonebot_shopbtn = new ShopButton("Add Auto@Everyone Bot", "addauto@Everyonebtn", "addauto@Everyoneswitch", 5120, "add_auto@Everyone_cost", false, "red", 320, false, "everyone_bot_num");
+let add_autoDMerbot_shopbtn = new ShopButton("Add AutoDMer Bot", "addautoDMerbtn", "addautoDMerswitch", 10240, "add_autoDMer_cost", false, "red", 640, false, "DM_bot_num");
 
 const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)", 10, [], []);
 smallFriendServer.users = Userlist(7); //add 7 users

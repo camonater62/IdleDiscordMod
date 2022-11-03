@@ -45,8 +45,8 @@ class Server {
         this.addshopbuttons = [this.add_member_shopbtn].concat(addshopbuttons);
         this.textchannels = [];
         this.voicechannels = [];
-        this.musicbots = 0;
-        this.automuterbots = 0;
+        // members,musicbots,automuterbots,autodeletebots,autokickbots,autobanbots,autoateveryonebots,autoDMerbots
+        this.numbers = [0,0,0,0,0,0,0,0,0]
     }
     addmember() {
         // TODO: Add no no blink if can't afford
@@ -55,17 +55,14 @@ class Server {
             clout -= this.membercost;
         }
     }
-    addbot(bot_name){
-        if (bot_name == "musicbot" && clout >= 80) {
-            this.cloutgenrate += 5;
-            this.musicbots += 1;
-            clout -= 80;
+    addbot(cloutgenrate, cost, bottype){
+        if (clout >= cost) {
+            this.cloutgenrate += cloutgenrate;
+            this.numbers[bottype] += 1;
+            document.getElementById(this.addshopbuttons[bottype].bot_num).innerText = this.numbers[bottype]
+            clout -= cost;
         }
-        else if (bot_name == "automuterbot" && clout >= 160) {
-            this.cloutgenrate += 10;
-            this.automuterbots += 1;
-            clout -= 160;
-        }
+        console.log(bottype)
     }
 
 }
