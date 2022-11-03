@@ -117,7 +117,7 @@ h1 {
   width: 100%;
   color: #9398a4;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -187,7 +187,21 @@ h1 {
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
-
+.clout-bar-extend {
+  background-color: #292b2f;
+  border: none;
+  padding: 5px;
+  width:100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0 0px;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
 /* For action buttons */
 .playerbutton {
   background-color: #41444b;

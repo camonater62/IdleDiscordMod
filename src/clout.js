@@ -1,8 +1,8 @@
-let clout = 39;
+let clout = 1000;
 let logocounter = 0;
 
 class ShopButton {
-    constructor(text, div_name, button_name, cost, cost_name, is_bought, button_color, cloutgen, toggleable) {
+    constructor(text, div_name, button_name, cost, cost_name, is_bought, button_color, cloutgen, toggleable, bot_num) {
         this.text = text;
         this.div_name = div_name;
         this.button_name = button_name;
@@ -11,8 +11,9 @@ class ShopButton {
         this.is_visible = is_bought;
         this.button_color = button_color;
         this.cost_name = cost_name;
-        this.cloutgen = cloutgen
-        this.toggleable = toggleable
+        this.cloutgen = cloutgen;
+        this.toggleable = toggleable;
+        this.bot_num = bot_num;
     }
     updatebutton() {
         if (this.is_bought) {
@@ -51,8 +52,16 @@ class ShopButton {
     }
 }
 
-function addclout(button, multiplier) {
-    clout += multiplier;
+function kickuser() {
+    currentServer.users.pop();
+    console.log(currentServer.users);
+    clout += 40;
+}
+
+function banuser() {
+    currentServer.users.pop();
+    console.log(currentServer.users);
+    clout += 80;
 }
 
 function visibility(button, x) {

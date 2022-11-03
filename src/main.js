@@ -160,7 +160,7 @@ function switchServer(server) {
             button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / click";
             shopBox.appendChild(button_genrate);
         }
-
+        console.log(shopbtn);
         shopbtn.updatebutton();
     }
     // Create Header to separate shop elements.
@@ -169,15 +169,22 @@ function switchServer(server) {
     // work either?
     header.color = "#41444b";
     shopPane.appendChild(header);
-
+    botnum_index = 0
     // Create add buttons
     for (const shopbtn of server.addshopbuttons) {
+        botnum_index += 1
         const outerButton = document.createElement('button');
         outerButton.className = "button"
         outerButton.id = shopbtn.div_name;
         if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember();};
-        if (shopbtn.text == "AddMusic Bot") {outerButton.onclick = () => server.addbot("musicbot");};
-        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot("automuterbot");};
+        if (shopbtn.text == "Add Music Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 1);};
+        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 2);};
+        if (shopbtn.text == "Add AutoDelete Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 3);};
+        if (shopbtn.text == "Add AutoDisconnect Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 4);};
+        if (shopbtn.text == "Add AutoKick Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 5);};
+        if (shopbtn.text == "Add AutoBan Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 6);};
+        if (shopbtn.text == "Add Auto@Everyone Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 7);};
+        if (shopbtn.text == "Add AutoDMer Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 8);};
         const topRow = document.createElement("h1");
         topRow.innerText = shopbtn.text
         const bottomRow = document.createElement("h1");
@@ -198,6 +205,11 @@ function switchServer(server) {
             button_genrate.className = "clout-bar";
             button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / s";
             outerButton.appendChild(button_genrate);
+            const bot_number = document.createElement("h1");
+            bot_number.className = "clout-bar-extend";
+            bot_number.id = shopbtn.bot_num;
+            bot_number.innerText = server.numbers[botnum_index];
+            outerButton.appendChild(bot_number);
         }
 
         shopbtn.updatebutton();
@@ -288,12 +300,12 @@ switchServer(allServers[0]);
 
 // finds the latest bad message and removes it
 function deleteMessage() {
-    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
-        if (currentTextChannel.messages[i].text.good == false) {
-            currentTextChannel.messages =
-                currentTextChannel.messages.slice(0, i).concat(
-                currentTextChannel.messages.slice(i + 1));
-            addclout('deletebtn', 1);
+    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
+        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
+            smallFriendServer.textchannels[0].messages =
+                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
+                smallFriendServer.textchannels[0].messages.slice(i + 1));
+            clout += 5;
             break;
         }
     }
@@ -331,7 +343,9 @@ function tick() {
         newMessageTimer = 10000 / currentServer.users.length;
     }
     if (cloutgenTimer <= 0) {
-        clout += smallFriendServer.cloutgenrate + bigFriendServer.cloutgenrate + classServer.cloutgenrate;
+        for (const server of allServers) {
+            clout += server.cloutgenrate;
+        }
         cloutgenTimer = 500;
     }
     const userCountElem = document.getElementById('member');
