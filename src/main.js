@@ -200,6 +200,26 @@ function switchServer(server) {
         outerButton.appendChild(bottomRow);
         bottomRow.append(button_cost);
         bottomRow.append(button_img);
+        if (shopbtn.cloutgen == 0) {
+            const five_mult = document.createElement("button");
+            five_mult.className = "button-mult";
+            five_mult.innerHTML = "x5";
+            five_mult.id = "five_mult";
+            const ten_mult = document.createElement("button");
+            ten_mult.className = "button-mult";
+            ten_mult.innerHTML = "x10";
+            ten_mult.id = "ten_mult";
+            const hundred_mult = document.createElement("button");
+            hundred_mult.className = "button-mult";
+            hundred_mult.innerHTML = "x100";
+            hundred_mult.id = "hundred_mult";
+            five_mult.onclick = () => {server.set_multiplier(1); five_mult.color="#44DDBF"; hundred_mult.color="#292b2f"; ten_mult.color="#292b2f";};
+            ten_mult.onclick = () => {server.set_multiplier(10); ten_mult.color="#44DDBF"; five_mult.color="#292b2f"; hundred_mult.color="#292b2f";};
+            hundred_mult.onclick = () => {server.set_multiplier(100); hundred_mult.color="#44DDBF"; ten_mult.color="#292b2f"; five_mult.color="#292b2f";};
+            outerButton.appendChild(five_mult);
+            outerButton.appendChild(ten_mult);
+            outerButton.appendChild(hundred_mult);
+        }
         if (shopbtn.cloutgen != 0) {
             const button_genrate = document.createElement("h1");
             button_genrate.className = "clout-bar";
@@ -214,6 +234,7 @@ function switchServer(server) {
 
         shopbtn.updatebutton();
     }
+    console.log(shopPane)
     
     // console.log(shopPane);
     // container for text channels
