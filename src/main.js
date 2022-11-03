@@ -123,7 +123,7 @@ function switchServer(server) {
         labelling.htmlFor= shopbtn.button_name;
         const bottomRow = document.createElement("h1");
         bottomRow.className = "clout-bar";
-        bottomRow.style.color = "red";
+        bottomRow.style.color = "#FF3880";
         const button_cost = document.createElement("span");
         button_cost.innerText = shopbtn.cost * -1 + " ";
         button_cost.id = shopbtn.cost_name;
@@ -167,7 +167,7 @@ function switchServer(server) {
         topRow.innerText = shopbtn.text
         const bottomRow = document.createElement("h1");
         bottomRow.className = "clout-bar";
-        bottomRow.style.color = "red";
+        bottomRow.style.color = "#FF3880";
         const button_cost = document.createElement("span");
         button_cost.innerText = shopbtn.cost * -1 + " ";
         button_cost.id = shopbtn.cost_name;
