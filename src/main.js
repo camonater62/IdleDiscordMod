@@ -265,6 +265,7 @@ function switchServer(server) {
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
     serverIcon.classList = "server-icon";
+    serverIcon.id = `${server.name.replace(" ", "-") + "-icon"}`;
     serverIcon.style.visibility = 'hidden';
     const serverName = document.createElement('b');
     serverName.classList = "hidden";
@@ -345,11 +346,15 @@ function tick() {
         shopbtn.updatebutton();
     }
 
-for (const server of allServers) {
-    if (currentServer.users.length >= server.unlockcount) {
-        server.serverIcon.style.visibility = "visible";
+    let totalMemberCount = 0;
+
+    for (const server of allServers) {
+        totalMemberCount += server.users.length;
+        if (totalMemberCount >= server.unlockcount) {
+            const iconElem = document.getElementById(`${server.name.replace(" ", "-") + "-icon"}`);
+            iconElem.style.visibility = "visible";
+        }
     }
-}
 
     requestAnimationFrame(tick);
 }
