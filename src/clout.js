@@ -16,18 +16,18 @@ class ShopButton {
     }
     updatebutton() {
         if (this.is_bought) {
-            document.getElementById(this.cost_name).style.color = "lime";
-            this.button_color = "lime";
+            document.getElementById(this.cost_name).style.color = "#44DDBF";
+            this.button_color = "#44DDBF";
         }
         else if (clout >= this.cost) {
             if (this.toggleable) {document.getElementById(this.button_name).disabled = false};
-            document.getElementById(this.cost_name).style.color = "aquamarine";
-            this.button_color = "aquamarine";
+            document.getElementById(this.cost_name).style.color = "#44DDBF";
+            this.button_color = "#44DDBF";
         }
         else {
-            if (this.button_color != "red") {
-                document.getElementById(this.cost_name).style.color = "red";
-                this.button_color = "red";
+            if (this.button_color != "#FF3880") {
+                document.getElementById(this.cost_name).style.color = "#FF3880";
+                this.button_color = "#FF3880";
             }
         }
     }
@@ -36,8 +36,8 @@ class ShopButton {
             document.getElementById(this.button_name).disabled = true;
             this.is_bought = true
             clout -= this.cost;
-            document.getElementById(this.cost_name).style.color = "lime";
-            this.button_color = "lime";
+            document.getElementById(this.cost_name).style.color = "#44DDBF";
+            this.button_color = "#44DDBF";
             if (this.button_name == "disconnectswitch") {
                 visibility('disconnectbtn', 1);
                 visibility('kickshop', 1);
