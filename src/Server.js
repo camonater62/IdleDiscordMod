@@ -35,6 +35,7 @@ class Server {
         this.cloutgenrate = 0;
         this.membercost = membercost;
         this.users = [];
+        this.unlockcount = 0;
         this.disconnect_shopbtn = new ShopButton("Disconnect", "disconnectshop", "disconnectswitch", 40, "disconnect_button_cost", false, "red", 20, true);
         this.kick_shopbtn = new ShopButton("Kick", "kickshop", "kickswitch", 80, "kick_button_cost", false, "red", 40, true);
         this.ban_shopbtn = new ShopButton("Ban", "banshop", "banswitch", 160, "ban_button_cost", false, "red", 80, true);

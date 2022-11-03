@@ -269,6 +269,7 @@ function switchServer(server) {
     switchVoiceChannel(server.voicechannels[0]);
 
     document.getElementById("serverNameText").textContent = server.name;
+    document.getElementById("channelpane").scrollTop = 0;
 }
 
 // this function creates an icon on the left side and binds the 
@@ -276,6 +277,8 @@ function switchServer(server) {
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
     serverIcon.classList = "server-icon";
+    serverIcon.id = `${server.name.replace(" ", "-") + "-icon"}`;
+    serverIcon.style.visibility = 'hidden';
     const serverName = document.createElement('b');
     serverName.classList = "hidden";
     serverName.innerHTML = server.name;
@@ -355,6 +358,16 @@ function tick() {
     }
     for (const shopbtn of currentServer.addshopbuttons) {
         shopbtn.updatebutton();
+    }
+
+    let totalMemberCount = 0;
+
+    for (const server of allServers) {
+        totalMemberCount += server.users.length;
+        if (totalMemberCount >= server.unlockcount) {
+            const iconElem = document.getElementById(`${server.name.replace(" ", "-") + "-icon"}`);
+            iconElem.style.visibility = "visible";
+        }
     }
 
     requestAnimationFrame(tick);
