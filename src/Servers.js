@@ -2,6 +2,7 @@
 // or Server.js should have a different name
 
 // this is the starter/initial server
+<<<<<<< HEAD
 
 let add_musicbot_shopbtn = new ShopButton("Add Music Bot", "addmusicbotbtn", "addmusicbotswitch", 80, "add_music_cost", false, "red", 5, false);
 let add_automuterbot_shopbtn = new ShopButton("Add AutoMuter Bot", "addautomuterbtn", "addautomuterswitch", 160, "add_automuter_cost", false, "red", 10, false);
@@ -13,6 +14,9 @@ let add_autoateveryonebot_shopbtn = new ShopButton("Add Auto@Everyone Bot", "add
 let add_autoDMerbot_shopbtn = new ShopButton("Add AutoDMer Bot", "addautoDMerbtn", "addautoDMerswitch", 10240, "add_autoDMer_cost", false, "red", 640, false);
 
 const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)", 10, [], []);
+=======
+const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :D");
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 smallFriendServer.users = Userlist(7); //add 7 users
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
@@ -20,28 +24,46 @@ smallFriendServer.textchannels = [
 ];
 smallFriendServer.voicechannels = Vclist(1,smallFriendServer.users);//add 2 voice channels with random members
 
+<<<<<<< HEAD
 const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious", 10, [], [add_musicbot_shopbtn]);
+=======
+const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "band of bonobos");
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 bigFriendServer.users = Userlist(10);
 bigFriendServer.textchannels = Tclist(2);
 bigFriendServer.voicechannels = Vclist(1,bigFriendServer.users);
 
+<<<<<<< HEAD
 
 
 const classServer = new Server("imgs/server-icons/classserver.png", "Class Server", 20, [], [add_musicbot_shopbtn, add_automuterbot_shopbtn, add_autodeletebot_shopbtn]);
+=======
+const classServer = new Server("imgs/server-icons/classserver.png", "AM 1 Fall 2022");
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 classServer.users = Userlist(50);
 classServer.textchannels = Tclist(3);
 classServer.voicechannels = Vclist(3, classServer.users);
 
+<<<<<<< HEAD
 const clubServer = new Server("imgs/server-icons/clubserver.png", "Club Server", 40, [], [add_musicbot_shopbtn, add_automuterbot_shopbtn, add_autodeletebot_shopbtn, add_autodisconnectbot_shopbtn, add_autokickbot_shopbtn]);
+=======
+const clubServer = new Server("imgs/server-icons/clubserver.png", "Slug Art Club");
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 clubServer.users = Userlist(250);
 clubServer.textchannels = Tclist(5);
 clubServer.voicechannels = Vclist(5, clubServer.users);
 
+<<<<<<< HEAD
 const streamerServer = new Server("imgs/server-icons/streamerserver.png", "Streamer Server", 80, [], [add_musicbot_shopbtn, add_automuterbot_shopbtn, add_autodeletebot_shopbtn, add_autodisconnectbot_shopbtn, add_autokickbot_shopbtn, add_autobanbot_shopbtn]);
 streamerServer.users = Userlist(1250);
+=======
+const streamerServer = new Server("imgs/server-icons/unknown.png", "Yamakara's Vtuber Server");
+streamerServer.users = Userlist(500);
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 streamerServer.textchannels = Tclist(10);
-streamerServer.voicechannels = Vclist(10, streamerServer.users);
+streamerServer.voicechannels = Vclist(5, streamerServer.users);
 
+<<<<<<< HEAD
 const subredditServer = new Server("imgs/server-icons/subredditserver.png", "Subreddit Server", 160, [], [add_musicbot_shopbtn, add_automuterbot_shopbtn, add_autodeletebot_shopbtn, add_autodisconnectbot_shopbtn, add_autokickbot_shopbtn, add_autobanbot_shopbtn, add_autoateveryonebot_shopbtn]);
 subredditServer.users = Userlist(12500);
 subredditServer.textchannels = Tclist(20);
@@ -51,6 +73,17 @@ const gameServer = new Server("imgs/server-icons/gameserver.png", "Game Server",
 gameServer.users = Userlist(125000);
 gameServer.textchannels = Tclist(40);
 gameServer.voicechannels = Vclist(40, gameServer.users);
+=======
+const subredditServer = new Server("imgs/server-icons/subredditserver.png", "r/idle");
+subredditServer.users = Userlist(750);
+subredditServer.textchannels = Tclist(10);
+subredditServer.voicechannels = Vclist(5, subredditServer.users);
+
+const gameServer = new Server("imgs/server-icons/gameserver.png", "Official Cubeworld™ Server");
+gameServer.users = Userlist(1250);
+gameServer.textchannels = Tclist(20);
+gameServer.voicechannels = Vclist(10, gameServer.users);
+>>>>>>> 9699bb62d1a2ea9665477a83fe194d3a11dd574f
 
 const allServers = [smallFriendServer, bigFriendServer, classServer, clubServer, streamerServer, subredditServer, gameServer];
 
@@ -64,7 +97,7 @@ function Userlist(num){           // generate random userlist for new server, nu
 
 function Voiceuser(users){       // randomly pick a few users from server user list to show up in the voice channel
     names=[];
-    var voice_users = Math.floor(Math.random()*users.length);
+    var voice_users = Math.floor(Math.random()*Math.min(users.length, 20));
     for(var i =0; i<voice_users; i++){
         names.push(users[i]);
         //console.log(users[i].name);

@@ -31,7 +31,7 @@ function switchTextChannel(channel) {
         // user name
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
-        name.className = "username"
+        name.className = "username";
 
         // text content (emoji)
         const text = document.createElement('p');
@@ -44,8 +44,9 @@ function switchTextChannel(channel) {
 
         msgElem.append(pfp, name, text);
         elem.appendChild(msgElem);
-        msgElem.scrollIntoView();
     }
+
+    elem.scrollTop = elem.scrollHeight;
 
     document.getElementById('topText').textContent = channel.name;
 
@@ -254,6 +255,8 @@ function switchServer(server) {
     currentServer = server;
     switchTextChannel(server.textchannels[0]);
     switchVoiceChannel(server.voicechannels[0]);
+
+    document.getElementById("serverNameText").textContent = server.name;
 }
 
 // this function creates an icon on the left side and binds the 
@@ -297,11 +300,16 @@ function deleteMessage() {
 
 
 
-let newMessageTimer = 50;
-let cloutgenTimer = 50;
+let newMessageTimer = 500;
+let cloutgenTimer = 500;
+
+let lastUpdate = Date.now();
 function tick() {
-    newMessageTimer--;
-    cloutgenTimer--;
+    const deltaTime = Date.now() - lastUpdate;
+    lastUpdate = Date.now();
+
+    newMessageTimer -= deltaTime;
+    cloutgenTimer -= deltaTime;
     if (newMessageTimer <= 0) {
         if (currentServer.users.length > 0) {
             const rndIndex = Math.floor(Math.random() * currentServer.users.length);
@@ -317,11 +325,11 @@ function tick() {
             switchTextChannel(currentTextChannel);
         }
         
-        newMessageTimer = 50;
+        newMessageTimer = 10000 / currentServer.users.length;
     }
     if (cloutgenTimer <= 0) {
         clout += smallFriendServer.cloutgenrate + bigFriendServer.cloutgenrate + classServer.cloutgenrate;
-        cloutgenTimer = 50;
+        cloutgenTimer = 500;
     }
     const userCountElem = document.getElementById('member');
     userCountElem.innerHTML = `<b>${currentServer.users.length}</b>`
