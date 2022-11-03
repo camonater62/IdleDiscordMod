@@ -2,7 +2,7 @@
 // or Server.js should have a different name
 
 // this is the starter/initial server
-const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :)");
+const smallFriendServer = new Server("imgs/server-icons/smallfriendserver.png", "Me and my buds :D");
 smallFriendServer.users = Userlist(7); //add 7 users
 smallFriendServer.textchannels = [
     new TextChannel("# general"),
@@ -10,17 +10,17 @@ smallFriendServer.textchannels = [
 ];
 smallFriendServer.voicechannels = Vclist(1,smallFriendServer.users);//add 2 voice channels with random members
 
-const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
+const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "band of bonobos");
 bigFriendServer.users = Userlist(10);
 bigFriendServer.textchannels = Tclist(2);
 bigFriendServer.voicechannels = Vclist(1,bigFriendServer.users);
 
-const classServer = new Server("imgs/server-icons/classserver.png", "Class Server");
+const classServer = new Server("imgs/server-icons/classserver.png", "AM 1 Fall 2022");
 classServer.users = Userlist(50);
 classServer.textchannels = Tclist(3);
 classServer.voicechannels = Vclist(3, classServer.users);
 
-const clubServer = new Server("imgs/server-icons/clubserver.png", "Club Server");
+const clubServer = new Server("imgs/server-icons/clubserver.png", "Slug Art Club");
 clubServer.users = Userlist(250);
 clubServer.textchannels = Tclist(5);
 clubServer.voicechannels = Vclist(5, clubServer.users);
@@ -30,12 +30,12 @@ streamerServer.users = Userlist(500);
 streamerServer.textchannels = Tclist(10);
 streamerServer.voicechannels = Vclist(5, streamerServer.users);
 
-const subredditServer = new Server("imgs/server-icons/subredditserver.png", "Subreddit Server");
+const subredditServer = new Server("imgs/server-icons/subredditserver.png", "r/idle");
 subredditServer.users = Userlist(750);
 subredditServer.textchannels = Tclist(10);
 subredditServer.voicechannels = Vclist(5, subredditServer.users);
 
-const gameServer = new Server("imgs/server-icons/gameserver.png", "Game Server");
+const gameServer = new Server("imgs/server-icons/gameserver.png", "Official Cubeworld™ Server");
 gameServer.users = Userlist(1250);
 gameServer.textchannels = Tclist(20);
 gameServer.voicechannels = Vclist(10, gameServer.users);
