@@ -46,8 +46,9 @@ function switchTextChannel(channel) {
 
 // TODO
 // try and make this run by default, no more vc button
-// MAYBES
-// hard set number of users per voice channel (set height of vc container)
+// auto join, randomly assign user with red/green ("vc-user-container-bad")
+// make sure user is from server users
+// have green members leave after x seconds
 function switchVoiceChannel(channel) {
     //channelPane.innerHTML = "";
 
