@@ -103,6 +103,9 @@ function switchVoiceChannel(channel) {
 
 function deletebadvoice() {
     const elements = document.getElementsByClassName('vc-user-container-bad');
+    if (!elements || elements.length == 0) {
+        return;
+    }
     elements[0].parentNode.removeChild(elements[0]);
     clout += 20;
 }
@@ -300,11 +303,11 @@ switchServer(allServers[0]);
 
 // finds the latest bad message and removes it
 function deleteMessage() {
-    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
-        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
-            smallFriendServer.textchannels[0].messages =
-                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
-                smallFriendServer.textchannels[0].messages.slice(i + 1));
+    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
+        if (currentTextChannel.textchannels[0].messages[i].text.good == false) {
+            currentTextChannel.textchannels[0].messages =
+                currentTextChannel.textchannels[0].messages.slice(0, i).concat(
+                currentTextChannel.textchannels[0].messages.slice(i + 1));
             clout += 5;
             break;
         }

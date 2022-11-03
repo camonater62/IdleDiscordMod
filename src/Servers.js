@@ -27,8 +27,6 @@ bigFriendServer.users = Userlist(10);
 bigFriendServer.textchannels = Tclist(2);
 bigFriendServer.voicechannels = Vclist(1,bigFriendServer.users);
 
-
-
 const classServer = new Server("imgs/server-icons/classserver.png", "Class Server", 20, [], [add_musicbot_shopbtn, add_automuterbot_shopbtn, add_autodeletebot_shopbtn]);
 classServer.unlockcount = 250;
 classServer.users = Userlist(50);
