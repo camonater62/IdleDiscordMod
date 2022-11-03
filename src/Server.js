@@ -32,8 +32,8 @@ class Server {
         this.picture = picture;
 
         this.name = name;
-        this.cloutgenrate = 0
-        this.membercost = 20
+        this.cloutgenrate = 0;
+        this.membercost = 20;
         this.users = [];
         this.disconnect_shopbtn = new ShopButton("Disconnect", "disconnectshop", "disconnectswitch", 40, "disconnect_button_cost", false, "red", 20, true);
         this.kick_shopbtn = new ShopButton("Kick", "kickshop", "kickswitch", 80, "kick_button_cost", false, "red", 40, true);
@@ -54,19 +54,19 @@ class Server {
         // TODO: Add no no blink if can't afford
         if (clout >= this.membercost) {
             this.users.push(new User());
-            clout -= this.membercost
+            clout -= this.membercost;
         }
     }
     addbot(bot_name){
         if (bot_name == "musicbot" && clout >= 80) {
-            this.cloutgenrate += 5
-            this.musicbots += 1
-            clout -= 80
+            this.cloutgenrate += 5;
+            this.musicbots += 1;
+            clout -= 80;
         }
         else if (bot_name == "automuterbot" && clout >= 160) {
-            this.cloutgenrate += 10
-            this.automuterbots += 1
-            clout -= 160
+            this.cloutgenrate += 10;
+            this.automuterbots += 1;
+            clout -= 160;
         }
     }
 

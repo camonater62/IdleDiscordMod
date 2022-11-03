@@ -1,4 +1,4 @@
-let clout = 39;
+let clout = 1000;
 let logocounter = 0;
 
 class ShopButton {
@@ -51,8 +51,16 @@ class ShopButton {
     }
 }
 
-function addclout(button, multiplier) {
-    clout += multiplier;
+function kickuser() {
+    currentServer.users.pop();
+    console.log(currentServer.users);
+    clout += 40;
+}
+
+function banuser() {
+    currentServer.users.pop();
+    console.log(currentServer.users);
+    clout += 80;
 }
 
 function visibility(button, x) {
