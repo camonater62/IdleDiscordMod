@@ -25,7 +25,7 @@ clubServer.users = Userlist(250);
 clubServer.textchannels = Tclist(5);
 clubServer.voicechannels = Vclist(5, clubServer.users);
 
-const streamerServer = new Server("imgs/server-icons/streamerserver.png", "Streamer Server");
+const streamerServer = new Server("imgs/server-icons/unknown.png", "Yamakara's Vtuber Server");
 streamerServer.users = Userlist(1250);
 streamerServer.textchannels = Tclist(10);
 streamerServer.voicechannels = Vclist(10, streamerServer.users);

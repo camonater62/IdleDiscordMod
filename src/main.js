@@ -31,7 +31,7 @@ function switchTextChannel(channel) {
         // user name
         const name = document.createElement('h3');
         name.innerHTML = msg.user.name;
-        name.className = "username"
+        name.className = "username";
 
         // text content (emoji)
         const text = document.createElement('p');
