@@ -51,32 +51,40 @@ function switchVoiceChannel(channel) {
     // area for a all text messages
     // using another elem so the scrollbar
     // can be offset
-    const elem = document.createElement('div');
-    elem.classList = "vc-area";
-    channelPane.appendChild(elem);
-
-    for (const u of channel.currentUsers) {
-        // container for profile and name
-        console.log("AaAaaa");
-        const vcElem = document.createElement('div');
-        vcElem.classList = "vc-user-container";
-
-        // user icon
-        const pfp = document.createElement('img');
-        pfp.classList = "vc-img vc-pic";        
-        pfp.src = u.pfp;
-
-        // user name
-        const name = document.createElement('h3');
-        name.innerHTML = u.name;
-        name.className = "vcname"
-
-        vcElem.append(pfp, name);
-        elem.appendChild(vcElem);
-        //vcElem.scrollIntoView();
+    console.log(channel.opened);
+    if (channel.opened == false) {
+        const elem = document.createElement('div');
+        elem.classList = "vc-area";
+        channelPane.appendChild(elem);
+        
+        for (const u of channel.currentUsers) {
+            // container for profile and name
+            const vcElem = document.createElement('div');
+            vcElem.classList = "vc-user-container";
+    
+            // user icon
+            const pfp = document.createElement('img');
+            pfp.classList = "vc-img vc-pic";        
+            pfp.src = u.pfp;
+    
+            // user name
+            const name = document.createElement('h3');
+            name.innerHTML = u.name;
+            name.className = "vcname"
+    
+            vcElem.append(pfp, name);
+            elem.appendChild(vcElem);
+            vcElem.scrollIntoView();
+        }
+        channel.opened = true;
+    } else {
+        const elements = document.getElementsByClassName('vc-area');
+        while(elements.length > 0){
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+        channel.opened = false;
     }
-
-
+    
 }
 
 
@@ -177,7 +185,7 @@ function switchServer(server) {
         shopbtn.updatebutton();
     }
     
-    console.log(shopPane);
+    // console.log(shopPane);
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
@@ -220,13 +228,13 @@ function switchServer(server) {
         channelBtn.appendChild(channelName);
 
         voiceChannels.appendChild(channelBtn);
-        voiceChannels.appendChild(document.createElement('br'));
+        // voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
 
     // switch to the primary text channel for the default view
     switchTextChannel(server.textchannels[0]);
-    currentServer = server
+    currentServer = server;
 }
 
 // this function creates an icon on the left side and binds the 

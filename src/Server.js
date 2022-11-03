@@ -23,6 +23,7 @@ class VoiceChannel { //name = vc name, users = server.users
     constructor(name,users) {
         this.name = name;
         this.currentUsers = users;
+        this.opened = false;
     }
 }
 
