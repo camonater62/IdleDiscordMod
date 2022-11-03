@@ -226,27 +226,31 @@ function switchServer(server) {
     const vcIcon = document.createElement('img');
     vcIcon.src = 'imgs/vc-icon.png'
     vcIcon.classList = 'vc-icon';
-
+    //switchVoiceChannel(server.voicechannels[0]);
     // create a button for every voice channel and add it
     for (const vc of server.voicechannels) {
-        const channelBtn = document.createElement('button');
+        const channelBtn = document.createElement('div');
         channelBtn.className = "vcChannelStyles vc-container";
         channelBtn.onclick = () => { switchVoiceChannel(vc); };
-
+        //switchVoiceChannel(vc);
+    // create a button for every voice channel an
         const channelName = document.createElement('div');
-        channelName.textContent = vc.name;
+        channelName.textContent =server.voicechannels[0].name;
         channelName.classList = "vc-name";
 
         channelBtn.appendChild(vcIcon);
         channelBtn.appendChild(channelName);
 
         voiceChannels.appendChild(channelBtn);
+    //switchVoiceChannel(vc);
+        //switchVoiceChannel(server.voicehannels[0]);
         // voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
 
     // switch to the primary text channel for the default view
     switchTextChannel(server.textchannels[0]);
+    //switchVoiceChannel(server.voicehannels[0]);
     currentServer = server;
 }
 
@@ -274,6 +278,7 @@ addServerToDOM(bigFriendServer);
 addServerToDOM(classServer);
 switchServer(smallFriendServer);
 
+
 // finds the latest bad message and removes it
 function deleteMessage() {
     for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
@@ -296,9 +301,11 @@ function deleteMessage() {
 // - move to another file??
 let newMessageTimer = 50;
 let cloutgenTimer = 50;
+
 function tick() {
     newMessageTimer--;
     cloutgenTimer--;
+    vcTimer--;
     if (newMessageTimer <= 0) {
         const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
         let user = smallFriendServer.users[rndIndex];
@@ -313,10 +320,7 @@ function tick() {
         switchTextChannel(smallFriendServer.textchannels[0]);
         newMessageTimer = 50;
     }
-    if (cloutgenTimer <= 0) {
-        clout += smallFriendServer.cloutgenrate + bigFriendServer.cloutgenrate + classServer.cloutgenrate;
-        cloutgenTimer = 50;
-    }
+ 
     const userCountElem = document.getElementById('member');
     userCountElem.innerHTML = `<b>${currentServer.users.length}</b>`
     const cloutElem = document.getElementById('clout');
@@ -332,3 +336,20 @@ function tick() {
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
+
+
+let vcTimer = 50; 
+function vcupdate(){
+    if (vcTimer <= 0 && smallFriendServer.voicechannels[0].currentUsers.length <=smallFriendServer.users.length) {
+        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
+        let user = smallFriendServer.users[rndIndex];
+        smallFriendServer.voicechannels[0].currentUsers.shift();
+        smallFriendServer.voicechannels[0].currentUsers.push(user);
+
+   
+        switchVoiceChannel(smallFriendServer.voicechannels[0]);
+        vcTimer = 100;
+    }
+    requestAnimationFrame(vcupdate);
+}
+requestAnimationFrame(vcupdate);
