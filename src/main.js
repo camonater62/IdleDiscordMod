@@ -58,39 +58,53 @@ function switchVoiceChannel(channel) {
     // area for a all text messages
     // using another elem so the scrollbar
     // can be offset
-    const elem = document.createElement('div');
-    elem.classList = "vc-area";
-    channelPane.appendChild(elem);
-
-    if (channel.currentUsers) {
+    console.log(channel.opened);
+    if (channel.opened == false) {
+        const elem = document.createElement('div');
+        elem.classList = "vc-area";
+        channelPane.appendChild(elem);
+        console.log(channel.currentUsers);
         for (const u of channel.currentUsers) {
             // container for profile and name
-            console.log("AaAaaa");
             const vcElem = document.createElement('div');
-            vcElem.classList = "vc-user-container";
-    
-            // user icon
             const pfp = document.createElement('img');
-            pfp.classList = "vc-img vc-pic";        
-            pfp.src = u.pfp;
-    
+            if (Math.random() >= 0.5) {
+                vcElem.classList = "vc-user-container-bad";
+                pfp.classList = "vc-img-bad vc-pic";       
+                pfp.src = u.pfp;
+            } else {
+                vcElem.classList = "vc-user-container";
+                pfp.classList = "vc-img vc-pic";       
+                pfp.src = u.pfp;
+            }
+
             // user name
             const name = document.createElement('h3');
             name.innerHTML = u.name;
-            name.className = "vcname"
-    
+            name.className = "vcname";
+
             vcElem.append(pfp, name);
             elem.appendChild(vcElem);
-            //vcElem.scrollIntoView();
+            vcElem.scrollIntoView();
         }
+        channel.opened = true;
+    } else {
+        // might mess up other servers (probably)
+        const elements = document.getElementsByClassName('vc-area');
+        while(elements.length > 0){
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+        channel.opened = false;
     }
-
-    
 
     currentVoiceChannel = channel;
 }
 
-
+function deletebadvoice() {
+    const elements = document.getElementsByClassName('vc-user-container-bad');
+    elements[0].parentNode.removeChild(elements[0]);
+    clout += 20;
+}
 
 // this function changes the dom elements to be a new server
 function switchServer(server) {
@@ -188,7 +202,7 @@ function switchServer(server) {
         shopbtn.updatebutton();
     }
     
-    console.log(shopPane);
+    // console.log(shopPane);
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
@@ -232,7 +246,7 @@ function switchServer(server) {
         channelBtn.appendChild(channelName);
 
         voiceChannels.appendChild(channelBtn);
-        voiceChannels.appendChild(document.createElement('br'));
+        // voiceChannels.appendChild(document.createElement('br'));
     }
     channelPane.appendChild(voiceChannels);
 
@@ -240,7 +254,6 @@ function switchServer(server) {
     currentServer = server;
     switchTextChannel(server.textchannels[0]);
     switchVoiceChannel(server.voicechannels[0]);
-    
 }
 
 // this function creates an icon on the left side and binds the 

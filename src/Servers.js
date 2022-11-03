@@ -10,7 +10,6 @@ smallFriendServer.textchannels = [
 ];
 smallFriendServer.voicechannels = Vclist(1,smallFriendServer.users);//add 2 voice channels with random members
 
-
 const bigFriendServer = new Server("imgs/server-icons/bigfriendserver.png", "2 buds 2 furious");
 bigFriendServer.users = Userlist(10);
 bigFriendServer.textchannels = Tclist(2);

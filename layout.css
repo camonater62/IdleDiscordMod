@@ -117,8 +117,10 @@ html {
 }
 
 .vcname {
-    font-size: 10px;
+    font-size: 15px;
+    color: grey;
     margin-bottom: 0px;
+    margin-top: 5px;
     padding: 0px;
     grid-area: vcname;
 }
@@ -139,21 +141,30 @@ html {
 
 .vc-user-container {  
     margin-top: 1px;
-    margin-left: 10px;
+    margin-left: 25px;
     display: grid;
     grid-template-columns: 25px 1.56fr;
-    grid-template-rows: 0.42fr 1.58fr;
+    grid-template-rows: 0.42fr 0.25fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "vc-pic vcname";
-     
+    grid-template-areas: "vc-pic vcname"; 
+}
+
+.vc-user-container-bad {  
+    margin-top: 1px;
+    margin-left: 25px;
+    display: grid;
+    grid-template-columns: 25px 1.56fr;
+    grid-template-rows: 0.42fr 0.25fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "vc-pic vcname"; 
 }
 
 .vc-area {
-    height: 50%; 
+    height: 100%; 
     margin-right: 10px; 
-    margin-top: 10px; 
+    margin-top: 0px; 
     overflow-y: auto;
 }
   
