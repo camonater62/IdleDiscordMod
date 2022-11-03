@@ -2,7 +2,11 @@ const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
 const shopPane = document.getElementById('shoppane');
-currentServer = ""
+
+let currentServer;
+let currentTextChannel;
+let currentVoiceChannel; // do we need?
+
 // update the text area dom to represent this text channel
 function switchTextChannel(channel) {
     mainPane.innerHTML = "";
@@ -42,9 +46,12 @@ function switchTextChannel(channel) {
         elem.appendChild(msgElem);
         msgElem.scrollIntoView();
     }
+
+    document.getElementById('topText').textContent = channel.name;
+
+    currentTextChannel = channel;
 }
 
-// TODO
 function switchVoiceChannel(channel) {
     //channelPane.innerHTML = "";
 
@@ -55,28 +62,32 @@ function switchVoiceChannel(channel) {
     elem.classList = "vc-area";
     channelPane.appendChild(elem);
 
-    for (const u of channel.currentUsers) {
-        // container for profile and name
-        console.log("AaAaaa");
-        const vcElem = document.createElement('div');
-        vcElem.classList = "vc-user-container";
-
-        // user icon
-        const pfp = document.createElement('img');
-        pfp.classList = "vc-img vc-pic";        
-        pfp.src = u.pfp;
-
-        // user name
-        const name = document.createElement('h3');
-        name.innerHTML = u.name;
-        name.className = "vcname"
-
-        vcElem.append(pfp, name);
-        elem.appendChild(vcElem);
-        //vcElem.scrollIntoView();
+    if (channel.currentUsers) {
+        for (const u of channel.currentUsers) {
+            // container for profile and name
+            console.log("AaAaaa");
+            const vcElem = document.createElement('div');
+            vcElem.classList = "vc-user-container";
+    
+            // user icon
+            const pfp = document.createElement('img');
+            pfp.classList = "vc-img vc-pic";        
+            pfp.src = u.pfp;
+    
+            // user name
+            const name = document.createElement('h3');
+            name.innerHTML = u.name;
+            name.className = "vcname"
+    
+            vcElem.append(pfp, name);
+            elem.appendChild(vcElem);
+            //vcElem.scrollIntoView();
+        }
     }
 
+    
 
+    currentVoiceChannel = channel;
 }
 
 
@@ -184,13 +195,14 @@ function switchServer(server) {
     textChannels.innerHTML = "TEXT CHANNELS<br />";
     
     // create a button for every text channel
+    const topText = document.getElementById('topText');
+    topText.className = "topTextStyle";
     for (const tc of server.textchannels) {
         const channelBtn = document.createElement('button');
-        const topText = document.getElementById('topText');
-        topText.className = "topTextStyle";
+       
         channelBtn.className = "s1channelButtons";
         channelBtn.innerHTML = tc.name;
-        channelBtn.onclick = () => { switchTextChannel(tc); topText.textContent = tc.name; };
+        channelBtn.onclick = () => { switchTextChannel(tc); };
         textChannels.appendChild(channelBtn);
         textChannels.appendChild(document.createElement('br'));
     }
@@ -225,8 +237,10 @@ function switchServer(server) {
     channelPane.appendChild(voiceChannels);
 
     // switch to the primary text channel for the default view
+    currentServer = server;
     switchTextChannel(server.textchannels[0]);
-    currentServer = server
+    switchVoiceChannel(server.voicechannels[0]);
+    
 }
 
 // this function creates an icon on the left side and binds the 
@@ -255,41 +269,41 @@ switchServer(smallFriendServer);
 
 // finds the latest bad message and removes it
 function deleteMessage() {
-    for (let i = smallFriendServer.textchannels[0].messages.length - 1; i >= 0; i--) {
-        if (smallFriendServer.textchannels[0].messages[i].text.good == false) {
-            smallFriendServer.textchannels[0].messages =
-                smallFriendServer.textchannels[0].messages.slice(0, i).concat(
-                smallFriendServer.textchannels[0].messages.slice(i + 1));
+    for (let i = currentTextChannel.messages.length - 1; i >= 0; i--) {
+        if (currentTextChannel.messages[i].text.good == false) {
+            currentTextChannel.messages =
+                currentTextChannel.messages.slice(0, i).concat(
+                currentTextChannel.messages.slice(i + 1));
             addclout('deletebtn', 1);
             break;
         }
     }
 
-    switchTextChannel(smallFriendServer.textchannels[0]);
+    switchTextChannel(currentTextChannel);
 }
 
 
-// TODO:
-// - not hard code
-// - have it based on actual time elapsed
-// - move to another file??
+
 let newMessageTimer = 50;
 let cloutgenTimer = 50;
 function tick() {
     newMessageTimer--;
     cloutgenTimer--;
     if (newMessageTimer <= 0) {
-        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
-        let user = smallFriendServer.users[rndIndex];
-        smallFriendServer.textchannels[0].messages.push(
-            new Message(user, getText()),
-        );
-
-        if (smallFriendServer.textchannels[0].messages.length > 6) {
-            smallFriendServer.textchannels[0].messages = smallFriendServer.textchannels[0].messages.slice(-60);
+        if (currentServer.users.length > 0) {
+            const rndIndex = Math.floor(Math.random() * currentServer.users.length);
+            let user = currentServer.users[rndIndex];
+            currentTextChannel.messages.push(
+                new Message(user, getText()),
+            );
+    
+            if (currentTextChannel.messages.length > 40) {
+                currentTextChannel.messages = currentTextChannel.messages.slice(-40);
+            }
+    
+            switchTextChannel(currentTextChannel);
         }
-
-        switchTextChannel(smallFriendServer.textchannels[0]);
+        
         newMessageTimer = 50;
     }
     if (cloutgenTimer <= 0) {
