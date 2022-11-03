@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="toppane" id="toppane">
-                <h1 id="topText">170 Jam 2 Collective 11</h1>
+                <h1 id="topText">Suscord</h1>
             </div>
             <div class="serverpane" id="serverpane">
                 <input
@@ -33,8 +33,8 @@
                 <h1>Channels</h1>
             </div>
             <div class="userpane" id="userpane">
-                <h1>User Info</h1>
-                <p class="userbox">
+                <h1 class="margin">User Info</h1>
+                <p class="userbox" id="clout-box">
                     <span id="clout"><b>0</b></span><br /><img src="./imgs/Clout Glasses-28x10.png" />
                 </p>
                 <p class="userbox">
@@ -47,95 +47,9 @@
             </div>
             <div class="shoppane" id="shoppane">
                 <h1>Shop</h1>
-                <!-- <div>
-                    <div  class="shopbox">
-                        <h1>Delete Message<input type="checkbox" id="delswitch" onclick="this.disabled = true; visibility('deletebtn', 1)" /><label for="delswitch"></label></h1>
-                        <h1 class="clout-bar"style="color:aquamarine"><span id="ban_button_cost">-20 </span><img src="./imgs/Clout Glasses-28x10.png"></h1> <h1 class="clout-bar">+10     <img src="./imgs/Clout Glasses-28x10.png"> / click
-                        </div>
-                </div> 
-                <br /> -->
-                <div>
-                    <div class="shopbox" id="disconnectshop" style="visibility: visible">
-                        <h1>
-                            Disconnect
-                            <input
-                                type="checkbox"
-                                id="disconnectswitch"
-                                onclick="shopbutton('disconnectswitch')"
-                            />
-                            <label for="disconnectswitch"></label>
-                        </h1>
-                        <h1 class="clout-bar" style="color: aquamarine">
-                            <span id="ban_button_cost">-40 </span>
-                            <img src="./imgs/Clout Glasses-28x10.png" />
-                        </h1>
-                        <h1 class="clout-bar">
-                            +20 <img src="./imgs/Clout Glasses-28x10.png" /> /
-                            click
-                        </h1>
-                    </div>
-                </div>
-                <br />
-                <div>
-                    <div class="shopbox" id="kickshop">
-                        <h1>
-                            Kick
-                            <input
-                                type="checkbox"
-                                id="kickswitch"
-                                onclick="shopbutton('kickswitch')"
-                            /><label for="kickswitch"></label>
-                        </h1>
-                        <h1 class="clout-bar" style="color: aquamarine">
-                            <span id="ban_button_cost">-80 </span>
-                            <img src="./imgs/Clout Glasses-28x10.png" />
-                        </h1>
-                        <h1 class="clout-bar">
-                            +40 <img src="./imgs/Clout Glasses-28x10.png" /> /
-                            click
-                        </h1>
-                    </div>
-                </div>
-                <br />
-                <div>
-                    <div class="shopbox" id="banshop">
-                        <h1>
-                            Ban<input
-                                type="checkbox"
-                                id="banswitch"
-                                onclick="shopbutton('banswitch')"
-                            />
-                            <label for="banswitch"></label>
-                        </h1>
-                        <h1 class="clout-bar" style="color: red">
-                            <span id="ban_button_cost">-160 </span>
-                            <img src="./imgs/Clout Glasses-28x10.png" />
-                        </h1>
-                        <h1 class="clout-bar">
-                            +80 <img src="./imgs/Clout Glasses-28x10.png" /> /
-                            click
-                        </h1>
-                    </div>
-                </div>
-                <br />
-                <button class="button">
-                    Add Member <br />
-                    - 20 clout <br />
-                </button>
-                <br />
-                <button class="button">
-                    Add Music Bot <br />
-                    -80 Clout <br />
-                    + 5 clout per second <br />
-                </button>
-                <br />
-                <button class="button">
-                    Add AutoMuter Bot <br />
-                    -160 clout <br />
-                </button>
             </div>
             <div class="bottompane" id="bottompane">
-                <h1>Player Actions</h1>
+                <h1 class="margin">Player Actions</h1>
                 <button
                     class="playerbutton"
                     style="visibility: visible ;"

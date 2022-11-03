@@ -5,14 +5,32 @@ for (let i = 1; i <= 20; i++) {
     pics.push("imgs/profile-pics/pfp" + i + ".png");
 }
 
+// shuffle the lists
+function shuffle(list) {
+    for (let i = 0; i < list.length; i++) {
+        const range = list.length - i;
+        const j = Math.floor(Math.random() * range) + i;
+        const temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
+    }
+}
+shuffle(users);
+shuffle(pics);
+
+
+
+let nameindex = 0;
+let picindex = 0;
+
 function randomUsername(){
-    const user_size = users.length;
-    const k = Math.floor(Math.random()*user_size);
+    const k = nameindex;
+    nameindex = (nameindex + 1) % users.length;
     return users[k];
 }
 
 function randomPfp(){
-    const pic_size = pics.length;
-    const k = Math.floor(Math.random()*pic_size);
+    const k = picindex;
+    picindex = (picindex + 1) % pics.length;
     return pics[k];
 }
