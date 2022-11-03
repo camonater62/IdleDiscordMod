@@ -265,6 +265,7 @@ function switchServer(server) {
 function addServerToDOM(server) {
     const serverIcon = document.createElement('img');
     serverIcon.classList = "server-icon";
+    serverIcon.style.visibility = 'hidden';
     const serverName = document.createElement('b');
     serverName.classList = "hidden";
     serverName.innerHTML = server.name;
@@ -343,6 +344,12 @@ function tick() {
     for (const shopbtn of currentServer.addshopbuttons) {
         shopbtn.updatebutton();
     }
+
+for (const server of allServers) {
+    if (currentServer.users.length >= server.unlockcount) {
+        server.serverIcon.style.visibility = "visible";
+    }
+}
 
     requestAnimationFrame(tick);
 }
