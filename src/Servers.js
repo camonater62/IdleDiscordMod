@@ -14,11 +14,11 @@ smallFriendServer.textchannels = [
     new TextChannel("# empty text"),
 ];
 
-console.log(smallFriendServer.users.length); //testing code, plz save it for now
+// console.log(smallFriendServer.users.length); //testing code, plz save it for now
 smallFriendServer.voicechannels = Vclist(1,smallFriendServer.users);//add 2 voice channels with random members
-for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){//testing code, prints out vc members
-    console.log(smallFriendServer.voicechannels[0].currentUsers[i].name);
-}
+// for(var i = 0; i<smallFriendServer.voicechannels[0].currentUsers.length; i++){//testing code, prints out vc members
+//     console.log(smallFriendServer.voicechannels[0].currentUsers[i].name);
+// }
 //Voiceuser(smallFriendServer.users);
 
 // testing server, please keep for now
