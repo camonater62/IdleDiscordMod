@@ -262,10 +262,10 @@ function addServerToDOM(server) {
     serverPane.appendChild(serverName);
 }
 
-addServerToDOM(smallFriendServer);
-addServerToDOM(bigFriendServer);
-addServerToDOM(classServer);
-switchServer(smallFriendServer);
+for (const server of allServers) {
+    addServerToDOM(server);
+}
+switchServer(allServers[0]);
 
 // finds the latest bad message and removes it
 function deleteMessage() {
