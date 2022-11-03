@@ -159,7 +159,7 @@ function switchServer(server) {
             button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / click";
             shopBox.appendChild(button_genrate);
         }
-
+        console.log(shopbtn);
         shopbtn.updatebutton();
     }
     // Create Header to separate shop elements.
