@@ -34,6 +34,7 @@ class ShopButton {
             this.button_color = "#44DDBF";
         }
         else {
+            if (this.toggleable) {document.getElementById(this.button_name).disabled = true};
             document.getElementById(this.cost_name).style.color = "#FF3880";
             document.getElementById(this.div_name).style.backgroundColor = "#b0464f";
             this.button_color = "#FF3880";
