@@ -1,25 +1,25 @@
 @font-face {
     font-family: 'whitneymedium';
-    src: url('../fonts/whitneymedium.otf');
+    src: url('fonts/whitneymedium.otf');
   }
   @font-face {
     font-family: 'whitneylight';
-    src: url('../fonts/whitneylight.otf');
+    src: url('fonts/whitneylight.otf');
     
   }
   @font-face {
     font-family: 'unisans';
-    src: url('../fonts/Uni\ Sans\ Heavy.otf');
+    src: url('fonts/Uni\ Sans\ Heavy.otf');
     
   }
   @font-face {
     font-family: 'whitneysemibold';
-    src: url('../fonts/whitneysemibold.otf');
+    src: url('fonts/whitneysemibold.otf');
     
   }
   @font-face {
     font-family: 'whitneybold';
-    src: url('../fonts/whitneybold.otf');
+    src: url('fonts/whitneybold.otf');
   }
 
   html {
