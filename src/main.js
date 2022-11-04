@@ -216,10 +216,6 @@ function switchServer(server) {
         bottomRow.append(button_cost);
         bottomRow.append(button_img);
         if (shopbtn.cloutgen == 0) {
-            const five_mult = document.createElement("button");
-            five_mult.className = "button-mult";
-            five_mult.innerHTML = "x5";
-            five_mult.id = "five_mult";
             const ten_mult = document.createElement("button");
             ten_mult.className = "button-mult";
             ten_mult.innerHTML = "x10";
@@ -228,12 +224,16 @@ function switchServer(server) {
             hundred_mult.className = "button-mult";
             hundred_mult.innerHTML = "x100";
             hundred_mult.id = "hundred_mult";
-            five_mult.onclick = () => {server.set_multiplier(5);};
+            const thousand_mult = document.createElement("button");
+            thousand_mult.className = "button-mult";
+            thousand_mult.innerHTML = "x1000";
+            thousand_mult.id = "thousand_mult";
             ten_mult.onclick = () => {server.set_multiplier(10);};
             hundred_mult.onclick = () => {server.set_multiplier(100);};
-            outerButton.appendChild(five_mult);
+            thousand_mult.onclick = () => {server.set_multiplier(1000);};
             outerButton.appendChild(ten_mult);
             outerButton.appendChild(hundred_mult);
+            outerButton.appendChild(thousand_mult);
         }
         if (shopbtn.cloutgen != 0) {
             const button_genrate = document.createElement("h1");
