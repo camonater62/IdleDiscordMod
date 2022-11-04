@@ -18,16 +18,24 @@ class ShopButton {
     updatebutton() {
         if (this.is_bought) {
             document.getElementById(this.cost_name).style.color = "#44DDBF";
+            document.getElementById(this.div_name).style.backgroundColor = "#41444b";
             this.button_color = "#44DDBF";
         }
         else if (clout >= this.cost) {
             if (this.toggleable) {document.getElementById(this.button_name).disabled = false};
             document.getElementById(this.cost_name).style.color = "#44DDBF";
+            if (this.text == "Disconnect" || this.text == "Kick" || this.text == "Ban") {
+                document.getElementById(this.div_name).style.backgroundColor = "#41444b";
+            }
+            else {
+                document.getElementById(this.div_name).style.backgroundColor = "#7289da";
+            }
             this.button_color = "#44DDBF";
         }
         else {
             if (this.button_color != "#FF3880") {
                 document.getElementById(this.cost_name).style.color = "#FF3880";
+                document.getElementById(this.div_name).style.backgroundColor = "#b0464f";
                 this.button_color = "#FF3880";
             }
         }

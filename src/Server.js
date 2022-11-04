@@ -52,14 +52,18 @@ class Server {
     set_multiplier(multiplier) {
         this.member_multiplier = multiplier;
     }
-    addmember() {
+    addmember(outerButton) {
         // TODO: Add no no blink if can't afford
         if (clout >= this.membercost * this.member_multiplier) {
             for (let i = 0; i < this.member_multiplier; i++ ) {
                 this.users.push(new User());
             }
             clout -= this.membercost * this.member_multiplier;
+            outerButton.classList.remove("button");
+            void outerButton.offsetHeight;
+            outerButton.classList.add("button");
         }
+
     }
     addbot(cloutgenrate, cost, bottype){
         if (clout >= cost) {

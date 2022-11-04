@@ -179,7 +179,7 @@ function switchServer(server) {
         const outerButton = document.createElement('button');
         outerButton.className = "button"
         outerButton.id = shopbtn.div_name;
-        if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember();};
+        if (shopbtn.text == "Add Member") {outerButton.onclick = () => server.addmember(outerButton);};
         if (shopbtn.text == "Add Music Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 1);};
         if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 2);};
         if (shopbtn.text == "Add AutoDelete Bot") {outerButton.onclick = () => server.addbot(shopbtn.cloutgen, shopbtn.cost, 3);};
@@ -216,9 +216,9 @@ function switchServer(server) {
             hundred_mult.className = "button-mult";
             hundred_mult.innerHTML = "x100";
             hundred_mult.id = "hundred_mult";
-            five_mult.onclick = () => {server.set_multiplier(1); five_mult.color="#44DDBF"; hundred_mult.color="#292b2f"; ten_mult.color="#292b2f";};
-            ten_mult.onclick = () => {server.set_multiplier(10); ten_mult.color="#44DDBF"; five_mult.color="#292b2f"; hundred_mult.color="#292b2f";};
-            hundred_mult.onclick = () => {server.set_multiplier(100); hundred_mult.color="#44DDBF"; ten_mult.color="#292b2f"; five_mult.color="#292b2f";};
+            five_mult.onclick = () => {server.set_multiplier(5);};
+            ten_mult.onclick = () => {server.set_multiplier(10);};
+            hundred_mult.onclick = () => {server.set_multiplier(100);};
             outerButton.appendChild(five_mult);
             outerButton.appendChild(ten_mult);
             outerButton.appendChild(hundred_mult);
