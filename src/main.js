@@ -60,47 +60,34 @@ function switchVoiceChannel(channel) {
     // area for a all text messages
     // using another elem so the scrollbar
     // can be offset
-    // console.log(channel.opened);
-    if (channel.opened == false) {
-        const elem = document.createElement('div');
-        elem.classList = "vc-area";
-        channelPane.appendChild(elem);
-        // console.log(channel.currentUsers);
-        for (const u of channel.currentUsers) {
-            // container for profile and name
-            const vcElem = document.createElement('div');
-            const pfp = document.createElement('img');
-            if (Math.random() >= 0.5) {
-                vcElem.classList = "vc-user-container-bad";
-                pfp.classList = "vc-img-bad vc-pic";       
-                pfp.src = u.pfp;
-            } else {
-                vcElem.classList = "vc-user-container";
-                pfp.classList = "vc-img vc-pic";       
-                pfp.src = u.pfp;
-            }
-
-            // user name
-            const name = document.createElement('h3');
-            name.innerHTML = u.name;
-            name.className = "vcname";
-
-            vcElem.append(pfp, name);
-            elem.appendChild(vcElem);
-            vcElem.scrollIntoView();
+    const elem = document.createElement('div');
+    elem.classList = "vc-area";
+    channelPane.appendChild(elem);
+    for (const u of channel.currentUsers) {
+        // container for profile and name
+        const vcElem = document.createElement('div');
+        const pfp = document.createElement('img');
+        const name = document.createElement('h3');
+        if (Math.random() >= 0.5) {
+            vcElem.classList = "vc-user-container-bad";
+            pfp.classList = "vc-img-bad vc-pic";       
+            pfp.src = u.pfp;
+        } else {
+            vcElem.classList = "vc-user-container";
+            pfp.classList = "vc-img vc-pic";       
+            pfp.src = u.pfp;
         }
-        channel.opened = true;
-    } else {
-        // might mess up other servers (probably)
-        const elements = document.getElementsByClassName('vc-area');
-        while(elements.length > 0){
-            elements[0].parentNode.removeChild(elements[0]);
-        }
-        channel.opened = false;
+        // user name
+        name.innerHTML = u.name;
+        name.className = "vcname";
+        console.log(u.name);
+        vcElem.append(pfp, name);
+        elem.appendChild(vcElem);
+        vcElem.scrollIntoView();
     }
-
     currentVoiceChannel = channel;
 }
+
 
 function deletebadvoice() {
     const elements = document.getElementsByClassName('vc-user-container-bad');
@@ -361,6 +348,7 @@ function deleteMessage() {
 
 let newMessageTimer = 500;
 let cloutgenTimer = 500;
+let vcTimer = 500; 
 
 let lastUpdate = Date.now();
 function tick() {
@@ -436,26 +424,53 @@ function tick() {
         // TODO: end state
     }
 
-    
-
-
     requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);
 
 
-let vcTimer = 500; 
+let usedindex = [];
 function vcupdate(){
-    if (vcTimer <= 0 && smallFriendServer.voicechannels[0].currentUsers.length <=smallFriendServer.users.length) {
-        const rndIndex = Math.floor(Math.random() * smallFriendServer.users.length);
-        let user = smallFriendServer.users[rndIndex];
-        smallFriendServer.voicechannels[0].currentUsers.shift();
-        smallFriendServer.voicechannels[0].currentUsers.push(user);
+    if (vcTimer <= 0) {
+        console.log("_-------------_");
+        if (currentServer.voicechannels[0].currentUsers.length <= currentServer.users.length) {
+            const rndIndex = Math.floor(Math.random() * currentServer.users.length);
+            // if (usedindex.length == currentServer.users.length) {
+            //     usedindex = [];
+            // }
+            let user = currentServer.users[rndIndex];
+            console.log(usedindex, usedindex.length);
+            if (!(usedindex.includes(user.name))) {
+                console.log("adding " + user.name);
+                usedindex.push(user.name);
+                currentServer.voicechannels[0].currentUsers.push(user);
+                window.setTimeout(function() {
+                    leavecall(user.name);
+                }, Math.floor(Math.random() * 10000));
+                switchVoiceChannel(currentServer.voicechannels[0]);
+                currentServer.voicechannels[0].currentUsers.shift();
+            } else {
+                console.log("used " + user.name);
+            }
+            //console.log(usedindex);
 
-   
-        switchVoiceChannel(smallFriendServer.voicechannels[0]);
-        vcTimer = 100;
+        }
+        vcTimer = 10000 / currentServer.users.length;
     }
     requestAnimationFrame(vcupdate);
 }
 requestAnimationFrame(vcupdate);
+
+function leavecall(username) {
+    const elements = document.getElementsByClassName('vc-user-container');
+    //const elements = document.querySelectorAll(".vc-user-container,.vc-user-container-bad");
+    if (!elements || elements.length == 0) {
+        return;
+    }
+    elements[0].parentNode.removeChild(elements[0]);
+    const index = usedindex.indexOf(username);
+    if (index > -1) { // only splice array when item is found
+        usedindex.splice(index, 1); // 2nd parameter means remove one item only
+    }
+    console.log("leavecall");
+}
