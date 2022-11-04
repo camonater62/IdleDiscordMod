@@ -432,6 +432,7 @@ function tick() {
         
         document.getElementById('serverlevel').textContent = level;
     } else {
+        window.location.href = "../title/end.html";
         // TODO: end state
     }
 
