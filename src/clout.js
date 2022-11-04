@@ -1,4 +1,4 @@
-let clout = 1000;
+let clout = 50;
 let logocounter = 0;
 
 class ShopButton {
