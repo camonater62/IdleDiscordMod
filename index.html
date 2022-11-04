@@ -63,7 +63,7 @@
                 <button
                     class="playerbutton"
                     style="visibility: hidden"
-                    onclick="deletebadvoice()"
+                    onclick="deletebadvoice();"
                     id="disconnectbtn"
                 >
                     Disconnect User
@@ -94,4 +94,18 @@
     <script src="src/Server.js"></script>
     <script src="src/Servers.js"></script>
     <script src="src/main.js"></script>
+
+    <!--All sounds-->
+    <audio id="pop"> <!--Popping sound for buttons-->
+        <source src="../IdleDiscordMod/sounds/SFX/popSound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="switch"> <!--Toggle Switch Sound-->
+        <source src="../IdleDiscordMod/sounds/SFX/switch.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordJoinVC"> <!--Voice Chat Join sound-->
+        <source src="../IdleDiscordMod/sounds/SFX/discordConnect.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordDisconnectVC"> <!--Voice Chat Disconnect sound-->
+        <source src="../IdleDiscordMod/sounds/SFX/discordDisconnect1.mp3" type="audio/mp3">
+    </audio>
 </html>
