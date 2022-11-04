@@ -64,6 +64,7 @@ class Server {
             void outerButton.offsetHeight;
             outerButton.classList.add("button");
             outerButton.style.removeProperty("background-color");
+            document.getElementById('pop').play();
         }
 
         this.member_multiplier = 1;
@@ -74,6 +75,7 @@ class Server {
             this.numbers[bottype] += 1;
             document.getElementById(this.addshopbuttons[bottype].bot_num).innerText = this.numbers[bottype]
             clout -= cost;
+            document.getElementById('pop').play();
         }
         console.log(bottype)
     }
