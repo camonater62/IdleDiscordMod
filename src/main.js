@@ -2,6 +2,7 @@ const serverPane = document.getElementById('serverpane');
 const mainPane = document.getElementById('mainpane');
 const channelPane = document.getElementById('channelpane');
 const shopPane = document.getElementById('shoppane');
+const bottomPane = document.getElementById('bottompane');
 
 let currentServer;
 let currentTextChannel;
@@ -147,9 +148,23 @@ function switchServer(server) {
         button_cost.id = shopbtn.cost_name;
         const button_img = document.createElement("img");
         button_img.src = "./imgs/Clout Glasses-28x10.png";
-        if (shopbtn.div_name == "disconnectshop") {shopBox.style.visibility = "visible"}
-        if (shopbtn.is_bought || shopbtn.is_visible) {shopBox.style.visibility = "visible"}
-        shopPane.appendChild(outerDiv);
+        if (shopbtn.div_name == "disconnectshop") {shopBox.style.visibility = "visible";};
+        // Manage visibility and bottompane buttons
+        if (shopbtn.is_bought) {
+            shopBox.style.visibility = "visible";
+            document.getElementById(shopbtn.userbtn).style.visibility = "visible";
+            input.checked = true;
+        }
+        else if (shopbtn.is_visible) {
+            shopBox.style.visibility = "visible";
+            document.getElementById(shopbtn.userbtn).style.visibility = "hidden";
+        }
+        else {
+            if (!shopbtn.is_visible) {
+                document.getElementById(shopbtn.userbtn).style.visibility = "hidden";
+            }
+        }
+            shopPane.appendChild(outerDiv);
         outerDiv.appendChild(shopBox);
         shopBox.appendChild(topRow);
         topRow.appendChild(input);
@@ -163,7 +178,6 @@ function switchServer(server) {
             button_genrate.innerHTML = "+" + shopbtn.cloutgen + " <img src='./imgs/Clout Glasses-28x10.png' /> / click";
             shopBox.appendChild(button_genrate);
         }
-        console.log(shopbtn);
         shopbtn.updatebutton();
     }
     // Create Header to separate shop elements.
@@ -238,8 +252,7 @@ function switchServer(server) {
         shopbtn.updatebutton();
     }
     console.log(shopPane)
-    
-    // console.log(shopPane);
+
     // container for text channels
     const textChannels = document.createElement('div');
     textChannels.className = "textChannelStyle"
@@ -297,6 +310,10 @@ function switchServer(server) {
 
     document.getElementById("serverNameText").textContent = server.name;
     document.getElementById("channelpane").scrollTop = 0;
+    for (const shopbtn of server.toggleshopbuttons.concat(server.addshopbuttons)) {
+        console.log(shopbtn)
+        shopbtn.updatebutton();
+    }
 }
 
 // this function creates an icon on the left side and binds the 
