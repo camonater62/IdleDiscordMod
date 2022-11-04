@@ -160,11 +160,9 @@ function switchServer(server) {
             document.getElementById(shopbtn.userbtn).style.visibility = "hidden";
         }
         else {
-            if (!shopbtn.is_visible) {
-                document.getElementById(shopbtn.userbtn).style.visibility = "hidden";
-            }
+            document.getElementById(shopbtn.userbtn).style.visibility = "hidden";
         }
-            shopPane.appendChild(outerDiv);
+        shopPane.appendChild(outerDiv);
         outerDiv.appendChild(shopBox);
         shopBox.appendChild(topRow);
         topRow.appendChild(input);
