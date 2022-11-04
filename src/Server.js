@@ -60,10 +60,13 @@ class Server {
             }
             clout -= this.membercost * this.member_multiplier;
             outerButton.classList.remove("button");
+            outerButton.style.removeProperty("background-color");
             void outerButton.offsetHeight;
             outerButton.classList.add("button");
+            outerButton.style.removeProperty("background-color");
         }
 
+        this.member_multiplier = 1;
     }
     addbot(cloutgenrate, cost, bottype){
         if (clout >= cost) {
