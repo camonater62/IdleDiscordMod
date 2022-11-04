@@ -191,15 +191,15 @@ function switchServer(server) {
         const outerButton = document.createElement('button');
         outerButton.className = "button"
         outerButton.id = shopbtn.div_name;
-        if (shopbtn.text == "Add Member") {outerButton.onclick = () => {server.addmember(outerButton);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add Music Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 1); document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 2);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoDelete Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 3);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoDisconnect Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 4);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoKick Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 5); document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoBan Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 6);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add Auto@Everyone Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 7);document.getElementById('pop').play();}};
-        if (shopbtn.text == "Add AutoDMer Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 8);document.getElementById('pop').play();}};
+        if (shopbtn.text == "Add Member") {outerButton.onclick = () => {server.addmember(outerButton);}};
+        if (shopbtn.text == "Add Music Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 1);}};
+        if (shopbtn.text == "Add AutoMuter Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 2);}};
+        if (shopbtn.text == "Add AutoDelete Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 3);}};
+        if (shopbtn.text == "Add AutoDisconnect Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 4);}};
+        if (shopbtn.text == "Add AutoKick Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 5);}};
+        if (shopbtn.text == "Add AutoBan Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 6);}};
+        if (shopbtn.text == "Add Auto@Everyone Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 7);}};
+        if (shopbtn.text == "Add AutoDMer Bot") {outerButton.onclick = () => {server.addbot(shopbtn.cloutgen, shopbtn.cost, 8);}};
         const topRow = document.createElement("h1");
         topRow.innerText = shopbtn.text
         const bottomRow = document.createElement("h1");
