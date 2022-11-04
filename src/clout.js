@@ -61,15 +61,19 @@ class ShopButton {
 }
 
 function kickuser() {
-    currentServer.users.pop();
-    console.log(currentServer.users);
-    clout += 40;
+    if (currentServer.users.length > 1) {
+        currentServer.users.pop();
+        console.log(currentServer.users);
+        clout += 40;
+    }
 }
 
 function banuser() {
-    currentServer.users.pop();
-    console.log(currentServer.users);
-    clout += 80;
+    if (currentServer.users.length > 1) {
+        currentServer.users.pop();
+        console.log(currentServer.users);
+        clout += 80;
+    }
 }
 
 function visibility(button, x) {

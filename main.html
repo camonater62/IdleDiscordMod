@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Suscord IdleModerator</title>
+        <link rel="icon" type="image/x-icon" href="imgs/logos/suscord_logo.png">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="layout.css" />
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="toppane" id="toppane">
+                <h1 id="topText">Suscord</h1>
+                <img src="./imgs/top bar.png" style="position: absolute; top: 10px; right: 10px;" alt="">
+
+            </div>
+            <div class="serverpane" id="serverpane">
+                <input
+                    type="image"
+                    id="icon"
+                    src="imgs/logos/suscord_logo.png"
+                    class="server-icon"
+                    onclick="changeicon(1)"
+                />
+                <div class="separator"></div>
+            </div>
+            <div class="servernamepane" id="servernamepane">
+                <h1 class="serverNameText" id="serverNameText">Cool friend server</h1>
+                <!-- May need to change it to id instead of class later if server names are different -->
+            </div>
+            <div class="channelpane" id="channelpane">
+                <h1>Channels</h1>
+            </div>
+            <div class="userpane" id="userpane">
+                <h1 class="margin">User Info</h1>
+                <p class="userbox" id="clout-box">
+                    <span id="clout"><b>0</b></span><br /><img src="./imgs/Clout Glasses-28x10.png" />
+                </p>
+                <p class="userbox">
+                    <span id="member"><b>0</b></span><br /><img src="./imgs/Members-10x10.png" />
+                </p>
+                <h1>LVL <span id="serverlevel">1</span> <progress id="server_progress" value="1" max="7"></progress></h1>
+            </div>
+            <div class="mainpane" id="mainpane">
+                <h1>Main</h1>
+            </div>
+            <div class="shoppane" id="shoppane">
+                <h1>Shop</h1>
+            </div>
+            <div class="bottompane" id="bottompane">
+                <h1 class="margin">Player Actions</h1>
+                <button
+                    class="playerbutton"
+                    style="visibility: visible ;"
+                    onclick="deleteMessage()"
+                    id="deletebtn"
+                >
+                    Delete Message
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="deletebadvoice();"
+                    id="disconnectbtn"
+                >
+                    Disconnect User
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="kickuser()"
+                    id="kickbtn"
+                >
+                    Kick User
+                </button>
+                <button
+                    class="playerbutton"
+                    style="visibility: hidden"
+                    onclick="banuser()"
+                    id="banbtn"
+                >
+                    Ban User
+                </button>
+            </div>
+        </div>
+    </body>
+    <script src="src/names.js"></script>
+    <script src="src/UserGen.js"></script>
+    <script src="src/clout.js"></script>
+    <script src="src/TextGen.js"></script>
+    <script src="src/Server.js"></script>
+    <script src="src/Servers.js"></script>
+    <script src="src/main.js"></script>
+
+    <!--All sounds-->
+    <audio id="pop"> <!--Popping sound for buttons-->
+        <source src="sounds/SFX/popSound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="switch"> <!--Toggle Switch Sound-->
+        <source src="sounds/SFX/switch.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordJoinVC"> <!--Voice Chat Join sound-->
+        <source src="sounds/SFX/discordConnect.mp3" type="audio/mp3">
+    </audio>
+    <audio id="discordDisconnectVC"> <!--Voice Chat Disconnect sound-->
+        <source src="sounds/SFX/discordDisconnect1.mp3" type="audio/mp3">
+    </audio>
+</html>
