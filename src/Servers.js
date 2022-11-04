@@ -72,7 +72,6 @@ function Voiceuser(users){       // randomly pick a few users from server user l
     var voice_users = Math.floor(Math.random()*Math.min(users.length, 20));
     for(var i =0; i<voice_users; i++){
         names.push(users[i]);
-        //console.log(users[i].name);
     }
     return names;
 }

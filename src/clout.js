@@ -63,7 +63,6 @@ class ShopButton {
 function kickuser() {
     if (currentServer.users.length > 1) {
         currentServer.users.pop();
-        console.log(currentServer.users);
         clout += 40;
     }
 }
@@ -71,7 +70,6 @@ function kickuser() {
 function banuser() {
     if (currentServer.users.length > 1) {
         currentServer.users.pop();
-        console.log(currentServer.users);
         clout += 80;
     }
 }

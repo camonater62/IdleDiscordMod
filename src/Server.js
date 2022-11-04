@@ -77,7 +77,6 @@ class Server {
             clout -= cost;
             document.getElementById('pop').play();
         }
-        console.log(bottype)
     }
 
 }

@@ -80,7 +80,6 @@ function switchVoiceChannel(channel) {
         // user name
         name.innerHTML = u.name;
         name.className = "vcname";
-        console.log(u.name);
         vcElem.append(pfp, name);
         elem.appendChild(vcElem);
         vcElem.scrollIntoView();
@@ -236,7 +235,6 @@ function switchServer(server) {
 
         shopbtn.updatebutton();
     }
-    console.log(shopPane)
 
     // container for text channels
     const textChannels = document.createElement('div');
@@ -296,7 +294,6 @@ function switchServer(server) {
     document.getElementById("serverNameText").textContent = server.name;
     document.getElementById("channelpane").scrollTop = 0;
     for (const shopbtn of server.toggleshopbuttons.concat(server.addshopbuttons)) {
-        console.log(shopbtn)
         shopbtn.updatebutton();
     }
 }
@@ -432,16 +429,13 @@ requestAnimationFrame(tick);
 let usedindex = [];
 function vcupdate(){
     if (vcTimer <= 0) {
-        console.log("_-------------_");
         if (currentServer.voicechannels[0].currentUsers.length <= currentServer.users.length) {
             const rndIndex = Math.floor(Math.random() * currentServer.users.length);
             // if (usedindex.length == currentServer.users.length) {
             //     usedindex = [];
             // }
             let user = currentServer.users[rndIndex];
-            console.log(usedindex, usedindex.length);
             if (!(usedindex.includes(user.name))) {
-                console.log("adding " + user.name);
                 usedindex.push(user.name);
                 currentServer.voicechannels[0].currentUsers.push(user);
                 window.setTimeout(function() {
@@ -449,10 +443,7 @@ function vcupdate(){
                 }, Math.floor(Math.random() * 10000));
                 switchVoiceChannel(currentServer.voicechannels[0]);
                 currentServer.voicechannels[0].currentUsers.shift();
-            } else {
-                console.log("used " + user.name);
             }
-            //console.log(usedindex);
 
         }
         vcTimer = 10000 / currentServer.users.length;
@@ -472,5 +463,4 @@ function leavecall(username) {
     if (index > -1) { // only splice array when item is found
         usedindex.splice(index, 1); // 2nd parameter means remove one item only
     }
-    console.log("leavecall");
 }
