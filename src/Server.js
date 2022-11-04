@@ -36,9 +36,9 @@ class Server {
         this.membercost = membercost;
         this.users = [];
         this.unlockcount = 0;
-        this.disconnect_shopbtn = new ShopButton("Disconnect", "disconnectshop", "disconnectswitch", 40, "disconnect_button_cost", false, "red", 20, true);
-        this.kick_shopbtn = new ShopButton("Kick", "kickshop", "kickswitch", 80, "kick_button_cost", false, "red", 40, true);
-        this.ban_shopbtn = new ShopButton("Ban", "banshop", "banswitch", 160, "ban_button_cost", false, "red", 80, true);
+        this.disconnect_shopbtn = new ShopButton("Disconnect", "disconnectshop", "disconnectswitch", 40, "disconnect_button_cost", false, "red", 20, true, -1, "disconnectbtn");
+        this.kick_shopbtn = new ShopButton("Kick", "kickshop", "kickswitch", 80, "kick_button_cost", false, "red", 40, true, -1, "kickbtn");
+        this.ban_shopbtn = new ShopButton("Ban", "banshop", "banswitch", 160, "ban_button_cost", false, "red", 80, true, -1, "banbtn");
 
         this.add_member_shopbtn = new ShopButton("Add Member", "addmemberbtn", "addmemberswitch", this.membercost, "add_member_cost", false, "red", 0, false);
 
@@ -60,10 +60,13 @@ class Server {
             }
             clout -= this.membercost * this.member_multiplier;
             outerButton.classList.remove("button");
+            outerButton.style.removeProperty("background-color");
             void outerButton.offsetHeight;
             outerButton.classList.add("button");
+            outerButton.style.removeProperty("background-color");
         }
 
+        this.member_multiplier = 1;
     }
     addbot(cloutgenrate, cost, bottype){
         if (clout >= cost) {

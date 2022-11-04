@@ -2,7 +2,7 @@ let clout = 1000;
 let logocounter = 0;
 
 class ShopButton {
-    constructor(text, div_name, button_name, cost, cost_name, is_bought, button_color, cloutgen, toggleable, bot_num) {
+    constructor(text, div_name, button_name, cost, cost_name, is_bought, button_color, cloutgen, toggleable, bot_num, userbtn) {
         this.text = text;
         this.div_name = div_name;
         this.button_name = button_name;
@@ -14,6 +14,7 @@ class ShopButton {
         this.cloutgen = cloutgen;
         this.toggleable = toggleable;
         this.bot_num = bot_num;
+        this.userbtn = userbtn;
     }
     updatebutton() {
         if (this.is_bought) {
@@ -24,20 +25,18 @@ class ShopButton {
         else if (clout >= this.cost) {
             if (this.toggleable) {document.getElementById(this.button_name).disabled = false};
             document.getElementById(this.cost_name).style.color = "#44DDBF";
-            if (this.text == "Disconnect" || this.text == "Kick" || this.text == "Ban") {
+            if ((this.text == "Disconnect" || this.text == "Kick" || this.text == "Ban") && this.button_color == "#FF3880") {
                 document.getElementById(this.div_name).style.backgroundColor = "#41444b";
             }
-            else {
+            else if (this.button_color == "#FF3880"){
                 document.getElementById(this.div_name).style.backgroundColor = "#7289da";
             }
             this.button_color = "#44DDBF";
         }
         else {
-            if (this.button_color != "#FF3880") {
-                document.getElementById(this.cost_name).style.color = "#FF3880";
-                document.getElementById(this.div_name).style.backgroundColor = "#b0464f";
-                this.button_color = "#FF3880";
-            }
+            document.getElementById(this.cost_name).style.color = "#FF3880";
+            document.getElementById(this.div_name).style.backgroundColor = "#b0464f";
+            this.button_color = "#FF3880";
         }
     }
     togglebutton() {
