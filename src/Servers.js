@@ -89,7 +89,7 @@ function Vclist(num, users){     //num = voice channel numbers
                                  //add num voice channels to server
     vc=[];
     for(var i =0; i<num; i++){
-        vc.push(new VoiceChannel("this is a new voice channel",Voiceuser(users)));
+        vc.push(new VoiceChannel("Voice Channel",Voiceuser(users)));
     }
     return vc;
 }
