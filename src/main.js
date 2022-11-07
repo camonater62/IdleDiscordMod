@@ -410,7 +410,8 @@ function tick() {
         level++;
     }
 
-    if (lastServer) {
+    // if (lastServer) {
+    if (totalMemberCount == 2000000) {
         const progress = document.getElementById("server_progress");
         progress.max = "" + lastServer.unlockcount;
         progress.value = "" + totalMemberCount;
